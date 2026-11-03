@@ -326,15 +326,20 @@
         <!-- 4. Flat 20% OFF Offer Card -->
         <section class="relative w-full h-[68px] min-h-[68px] max-h-[68px] rounded-2xl bg-gradient-to-r from-[#eefbf3] via-[#f2fdf6] to-[#e4f7eb] border border-green-200/50 px-3.5 shadow-2xs overflow-hidden flex items-center justify-between select-none">
           
-          <!-- Left Info: Percentage icon + Texts -->
-          <div class="flex items-center space-x-2.5 z-10 min-w-0">
+          <!-- Left Info: Percentage icon + Texts + Decorative Leaf -->
+          <div class="flex items-center space-x-2 z-10 min-w-0">
             <!-- Percentage badge icon (Explicit fixed width & height) -->
             <div class="w-9 h-9 min-w-[36px] max-w-[36px] h-[36px] shrink-0 flex items-center justify-center">
               <img src="image/offer/percentage.png" alt="Discount" style="width: 36px; height: 36px; max-width: 36px; max-height: 36px;" class="w-9 h-9 object-contain shrink-0">
             </div>
+            <!-- Texts -->
             <div class="min-w-0">
-              <h3 class="text-[14.5px] font-extrabold text-slate-900 tracking-tight leading-tight truncate">Flat 20% OFF</h3>
-              <p class="text-[11px] font-medium text-slate-600 mt-0.5 leading-none truncate">on First Medicine Order</p>
+              <h3 class="text-[14.5px] font-extrabold text-slate-900 tracking-tight leading-tight whitespace-nowrap">Flat 20% OFF</h3>
+              <p class="text-[11px] font-medium text-slate-600 mt-0.5 leading-none whitespace-nowrap">on First Medicine Order</p>
+            </div>
+            <!-- Decorative Leaf (Positioned directly after the text) -->
+            <div class="h-10 w-9 shrink-0 flex items-center justify-center pointer-events-none select-none">
+              <img src="image/offer/leave.png" alt="" class="h-full w-full object-contain opacity-90 drop-shadow-xs">
             </div>
           </div>
 
@@ -351,9 +356,6 @@
               </svg>
             </div>
           </div>
-
-          <!-- Decorative Leaves peaking from right edge (Strictly bounded so it cannot expand or shift layout) -->
-          <img src="image/offer/leave.png" alt="" class="absolute right-0 top-0 bottom-0 h-full w-28 max-w-[120px] object-cover object-right pointer-events-none opacity-85 select-none z-0">
         </section>
 
         <!-- 5. Shop Medicines Section -->
