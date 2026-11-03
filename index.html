@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Mednutra - Your Health, Our Priority</title>
+  
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Poppins"', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            medblue: {
+              DEFAULT: '#1d4ed8',
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+            },
+            medgreen: {
+              DEFAULT: '#2e7d32',
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#2e7d32',
+              800: '#1e5e22',
+              badge: '#569e20',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    }
+
+    body {
+      background-color: #f1f5f9;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      color: #111827;
+      overflow-x: hidden;
+    }
+
+    /* Prevent SVG icons from ever expanding or blowing up */
+    svg {
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    /* Hide scrollbars */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Active Nav Tab Pill */
+    .nav-pill-active {
+      background-color: #e0edff !important;
+      color: #1d4ed8 !important;
+      border-radius: 9999px !important;
+      padding: 4px 16px !important;
+    }
+
+    /* Toast animation */
+    @keyframes toastFade {
+      0% { transform: translate(-50%, -15px); opacity: 0; }
+      15% { transform: translate(-50%, 0); opacity: 1; }
+      85% { transform: translate(-50%, 0); opacity: 1; }
+      100% { transform: translate(-50%, -15px); opacity: 0; }
+    }
+    .toast-anim {
+      animation: toastFade 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-blue-100 selection:text-blue-700">
+
+  <!-- Main Website Container (Clean responsive web layout: Centered on desktop, 100% on mobile) -->
+  <div class="w-full max-w-[460px] min-h-screen bg-white shadow-xl flex flex-col justify-between relative sm:border-x sm:border-slate-200/80">
+    
+    <!-- Top Content Wrapper -->
+    <div class="w-full">
+      
+      <!-- Sticky Header Area -->
+      <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md pt-3 px-4 shadow-[0_1px_4px_rgba(0,0,0,0.02)]">
+        
+        <!-- App Navigation Bar (Hamburger, User Logo, Notification Bell, Cart) -->
+        <div class="flex items-center justify-between pb-2">
+          
+          <!-- Hamburger Menu Button -->
+          <button class="p-1 -ml-1 text-slate-800 hover:text-slate-600 focus:outline-none transition-colors" aria-label="Menu" onclick="showToast('Menu opened')">
+            <svg width="24" height="24" style="width: 24px; height: 24px;" class="stroke-[2.4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+
+          <!-- User's Official Mednutra Logo -->
+          <div class="flex items-center justify-center cursor-pointer select-none -ml-4" onclick="location.reload()">
+            <img src="image/logo.png" alt="Mednutra" class="h-8 md:h-9 w-auto max-w-[170px] object-contain drop-shadow-xs">
+          </div>
+
+          <!-- Right Action Icons: Bell & Cart -->
+          <div class="flex items-center space-x-3">
+            <!-- Notification Bell with Green Dot -->
+            <button class="relative p-1 text-slate-800 hover:text-slate-600 focus:outline-none transition-colors" aria-label="Notifications" onclick="showToast('No new notifications')">
+              <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+              </svg>
+              <!-- Green Notification Indicator Dot -->
+              <span class="absolute top-1 right-1 w-2 h-2 bg-[#22c55e] rounded-full border border-white"></span>
+            </button>
+
+            <!-- Shopping Cart with Green Badge '3' -->
+            <button class="relative p-1 text-slate-800 hover:text-slate-600 focus:outline-none transition-colors" aria-label="Shopping Cart" id="cartBtn" onclick="showToast('Opening Cart (3 items)')">
+              <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+              </svg>
+              <!-- Green Counter Badge -->
+              <span id="cartCount" class="absolute -top-1 -right-1 bg-[#22c55e] text-white text-[9.5px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center shadow-xs transition-transform">
+                3
+              </span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Deliver To Bar -->
+        <div class="flex items-center space-x-1 py-1 cursor-pointer select-none group" onclick="toggleLocationModal()">
+          <!-- Map Pin Icon -->
+          <svg width="16" height="16" style="width: 16px; height: 16px;" class="text-slate-900 fill-current shrink-0" viewBox="0 0 24 24">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+          </svg>
+          <!-- Deliver to Mumbai - 400051 -->
+          <div class="flex items-center text-[13px] text-slate-900 leading-none">
+            <span class="text-slate-700">Deliver to&nbsp;</span>
+            <span class="font-bold text-slate-900" id="currentLocation">Mumbai - 400051</span>
+            <!-- Down Chevron -->
+            <svg width="14" height="14" style="width: 14px; height: 14px;" class="ml-1 text-slate-800 stroke-[2.4] group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Search Bar with Scanner Icon (With Explicit Sizes to Prevent Icon Expansion) -->
+        <div class="pt-1 pb-2.5">
+          <div class="relative flex items-center w-full bg-[#f8fafc] border border-slate-200 rounded-xl px-3 py-2 shadow-2xs focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100 transition-all">
+            <!-- Magnifying Glass Icon (Fixed explicit width/height) -->
+            <svg width="18" height="18" style="width: 18px; height: 18px; min-width: 18px; max-width: 18px;" class="text-slate-400 stroke-[2.2] mr-2.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            </svg>
+            <!-- Search Input -->
+            <input type="text" id="searchInput" placeholder="Search medicines, health products..." class="w-full bg-transparent text-[13px] text-slate-900 placeholder:text-slate-400 focus:outline-none" oninput="handleSearch(this.value)">
+            <!-- Viewfinder / Prescription Scanner Icon (Fixed explicit width/height) -->
+            <button class="text-slate-700 hover:text-slate-950 focus:outline-none ml-2 shrink-0 p-0.5 flex items-center justify-center" title="Scan Prescription" onclick="showToast('Prescription Camera Scanner opened')">
+              <svg width="18" height="18" style="width: 18px; height: 18px; min-width: 18px; max-width: 18px;" class="stroke-[2] text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5m-5.625 0v4.5m15.75-4.5c0-.621-.504-1.125-1.125-1.125h-4.5m5.625 0v4.5M3.75 19.125c0 .621.504 1.125 1.125 1.125h4.5m-5.625 0v-4.5m15.75 4.5c0 .621-.504 1.125-1.125 1.125h-4.5m5.625 0v-4.5" />
+                <circle cx="12" cy="12" r="2.5" stroke="currentColor" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </header>
+
+      <!-- Main Body Content -->
+      <main class="px-4 space-y-3.5 pt-2 pb-6">
+        
+        <!-- 1. Hero Banner: Your Health, Our Priority -->
+        <section class="w-full relative cursor-pointer" onclick="showToast('Browsing Health Deals up to 30% OFF!')">
+          <div class="relative w-full rounded-2xl overflow-hidden shadow-xs border border-blue-50/80 active:scale-[0.99] transition-transform">
+            <img src="image/banner.png" alt="Your Health, Our Priority - Order genuine medicines online. Shop Now. Up to 30% OFF" class="w-full h-auto object-cover select-none">
+          </div>
+        </section>
+
+        <!-- 2. Five Quick Action Features (Upload Prescription, Quick Reorder, Offers & Deals, Fast Delivery, Support & Help) -->
+        <section class="grid grid-cols-5 gap-1.5 pt-0.5 select-none">
+          
+          <!-- 1. Upload Prescription -->
+          <button onclick="showToast('Upload Prescription feature opened')" class="flex flex-col items-center justify-between py-2 px-1 rounded-2xl bg-[#eff6ff] hover:bg-[#dbeafe] border border-blue-100/50 shadow-2xs transition-all active:scale-95 text-center h-[72px]">
+            <div class="w-6 h-6 flex items-center justify-center text-[#1d4ed8]">
+              <svg width="20" height="20" style="width: 20px; height: 20px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+              </svg>
+            </div>
+            <span class="text-[9.5px] font-semibold text-slate-800 leading-[1.15]">Upload<br>Prescription</span>
+          </button>
+
+          <!-- 2. Quick Reorder -->
+          <button onclick="showToast('Quick Reorder opened')" class="flex flex-col items-center justify-between py-2 px-1 rounded-2xl bg-[#f0fdf4] hover:bg-[#dcfce7] border border-green-100/50 shadow-2xs transition-all active:scale-95 text-center h-[72px]">
+            <div class="w-6 h-6 flex items-center justify-center text-[#16a34a]">
+              <svg width="20" height="20" style="width: 20px; height: 20px;" class="fill-current" viewBox="0 0 24 24">
+                <path d="M13 2L3 14h7v8l10-12h-7l3-8z"/>
+              </svg>
+            </div>
+            <span class="text-[9.5px] font-semibold text-slate-800 leading-[1.15]">Quick<br>Reorder</span>
+          </button>
+
+          <!-- 3. Offers & Deals -->
+          <button onclick="showToast('Viewing All Offers & Deals')" class="flex flex-col items-center justify-between py-2 px-1 rounded-2xl bg-[#f7fee7] hover:bg-[#ecfccb] border border-lime-100/50 shadow-2xs transition-all active:scale-95 text-center h-[72px]">
+            <div class="w-6 h-6 flex items-center justify-center text-[#65a30d]">
+              <svg width="20" height="20" style="width: 20px; height: 20px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+              </svg>
+            </div>
+            <span class="text-[9.5px] font-semibold text-slate-800 leading-[1.15]">Offers &<br>Deals</span>
+          </button>
+
+          <!-- 4. Fast Delivery -->
+          <button onclick="showToast('Express 30-min Delivery Active!')" class="flex flex-col items-center justify-between py-2 px-1 rounded-2xl bg-[#ecfdf5] hover:bg-[#d1fae5] border border-emerald-100/50 shadow-2xs transition-all active:scale-95 text-center h-[72px]">
+            <div class="w-6 h-6 flex items-center justify-center text-[#059669]">
+              <svg width="20" height="20" style="width: 20px; height: 20px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Zm11.25 0a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Zm-11.25-3.75h11.25M6 15l2-8h5l1.5 4h3.5" />
+                <circle cx="17.5" cy="8" r="1.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <span class="text-[9.5px] font-semibold text-slate-800 leading-[1.15]">Fast<br>Delivery</span>
+          </button>
+
+          <!-- 5. Support & Help -->
+          <button onclick="showToast('Connecting with 24/7 Mednutra Support')" class="flex flex-col items-center justify-between py-2 px-1 rounded-2xl bg-[#f0f9ff] hover:bg-[#e0f2fe] border border-sky-100/50 shadow-2xs transition-all active:scale-95 text-center h-[72px]">
+            <div class="w-6 h-6 flex items-center justify-center text-[#0369a1]">
+              <svg width="20" height="20" style="width: 20px; height: 20px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 1.5a9 9 0 0 0-9 9v3.75a3 3 0 0 0 3 3h1.5a1.5 1.5 0 0 0 1.5-1.5v-4.5A1.5 1.5 0 0 0 7.5 9.75H4.5A7.5 7.5 0 0 1 12 3a7.5 7.5 0 0 1 7.5 6.75h-3a1.5 1.5 0 0 0-1.5 1.5v4.5a1.5 1.5 0 0 0 1.5 1.5H18a3 3 0 0 0 3-3V10.5a9 9 0 0 0-9-9Z" />
+              </svg>
+            </div>
+            <span class="text-[9.5px] font-semibold text-slate-800 leading-[1.15]">Support<br>& Help</span>
+          </button>
+
+        </section>
+
+        <!-- 3. Shop by Category Section -->
+        <section class="space-y-2 pt-0.5">
+          
+          <!-- Section Header -->
+          <div class="flex items-center justify-between">
+            <h2 class="text-[16px] font-bold text-slate-900 tracking-tight">Shop by Category</h2>
+            <a href="#categories" onclick="showToast('Viewing All Categories')" class="text-xs font-semibold text-[#2e7d32] hover:text-[#1e5e22] flex items-center gap-1 transition-colors">
+              View All
+              <svg width="14" height="14" style="width: 14px; height: 14px;" class="stroke-[2.3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- 6 Category Cards Grid -->
+          <div class="grid grid-cols-6 gap-1.5 select-none">
+            
+            <!-- 1. Medicines -->
+            <div onclick="filterCategory('medicines')" class="flex flex-col items-center cursor-pointer group">
+              <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
+                <img src="image/category/medicines.png" alt="Medicines" class="w-full h-full object-contain group-hover:scale-105 transition-transform">
+              </div>
+              <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">Medicines</span>
+            </div>
+
+            <!-- 2. Vitamins & Supplements -->
+            <div onclick="filterCategory('vitamins')" class="flex flex-col items-center cursor-pointer group">
+              <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
+                <img src="image/category/vitamin.png" alt="Vitamins & Supplements" class="w-full h-full object-contain group-hover:scale-105 transition-transform">
+              </div>
+              <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">Vitamins &<br>Supplements</span>
+            </div>
+
+            <!-- 3. Healthcare Devices -->
+            <div onclick="filterCategory('devices')" class="flex flex-col items-center cursor-pointer group">
+              <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
+                <img src="image/category/healthcare.png" alt="Healthcare Devices" class="w-full h-full object-contain group-hover:scale-105 transition-transform">
+              </div>
+              <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">Healthcare<br>Devices</span>
+            </div>
+
+            <!-- 4. Personal Care -->
+            <div onclick="filterCategory('personal')" class="flex flex-col items-center cursor-pointer group">
+              <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
+                <img src="image/category/personal_care.png" alt="Personal Care" class="w-full h-full object-contain group-hover:scale-105 transition-transform">
+              </div>
+              <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">Personal<br>Care</span>
+            </div>
+
+            <!-- 5. Mother & Baby -->
+            <div onclick="filterCategory('baby')" class="flex flex-col items-center cursor-pointer group">
+              <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
+                <img src="image/category/mom_baby.png" alt="Mother & Baby" class="w-full h-full object-contain group-hover:scale-105 transition-transform">
+              </div>
+              <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">Mother &<br>Baby</span>
+            </div>
+
+            <!-- 6. More -->
+            <div onclick="filterCategory('all')" class="flex flex-col items-center cursor-pointer group">
+              <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
+                <img src="image/category/more.png" alt="More Categories" class="w-full h-full object-contain group-hover:scale-105 transition-transform">
+              </div>
+              <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">More</span>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 4. Flat 20% OFF Offer Card -->
+        <section class="relative w-full rounded-2xl bg-gradient-to-r from-[#eefbf3] via-[#f2fdf6] to-[#e4f7eb] border border-green-200/50 px-3.5 py-2.5 shadow-2xs overflow-hidden flex items-center justify-between select-none">
+          
+          <!-- Left Info: Percentage icon + Texts -->
+          <div class="flex items-center space-x-2.5 z-10">
+            <!-- Percentage badge icon -->
+            <div class="w-8.5 h-8.5 shrink-0 flex items-center justify-center">
+              <img src="image/offer/percentage.png" alt="Discount" class="w-full h-full object-contain">
+            </div>
+            <div>
+              <h3 class="text-[15px] font-extrabold text-slate-900 tracking-tight leading-tight">Flat 20% OFF</h3>
+              <p class="text-[11px] font-medium text-slate-600 mt-0.5 leading-none">on First Medicine Order</p>
+            </div>
+          </div>
+
+          <!-- Right: Coupon Code box -->
+          <div class="flex items-center space-x-2 z-10">
+            <div onclick="copyCoupon('MED20')" class="cursor-pointer bg-white/95 border border-dashed border-[#22c55e] rounded-lg px-2.5 py-1 flex items-center space-x-1.5 shadow-2xs hover:bg-white active:scale-95 transition-all" title="Click to copy coupon code">
+              <div class="flex flex-col text-left">
+                <span class="text-[9px] font-bold text-[#16a34a] leading-none uppercase tracking-wider">Use Code</span>
+                <span class="text-[13px] font-extrabold text-[#15803d] tracking-wide mt-0.5 leading-tight">MED20</span>
+              </div>
+              <!-- Copy Icon -->
+              <svg width="14" height="14" style="width: 14px; height: 14px;" class="text-[#16a34a] stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Decorative Leaves peaking from right edge -->
+          <img src="image/offer/leave.png" alt="" class="absolute right-0 top-0 bottom-0 h-full w-auto object-contain pointer-events-none opacity-90 select-none z-0">
+        </section>
+
+        <!-- 5. Shop Medicines Section -->
+        <section class="space-y-2.5 pt-0.5">
+          
+          <!-- Section Header with Green Vertical Indicator -->
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <!-- Green vertical bar indicator -->
+              <span class="w-1 h-4 bg-[#22c55e] rounded-full inline-block"></span>
+              <h2 class="text-[16px] font-bold text-slate-900 tracking-tight">Shop Medicines</h2>
+            </div>
+            <a href="#medicines" onclick="showToast('Viewing All Medicines')" class="text-xs font-semibold text-[#2e7d32] hover:text-[#1e5e22] flex items-center gap-1 transition-colors">
+              View All
+              <svg width="14" height="14" style="width: 14px; height: 14px;" class="stroke-[2.3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- 2x2 Product Grid -->
+          <div class="grid grid-cols-2 gap-2.5" id="productsGrid">
+            
+            <!-- Card 1: Paracetamol Tablets -->
+            <div class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group" data-category="medicines" data-name="Paracetamol Tablets">
+              <div>
+                <!-- Top: Badge + Wishlist Heart -->
+                <div class="flex items-center justify-between mb-1">
+                  <span class="bg-[#569e20] text-white text-[9.5px] font-extrabold px-1.5 py-0.5 rounded uppercase tracking-tight leading-none">
+                    20% OFF
+                  </span>
+                  <button onclick="toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
+                    <svg width="16" height="16" style="width: 16px; height: 16px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Product Image -->
+                <div class="w-full h-20 flex items-center justify-center my-1 overflow-hidden">
+                  <img src="image/product/paracetamol.png" alt="Paracetamol Tablets" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300">
+                </div>
+
+                <!-- Title & Pack Details -->
+                <div class="mt-1">
+                  <h3 class="text-[12.5px] font-bold text-slate-900 leading-snug line-clamp-1">Paracetamol Tablets</h3>
+                  <p class="text-[10px] font-medium text-slate-400 mt-0.5 line-clamp-1">500 mg | Strip of 10 Tablets</p>
+                </div>
+              </div>
+
+              <!-- Price & Add Button -->
+              <div class="flex items-center justify-between mt-2.5 pt-1 border-t border-slate-50">
+                <div class="flex items-baseline space-x-1">
+                  <span class="text-[11px] text-slate-400 line-through">₹50</span>
+                  <span class="text-[15px] font-extrabold text-[#1d4ed8]">₹40</span>
+                </div>
+
+                <!-- Add to Cart Button -->
+                <div id="btn-container-1">
+                  <button onclick="addToCart(1, 'Paracetamol Tablets', 40)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10.5px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all">
+                    <svg width="13" height="13" style="width: 13px; height: 13px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                    </svg>
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Vitamin C Tablets -->
+            <div class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group" data-category="vitamins" data-name="Vitamin C Tablets">
+              <div>
+                <!-- Top: Badge + Wishlist Heart -->
+                <div class="flex items-center justify-between mb-1">
+                  <span class="bg-[#569e20] text-white text-[9.5px] font-extrabold px-1.5 py-0.5 rounded uppercase tracking-tight leading-none">
+                    25% OFF
+                  </span>
+                  <button onclick="toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
+                    <svg width="16" height="16" style="width: 16px; height: 16px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Product Image -->
+                <div class="w-full h-20 flex items-center justify-center my-1 overflow-hidden">
+                  <img src="image/product/vitaminc.png" alt="Vitamin C Tablets" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300">
+                </div>
+
+                <!-- Title & Pack Details -->
+                <div class="mt-1">
+                  <h3 class="text-[12.5px] font-bold text-slate-900 leading-snug line-clamp-1">Vitamin C Tablets</h3>
+                  <p class="text-[10px] font-medium text-slate-400 mt-0.5 line-clamp-1">500 mg | Strip of 10 Tablets</p>
+                </div>
+              </div>
+
+              <!-- Price & Add Button -->
+              <div class="flex items-center justify-between mt-2.5 pt-1 border-t border-slate-50">
+                <div class="flex items-baseline space-x-1">
+                  <span class="text-[11px] text-slate-400 line-through">₹120</span>
+                  <span class="text-[15px] font-extrabold text-[#1d4ed8]">₹90</span>
+                </div>
+
+                <!-- Add to Cart Button -->
+                <div id="btn-container-2">
+                  <button onclick="addToCart(2, 'Vitamin C Tablets', 90)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10.5px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all">
+                    <svg width="13" height="13" style="width: 13px; height: 13px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                    </svg>
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Multivitamin Capsules -->
+            <div class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group" data-category="vitamins" data-name="Multivitamin Capsules">
+              <div>
+                <!-- Top: Badge + Wishlist Heart -->
+                <div class="flex items-center justify-between mb-1">
+                  <span class="bg-[#569e20] text-white text-[9.5px] font-extrabold px-1.5 py-0.5 rounded uppercase tracking-tight leading-none">
+                    30% OFF
+                  </span>
+                  <button onclick="toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
+                    <svg width="16" height="16" style="width: 16px; height: 16px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Product Image -->
+                <div class="w-full h-20 flex items-center justify-center my-1 overflow-hidden">
+                  <img src="image/product/multivitamin.png" alt="Multivitamin Capsules" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300">
+                </div>
+
+                <!-- Title & Pack Details -->
+                <div class="mt-1">
+                  <h3 class="text-[12.5px] font-bold text-slate-900 leading-snug line-clamp-1">Multivitamin Capsules</h3>
+                  <p class="text-[10px] font-medium text-slate-400 mt-0.5 line-clamp-1">Complete Daily Nutrition | 10 Caps</p>
+                </div>
+              </div>
+
+              <!-- Price & Add Button -->
+              <div class="flex items-center justify-between mt-2.5 pt-1 border-t border-slate-50">
+                <div class="flex items-baseline space-x-1">
+                  <span class="text-[11px] text-slate-400 line-through">₹149</span>
+                  <span class="text-[15px] font-extrabold text-[#1d4ed8]">₹104</span>
+                </div>
+
+                <!-- Add to Cart Button -->
+                <div id="btn-container-3">
+                  <button onclick="addToCart(3, 'Multivitamin Capsules', 104)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10.5px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all">
+                    <svg width="13" height="13" style="width: 13px; height: 13px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                    </svg>
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: Vitamin D3 Supplements -->
+            <div class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group" data-category="vitamins" data-name="Vitamin D3 Supplements">
+              <div>
+                <!-- Top: Badge + Wishlist Heart -->
+                <div class="flex items-center justify-between mb-1">
+                  <span class="bg-[#569e20] text-white text-[9.5px] font-extrabold px-1.5 py-0.5 rounded uppercase tracking-tight leading-none">
+                    25% OFF
+                  </span>
+                  <button onclick="toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
+                    <svg width="16" height="16" style="width: 16px; height: 16px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Product Image -->
+                <div class="w-full h-20 flex items-center justify-center my-1 overflow-hidden">
+                  <img src="image/product/vitamind.png" alt="Vitamin D3 Supplements" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300">
+                </div>
+
+                <!-- Title & Pack Details -->
+                <div class="mt-1">
+                  <h3 class="text-[12.5px] font-bold text-slate-900 leading-snug line-clamp-1">Vitamin D3 Supplements</h3>
+                  <p class="text-[10px] font-medium text-slate-400 mt-0.5 line-clamp-1">60,000 IU | Strip of 4 Capsules</p>
+                </div>
+              </div>
+
+              <!-- Price & Add Button -->
+              <div class="flex items-center justify-between mt-2.5 pt-1 border-t border-slate-50">
+                <div class="flex items-baseline space-x-1">
+                  <span class="text-[11px] text-slate-400 line-through">₹200</span>
+                  <span class="text-[15px] font-extrabold text-[#1d4ed8]">₹150</span>
+                </div>
+
+                <!-- Add to Cart Button -->
+                <div id="btn-container-4">
+                  <button onclick="addToCart(4, 'Vitamin D3 Supplements', 150)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10.5px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all">
+                    <svg width="13" height="13" style="width: 13px; height: 13px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                    </svg>
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+
+    <!-- Sticky Bottom Navigation Bar (No phone frame, clean native web navbar) -->
+    <div class="sticky bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-100 shadow-[0_-3px_12px_rgba(0,0,0,0.03)]">
+      
+      <!-- 5 Navigation Tabs (Home, Categories, Health Tips, Orders, Account) -->
+      <nav class="flex items-center justify-around px-2 py-2 select-none">
+        
+        <!-- 1. Home (Active) -->
+        <button onclick="switchTab(this, 'Home')" class="nav-item flex flex-col items-center focus:outline-none transition-all group">
+          <div class="nav-pill nav-pill-active flex items-center justify-center transition-all">
+            <!-- Filled Home Icon -->
+            <svg width="20" height="20" style="width: 20px; height: 20px;" class="fill-current" viewBox="0 0 24 24">
+              <path d="M11.47 3.84a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.06l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 0 0 1.061 1.06l8.69-8.69Z" />
+              <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+            </svg>
+          </div>
+          <span class="text-[10px] font-bold text-[#1d4ed8] mt-0.5 leading-none">Home</span>
+        </button>
+
+        <!-- 2. Categories -->
+        <button onclick="switchTab(this, 'Categories')" class="nav-item flex flex-col items-center text-slate-500 hover:text-slate-800 focus:outline-none transition-all group">
+          <div class="nav-pill p-1 flex items-center justify-center transition-all">
+            <!-- 4 Squares / Categories Icon -->
+            <svg width="20" height="20" style="width: 20px; height: 20px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+            </svg>
+          </div>
+          <span class="text-[10px] font-medium text-slate-600 mt-0.5 leading-none">Categories</span>
+        </button>
+
+        <!-- 3. Health Tips -->
+        <button onclick="switchTab(this, 'Health Tips')" class="nav-item flex flex-col items-center text-slate-500 hover:text-slate-800 focus:outline-none transition-all group">
+          <div class="nav-pill p-1 flex items-center justify-center transition-all">
+            <!-- Leaf / Heart Health Tips Icon -->
+            <svg width="20" height="20" style="width: 20px; height: 20px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-.778.099-1.533.284-2.253" />
+            </svg>
+          </div>
+          <span class="text-[10px] font-medium text-slate-600 mt-0.5 leading-none">Health Tips</span>
+        </button>
+
+        <!-- 4. Orders -->
+        <button onclick="switchTab(this, 'Orders')" class="nav-item flex flex-col items-center text-slate-500 hover:text-slate-800 focus:outline-none transition-all group">
+          <div class="nav-pill p-1 flex items-center justify-center transition-all">
+            <!-- 3D Box / Orders Icon -->
+            <svg width="20" height="20" style="width: 20px; height: 20px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+            </svg>
+          </div>
+          <span class="text-[10px] font-medium text-slate-600 mt-0.5 leading-none">Orders</span>
+        </button>
+
+        <!-- 5. Account -->
+        <button onclick="switchTab(this, 'Account')" class="nav-item flex flex-col items-center text-slate-500 hover:text-slate-800 focus:outline-none transition-all group">
+          <div class="nav-pill p-1 flex items-center justify-center transition-all">
+            <!-- Profile Avatar Icon -->
+            <svg width="20" height="20" style="width: 20px; height: 20px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+            </svg>
+          </div>
+          <span class="text-[10px] font-medium text-slate-600 mt-0.5 leading-none">Account</span>
+        </button>
+
+      </nav>
+
+    </div>
+
+  </div>
+
+  <!-- Toast Notification Floating Box -->
+  <div id="toast" class="fixed top-6 left-1/2 -translate-x-1/2 bg-slate-900/90 backdrop-blur-md text-white text-xs font-semibold px-4 py-2 rounded-full shadow-2xl pointer-events-none opacity-0 transition-opacity z-50 flex items-center space-x-2">
+    <svg width="16" height="16" style="width: 16px; height: 16px;" class="text-[#22c55e]" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+    </svg>
+    <span id="toastMsg">Action Successful</span>
+  </div>
+
+  <!-- Delivery Location Modal (Interactive) -->
+  <div id="locationModal" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 flex items-end sm:items-center justify-center hidden" onclick="toggleLocationModal()">
+    <div class="bg-white rounded-t-3xl sm:rounded-2xl w-full max-w-sm p-5 shadow-2xl space-y-4" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <h3 class="text-base font-bold text-slate-900">Choose Delivery Location</h3>
+        <button onclick="toggleLocationModal()" class="text-slate-400 hover:text-slate-700 font-bold p-1">✕</button>
+      </div>
+      <div class="space-y-2">
+        <label class="text-xs font-semibold text-slate-600">Enter Pincode or City</label>
+        <div class="flex gap-2">
+          <input type="text" id="pincodeInput" value="Mumbai - 400051" class="w-full border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-blue-500">
+          <button onclick="saveLocation()" class="bg-[#2e7d32] hover:bg-[#256829] text-white px-4 py-2 rounded-xl text-xs font-bold shadow-xs">Save</button>
+        </div>
+      </div>
+      <div class="space-y-2 pt-1">
+        <div class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Saved Addresses</div>
+        <div onclick="selectLocation('Mumbai - 400051')" class="p-2.5 rounded-xl border border-green-200 bg-green-50/50 flex items-center justify-between cursor-pointer">
+          <div class="text-xs font-bold text-slate-800">Home • Mumbai - 400051</div>
+          <span class="text-[10px] text-green-700 font-bold bg-green-100 px-2 py-0.5 rounded">Default</span>
+        </div>
+        <div onclick="selectLocation('Bengaluru - 560001')" class="p-2.5 rounded-xl border border-slate-100 hover:bg-slate-50 flex items-center justify-between cursor-pointer">
+          <div class="text-xs font-medium text-slate-700">Office • Bengaluru - 560001</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Interactivity -->
+  <script>
+    let cartTotalItems = 3;
+    let toastTimeout;
+
+    // Toast alert helper
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.innerText = msg;
+      
+      toast.classList.remove('opacity-0', 'toast-anim');
+      void toast.offsetWidth; // trigger reflow
+      toast.classList.add('toast-anim');
+      
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('opacity-0');
+        toast.classList.remove('toast-anim');
+      }, 2200);
+    }
+
+    // Toggle Wishlist Heart
+    function toggleWishlist(btn) {
+      const svg = btn.querySelector('svg');
+      if (btn.classList.contains('text-red-500')) {
+        btn.classList.remove('text-red-500');
+        btn.classList.add('text-slate-400');
+        svg.setAttribute('fill', 'none');
+        showToast('Removed from Wishlist');
+      } else {
+        btn.classList.remove('text-slate-400');
+        btn.classList.add('text-red-500');
+        svg.setAttribute('fill', '#ef4444');
+        showToast('Added to Wishlist ❤️');
+      }
+    }
+
+    // Add to Cart with quantity controller
+    const cartQuantities = { 1: 0, 2: 0, 3: 0, 4: 0 };
+
+    function addToCart(productId, title, price) {
+      cartQuantities[productId] = 1;
+      cartTotalItems++;
+      updateCartBadge();
+      renderQuantityControl(productId, title, price);
+      showToast(`${title} added to Cart!`);
+    }
+
+    function changeQty(productId, delta, title, price) {
+      cartQuantities[productId] += delta;
+      cartTotalItems += delta;
+      updateCartBadge();
+
+      if (cartQuantities[productId] <= 0) {
+        cartQuantities[productId] = 0;
+        renderAddButton(productId, title, price);
+        showToast(`${title} removed from Cart`);
+      } else {
+        renderQuantityControl(productId, title, price);
+      }
+    }
+
+    function updateCartBadge() {
+      const badge = document.getElementById('cartCount');
+      badge.innerText = cartTotalItems;
+      badge.classList.add('scale-125');
+      setTimeout(() => badge.classList.remove('scale-125'), 200);
+    }
+
+    function renderQuantityControl(id, title, price) {
+      const container = document.getElementById(`btn-container-${id}`);
+      container.innerHTML = `
+        <div class="flex items-center bg-[#2e7d32] text-white rounded-lg px-1.5 py-1 shadow-xs gap-1.5">
+          <button onclick="changeQty(${id}, -1, '${title}', ${price})" class="w-4 h-4 flex items-center justify-center font-bold text-white hover:bg-black/20 rounded active:scale-90">-</button>
+          <span class="text-[10px] font-bold px-0.5">${cartQuantities[id]}</span>
+          <button onclick="changeQty(${id}, 1, '${title}', ${price})" class="w-4 h-4 flex items-center justify-center font-bold text-white hover:bg-black/20 rounded active:scale-90">+</button>
+        </div>
+      `;
+    }
+
+    function renderAddButton(id, title, price) {
+      const container = document.getElementById(`btn-container-${id}`);
+      container.innerHTML = `
+        <button onclick="addToCart(${id}, '${title}', ${price})" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10.5px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all">
+          <svg width="13" height="13" style="width: 13px; height: 13px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+          </svg>
+          Add to Cart
+        </button>
+      `;
+    }
+
+    // Copy coupon code
+    function copyCoupon(code) {
+      navigator.clipboard.writeText(code).then(() => {
+        showToast(`Coupon "${code}" Copied to Clipboard! 🎉`);
+      }).catch(() => {
+        showToast(`Code: ${code}`);
+      });
+    }
+
+    // Switch Navigation tab
+    function switchTab(btn, tabName) {
+      document.querySelectorAll('.nav-item').forEach(el => {
+        el.classList.remove('text-[#1d4ed8]');
+        el.classList.add('text-slate-500');
+        const pill = el.querySelector('.nav-pill');
+        pill.classList.remove('nav-pill-active');
+        const label = el.querySelector('span');
+        label.classList.remove('font-bold', 'text-[#1d4ed8]');
+        label.classList.add('font-medium', 'text-slate-600');
+      });
+
+      btn.classList.remove('text-slate-500');
+      btn.classList.add('text-[#1d4ed8]');
+      const activePill = btn.querySelector('.nav-pill');
+      activePill.classList.add('nav-pill-active');
+      const activeLabel = btn.querySelector('span');
+      activeLabel.classList.add('font-bold', 'text-[#1d4ed8]');
+      activeLabel.classList.remove('font-medium', 'text-slate-600');
+
+      showToast(`Switched to ${tabName}`);
+    }
+
+    // Search filter
+    function handleSearch(query) {
+      const cards = document.querySelectorAll('.product-card');
+      const cleanQ = query.toLowerCase().trim();
+      cards.forEach(card => {
+        const name = card.getAttribute('data-name').toLowerCase();
+        if (cleanQ === '' || name.includes(cleanQ)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Category filter
+    function filterCategory(cat) {
+      showToast(`Selected Category: ${cat.toUpperCase()}`);
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        const productCat = card.getAttribute('data-category');
+        if (cat === 'all' || productCat === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Location Modal
+    function toggleLocationModal() {
+      const modal = document.getElementById('locationModal');
+      modal.classList.toggle('hidden');
+    }
+
+    function selectLocation(loc) {
+      document.getElementById('currentLocation').innerText = loc;
+      toggleLocationModal();
+      showToast(`Delivery location updated to ${loc}`);
+    }
+
+    function saveLocation() {
+      const val = document.getElementById('pincodeInput').value.trim();
+      if (val) {
+        selectLocation(val);
+      }
+    }
+  </script>
+</body>
+</html>
