@@ -104,8 +104,8 @@
   <!-- Main Website Container (Clean responsive web layout: Centered on desktop, 100% on mobile) -->
   <div class="w-full max-w-[460px] min-h-screen bg-white shadow-xl flex flex-col justify-between relative sm:border-x sm:border-slate-200/80">
     
-    <!-- Top Content Wrapper -->
-    <div class="w-full">
+    <!-- Top Content Wrapper (Home View) -->
+    <div id="homeView" class="w-full">
       
       <!-- Sticky Header Area -->
       <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md pt-3 px-4 shadow-[0_1px_4px_rgba(0,0,0,0.02)]">
@@ -122,7 +122,7 @@
 
           <!-- User's Official Mednutra Logo -->
           <div class="flex items-center justify-center cursor-pointer select-none -ml-4" onclick="location.reload()">
-            <img src="image/logo.png" alt="Mednutra" class="h-8 md:h-9 w-auto max-w-[170px] object-contain drop-shadow-xs">
+            <img src="image/logo.png" alt="Mednutra" class="h-8 md:h-9 w-auto max-w-[170px] object-contain drop-shadow-xs" fetchpriority="high" decoding="async">
           </div>
 
           <!-- Right Action Icons: Bell & Cart -->
@@ -191,10 +191,45 @@
       <!-- Main Body Content -->
       <main class="px-4 space-y-3.5 pt-2 pb-6">
         
-        <!-- 1. Hero Banner: Your Health, Our Priority -->
-        <section class="w-full relative cursor-pointer" onclick="showToast('Browsing Health Deals up to 30% OFF!')">
-          <div class="relative w-full aspect-[1719/758] rounded-2xl overflow-hidden shadow-xs border border-blue-50/80 active:scale-[0.99] transition-transform">
-            <img src="image/banner.png" alt="Your Health, Our Priority - Order genuine medicines online. Shop Now. Up to 30% OFF" class="w-full h-full object-cover select-none">
+        <!-- 1. Hero Banner Carousel: 3 Banners (Auto-sliding + Touch Swipe + Dot Indicators) -->
+        <section class="w-full relative select-none">
+          <div class="relative w-full aspect-[2/1] overflow-hidden group">
+            
+            <!-- Slides Track -->
+            <div id="bannerTrack" class="flex w-full h-full transition-transform duration-500 ease-out">
+              <!-- Slide 1 -->
+              <div class="w-full h-full shrink-0 cursor-pointer flex items-center justify-center" onclick="showToast('Browsing Health Deals up to 30% OFF!')">
+                <img src="image/banner.png" alt="Your Health, Our Priority - Up to 30% OFF" class="w-full h-full object-contain select-none" fetchpriority="high" decoding="async">
+              </div>
+              <!-- Slide 2 -->
+              <div class="w-full h-full shrink-0 cursor-pointer flex items-center justify-center" onclick="showToast('Browsing Special Wellness Offers!')">
+                <img src="image/banner2.png" alt="Special Healthcare Offers" class="w-full h-full object-contain select-none" loading="lazy" decoding="async">
+              </div>
+              <!-- Slide 3 -->
+              <div class="w-full h-full shrink-0 cursor-pointer flex items-center justify-center" onclick="showToast('Browsing Exclusive Mednutra Savings!')">
+                <img src="image/banner3.png" alt="Exclusive Mednutra Savings" class="w-full h-full object-contain select-none" loading="lazy" decoding="async">
+              </div>
+            </div>
+
+            <!-- Left & Right Navigation Buttons (Visible on hover) -->
+            <button onclick="prevBanner(event)" class="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/85 backdrop-blur-xs hover:bg-white text-slate-700 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-xs focus:outline-none z-10" aria-label="Previous Banner">
+              <svg width="14" height="14" style="width: 14px; height: 14px;" class="stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+              </svg>
+            </button>
+            <button onclick="nextBanner(event)" class="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/85 backdrop-blur-xs hover:bg-white text-slate-700 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-xs focus:outline-none z-10" aria-label="Next Banner">
+              <svg width="14" height="14" style="width: 14px; height: 14px;" class="stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+              </svg>
+            </button>
+
+            <!-- Dot Indicators -->
+            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center space-x-1.5 z-10 bg-black/25 backdrop-blur-xs px-2 py-0.5 rounded-full">
+              <button onclick="goToBanner(0)" class="banner-dot w-4 h-1.5 rounded-full bg-white transition-all duration-300" aria-label="Go to banner 1"></button>
+              <button onclick="goToBanner(1)" class="banner-dot w-1.5 h-1.5 rounded-full bg-white/60 hover:bg-white transition-all duration-300" aria-label="Go to banner 2"></button>
+              <button onclick="goToBanner(2)" class="banner-dot w-1.5 h-1.5 rounded-full bg-white/60 hover:bg-white transition-all duration-300" aria-label="Go to banner 3"></button>
+            </div>
+
           </div>
         </section>
 
@@ -275,7 +310,7 @@
             <!-- 1. Medicines -->
             <div onclick="filterCategory('medicines')" class="flex flex-col items-center cursor-pointer group">
               <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
-                <img src="image/category/medicines.png" alt="Medicines" class="w-full h-full object-contain group-hover:scale-105 transition-transform">
+                <img src="image/category/medicines.png" alt="Medicines" class="w-full h-full object-contain group-hover:scale-105 transition-transform" decoding="async">
               </div>
               <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">Medicines</span>
             </div>
@@ -283,7 +318,7 @@
             <!-- 2. Vitamins & Supplements -->
             <div onclick="filterCategory('vitamins')" class="flex flex-col items-center cursor-pointer group">
               <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
-                <img src="image/category/vitamin.png" alt="Vitamins & Supplements" class="w-full h-full object-contain group-hover:scale-105 transition-transform">
+                <img src="image/category/vitamin.png" alt="Vitamins & Supplements" class="w-full h-full object-contain group-hover:scale-105 transition-transform" decoding="async">
               </div>
               <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">Vitamins &<br>Supplements</span>
             </div>
@@ -291,7 +326,7 @@
             <!-- 3. Healthcare Devices -->
             <div onclick="filterCategory('devices')" class="flex flex-col items-center cursor-pointer group">
               <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
-                <img src="image/category/healthcare.png" alt="Healthcare Devices" class="w-full h-full object-contain group-hover:scale-105 transition-transform">
+                <img src="image/category/healthcare.png" alt="Healthcare Devices" class="w-full h-full object-contain group-hover:scale-105 transition-transform" decoding="async">
               </div>
               <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">Healthcare<br>Devices</span>
             </div>
@@ -299,7 +334,7 @@
             <!-- 4. Personal Care -->
             <div onclick="filterCategory('personal')" class="flex flex-col items-center cursor-pointer group">
               <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
-                <img src="image/category/personal_care.png" alt="Personal Care" class="w-full h-full object-contain group-hover:scale-105 transition-transform">
+                <img src="image/category/personal_care.png" alt="Personal Care" class="w-full h-full object-contain group-hover:scale-105 transition-transform" decoding="async">
               </div>
               <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">Personal<br>Care</span>
             </div>
@@ -307,7 +342,7 @@
             <!-- 5. Mother & Baby -->
             <div onclick="filterCategory('baby')" class="flex flex-col items-center cursor-pointer group">
               <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
-                <img src="image/category/mom_baby.png" alt="Mother & Baby" class="w-full h-full object-contain group-hover:scale-105 transition-transform">
+                <img src="image/category/mom_baby.png" alt="Mother & Baby" class="w-full h-full object-contain group-hover:scale-105 transition-transform" decoding="async">
               </div>
               <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">Mother &<br>Baby</span>
             </div>
@@ -315,7 +350,7 @@
             <!-- 6. More -->
             <div onclick="filterCategory('all')" class="flex flex-col items-center cursor-pointer group">
               <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
-                <img src="image/category/more.png" alt="More Categories" class="w-full h-full object-contain group-hover:scale-105 transition-transform">
+                <img src="image/category/more.png" alt="More Categories" class="w-full h-full object-contain group-hover:scale-105 transition-transform" decoding="async">
               </div>
               <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">More</span>
             </div>
@@ -380,14 +415,14 @@
           <div class="grid grid-cols-2 gap-2.5" id="productsGrid">
             
             <!-- Card 1: Paracetamol Tablets -->
-            <div class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group" data-category="medicines" data-name="Paracetamol Tablets">
+            <div onclick="openProductDetail(1)" class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group cursor-pointer" data-category="medicines" data-name="Paracetamol Tablets">
               <div>
                 <!-- Top: Badge + Wishlist Heart -->
                 <div class="flex items-center justify-between mb-1">
                   <span class="bg-[#569e20] text-white text-[9.5px] font-extrabold px-1.5 py-0.5 rounded uppercase tracking-tight leading-none">
                     20% OFF
                   </span>
-                  <button onclick="toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
+                  <button onclick="event.stopPropagation(); toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
                     <svg width="16" height="16" style="width: 16px; height: 16px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                     </svg>
@@ -396,7 +431,7 @@
 
                 <!-- Product Image -->
                 <div class="w-full h-20 flex items-center justify-center my-1 overflow-hidden">
-                  <img src="image/product/paracetamol.png" alt="Paracetamol Tablets" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300">
+                  <img src="image/product/paracetamol.png" alt="Paracetamol Tablets" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
                 </div>
 
                 <!-- Title & Pack Details -->
@@ -407,33 +442,33 @@
               </div>
 
               <!-- Price & Add Button -->
-              <div class="flex items-center justify-between mt-2.5 pt-1 border-t border-slate-50">
-                <div class="flex items-baseline space-x-1">
-                  <span class="text-[11px] text-slate-400 line-through">₹50</span>
-                  <span class="text-[15px] font-extrabold text-[#1d4ed8]">₹40</span>
+              <div class="flex items-center justify-between mt-2.5 pt-1.5 border-t border-slate-50 gap-1.5">
+                <div class="flex flex-col shrink-0 leading-tight">
+                  <span class="text-[9.5px] text-slate-400 line-through leading-none">₹50</span>
+                  <span class="text-[14px] font-extrabold text-[#1d4ed8] leading-tight">₹40</span>
                 </div>
 
-                <!-- Add to Cart Button -->
-                <div id="btn-container-1">
-                  <button onclick="addToCart(1, 'Paracetamol Tablets', 40)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10.5px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all">
-                    <svg width="13" height="13" style="width: 13px; height: 13px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Add to Cart Button (Fixed nowrap & compact padding for mobile width) -->
+                <div id="btn-container-1" class="shrink-0">
+                  <button onclick="event.stopPropagation(); addToCart(1, 'Paracetamol Tablets', 40)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all whitespace-nowrap">
+                    <svg width="12" height="12" style="width: 12px; height: 12px; min-width: 12px; min-height: 12px;" class="stroke-[2.2] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                     </svg>
-                    Add to Cart
+                    <span>Add to Cart</span>
                   </button>
                 </div>
               </div>
             </div>
 
             <!-- Card 2: Vitamin C Tablets -->
-            <div class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group" data-category="vitamins" data-name="Vitamin C Tablets">
+            <div onclick="openProductDetail(2)" class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group cursor-pointer" data-category="vitamins" data-name="Vitamin C Tablets">
               <div>
                 <!-- Top: Badge + Wishlist Heart -->
                 <div class="flex items-center justify-between mb-1">
                   <span class="bg-[#569e20] text-white text-[9.5px] font-extrabold px-1.5 py-0.5 rounded uppercase tracking-tight leading-none">
                     25% OFF
                   </span>
-                  <button onclick="toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
+                  <button onclick="event.stopPropagation(); toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
                     <svg width="16" height="16" style="width: 16px; height: 16px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                     </svg>
@@ -442,7 +477,7 @@
 
                 <!-- Product Image -->
                 <div class="w-full h-20 flex items-center justify-center my-1 overflow-hidden">
-                  <img src="image/product/vitaminc.png" alt="Vitamin C Tablets" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300">
+                  <img src="image/product/vitaminc.png" alt="Vitamin C Tablets" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
                 </div>
 
                 <!-- Title & Pack Details -->
@@ -453,33 +488,33 @@
               </div>
 
               <!-- Price & Add Button -->
-              <div class="flex items-center justify-between mt-2.5 pt-1 border-t border-slate-50">
-                <div class="flex items-baseline space-x-1">
-                  <span class="text-[11px] text-slate-400 line-through">₹120</span>
-                  <span class="text-[15px] font-extrabold text-[#1d4ed8]">₹90</span>
+              <div class="flex items-center justify-between mt-2.5 pt-1.5 border-t border-slate-50 gap-1.5">
+                <div class="flex flex-col shrink-0 leading-tight">
+                  <span class="text-[9.5px] text-slate-400 line-through leading-none">₹120</span>
+                  <span class="text-[14px] font-extrabold text-[#1d4ed8] leading-tight">₹90</span>
                 </div>
 
-                <!-- Add to Cart Button -->
-                <div id="btn-container-2">
-                  <button onclick="addToCart(2, 'Vitamin C Tablets', 90)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10.5px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all">
-                    <svg width="13" height="13" style="width: 13px; height: 13px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Add to Cart Button (Fixed nowrap & compact padding for mobile width) -->
+                <div id="btn-container-2" class="shrink-0">
+                  <button onclick="event.stopPropagation(); addToCart(2, 'Vitamin C Tablets', 90)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all whitespace-nowrap">
+                    <svg width="12" height="12" style="width: 12px; height: 12px; min-width: 12px; min-height: 12px;" class="stroke-[2.2] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                     </svg>
-                    Add to Cart
+                    <span>Add to Cart</span>
                   </button>
                 </div>
               </div>
             </div>
 
             <!-- Card 3: Multivitamin Capsules -->
-            <div class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group" data-category="vitamins" data-name="Multivitamin Capsules">
+            <div onclick="openProductDetail(3)" class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group cursor-pointer" data-category="vitamins" data-name="Multivitamin Capsules">
               <div>
                 <!-- Top: Badge + Wishlist Heart -->
                 <div class="flex items-center justify-between mb-1">
                   <span class="bg-[#569e20] text-white text-[9.5px] font-extrabold px-1.5 py-0.5 rounded uppercase tracking-tight leading-none">
                     30% OFF
                   </span>
-                  <button onclick="toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
+                  <button onclick="event.stopPropagation(); toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
                     <svg width="16" height="16" style="width: 16px; height: 16px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                     </svg>
@@ -488,7 +523,7 @@
 
                 <!-- Product Image -->
                 <div class="w-full h-20 flex items-center justify-center my-1 overflow-hidden">
-                  <img src="image/product/multivitamin.png" alt="Multivitamin Capsules" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300">
+                  <img src="image/product/multivitamin.png" alt="Multivitamin Capsules" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
                 </div>
 
                 <!-- Title & Pack Details -->
@@ -499,33 +534,33 @@
               </div>
 
               <!-- Price & Add Button -->
-              <div class="flex items-center justify-between mt-2.5 pt-1 border-t border-slate-50">
-                <div class="flex items-baseline space-x-1">
-                  <span class="text-[11px] text-slate-400 line-through">₹149</span>
-                  <span class="text-[15px] font-extrabold text-[#1d4ed8]">₹104</span>
+              <div class="flex items-center justify-between mt-2.5 pt-1.5 border-t border-slate-50 gap-1.5">
+                <div class="flex flex-col shrink-0 leading-tight">
+                  <span class="text-[9.5px] text-slate-400 line-through leading-none">₹149</span>
+                  <span class="text-[14px] font-extrabold text-[#1d4ed8] leading-tight">₹104</span>
                 </div>
 
-                <!-- Add to Cart Button -->
-                <div id="btn-container-3">
-                  <button onclick="addToCart(3, 'Multivitamin Capsules', 104)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10.5px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all">
-                    <svg width="13" height="13" style="width: 13px; height: 13px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Add to Cart Button (Fixed nowrap & compact padding for mobile width) -->
+                <div id="btn-container-3" class="shrink-0">
+                  <button onclick="event.stopPropagation(); addToCart(3, 'Multivitamin Capsules', 104)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all whitespace-nowrap">
+                    <svg width="12" height="12" style="width: 12px; height: 12px; min-width: 12px; min-height: 12px;" class="stroke-[2.2] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                     </svg>
-                    Add to Cart
+                    <span>Add to Cart</span>
                   </button>
                 </div>
               </div>
             </div>
 
             <!-- Card 4: Vitamin D3 Supplements -->
-            <div class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group" data-category="vitamins" data-name="Vitamin D3 Supplements">
+            <div onclick="openProductDetail(4)" class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group cursor-pointer" data-category="vitamins" data-name="Vitamin D3 Supplements">
               <div>
                 <!-- Top: Badge + Wishlist Heart -->
                 <div class="flex items-center justify-between mb-1">
                   <span class="bg-[#569e20] text-white text-[9.5px] font-extrabold px-1.5 py-0.5 rounded uppercase tracking-tight leading-none">
                     25% OFF
                   </span>
-                  <button onclick="toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
+                  <button onclick="event.stopPropagation(); toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
                     <svg width="16" height="16" style="width: 16px; height: 16px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                     </svg>
@@ -534,7 +569,7 @@
 
                 <!-- Product Image -->
                 <div class="w-full h-20 flex items-center justify-center my-1 overflow-hidden">
-                  <img src="image/product/vitamind.png" alt="Vitamin D3 Supplements" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300">
+                  <img src="image/product/vitamind.png" alt="Vitamin D3 Supplements" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
                 </div>
 
                 <!-- Title & Pack Details -->
@@ -545,19 +580,19 @@
               </div>
 
               <!-- Price & Add Button -->
-              <div class="flex items-center justify-between mt-2.5 pt-1 border-t border-slate-50">
-                <div class="flex items-baseline space-x-1">
-                  <span class="text-[11px] text-slate-400 line-through">₹200</span>
-                  <span class="text-[15px] font-extrabold text-[#1d4ed8]">₹150</span>
+              <div class="flex items-center justify-between mt-2.5 pt-1.5 border-t border-slate-50 gap-1.5">
+                <div class="flex flex-col shrink-0 leading-tight">
+                  <span class="text-[9.5px] text-slate-400 line-through leading-none">₹200</span>
+                  <span class="text-[14px] font-extrabold text-[#1d4ed8] leading-tight">₹150</span>
                 </div>
 
-                <!-- Add to Cart Button -->
-                <div id="btn-container-4">
-                  <button onclick="addToCart(4, 'Vitamin D3 Supplements', 150)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10.5px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all">
-                    <svg width="13" height="13" style="width: 13px; height: 13px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Add to Cart Button (Fixed nowrap & compact padding for mobile width) -->
+                <div id="btn-container-4" class="shrink-0">
+                  <button onclick="event.stopPropagation(); addToCart(4, 'Vitamin D3 Supplements', 150)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all whitespace-nowrap">
+                    <svg width="12" height="12" style="width: 12px; height: 12px; min-width: 12px; min-height: 12px;" class="stroke-[2.2] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                     </svg>
-                    Add to Cart
+                    <span>Add to Cart</span>
                   </button>
                 </div>
               </div>
@@ -567,6 +602,230 @@
         </section>
 
       </main>
+
+    </div>
+
+    <!-- Product Detail / Profile View (Matches exact UX/UI from design reference) -->
+    <div id="productDetailView" class="w-full hidden">
+      
+      <!-- PDP Sticky Header -->
+      <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-slate-100 shadow-[0_1px_4px_rgba(0,0,0,0.02)]">
+        <!-- Back Arrow Button -->
+        <button onclick="closeProductDetail()" class="p-1 -ml-1 text-slate-800 hover:text-slate-600 active:scale-95 focus:outline-none transition-all" aria-label="Go Back">
+          <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[2.4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+          </svg>
+        </button>
+
+        <!-- Mednutra Logo -->
+        <div class="flex items-center justify-center cursor-pointer select-none -ml-4" onclick="closeProductDetail()">
+          <img src="image/logo.png" alt="Mednutra" class="h-7 w-auto max-w-[140px] object-contain drop-shadow-xs">
+        </div>
+
+        <!-- Right Header Icons: Search & Cart -->
+        <div class="flex items-center space-x-3">
+          <!-- Search Icon -->
+          <button onclick="closeProductDetail(); document.getElementById('searchInput').focus();" class="p-1 text-slate-800 hover:text-slate-600 focus:outline-none transition-colors" aria-label="Search">
+            <svg width="20" height="20" style="width: 20px; height: 20px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            </svg>
+          </button>
+
+          <!-- Shopping Cart with Live Badge -->
+          <button onclick="showToast(`Cart has ${cartTotalItems} items`)" class="relative p-1 text-slate-800 hover:text-slate-600 focus:outline-none transition-colors" aria-label="Shopping Cart">
+            <svg width="21" height="21" style="width: 21px; height: 21px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+            </svg>
+            <span id="pdpCartCount" class="absolute -top-1 -right-1 bg-[#22c55e] text-white text-[9.5px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center shadow-xs transition-transform">
+              3
+            </span>
+          </button>
+        </div>
+      </header>
+
+      <!-- PDP Main Scrollable Content -->
+      <div class="px-4 pt-2.5 pb-6 space-y-3.5">
+        
+        <!-- Breadcrumbs Navigation -->
+        <div class="flex items-center space-x-1.5 text-xs text-slate-500 select-none">
+          <svg width="14" height="14" style="width: 14px; height: 14px;" class="stroke-[2] text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+          </svg>
+          <span class="text-slate-700 font-medium cursor-pointer hover:underline" onclick="closeProductDetail()">Medicines</span>
+          <span class="text-slate-400 font-bold">&gt;</span>
+          <span id="pdpBreadcrumbCategory" class="text-[#1d4ed8] font-bold">Pain Relief</span>
+        </div>
+
+        <!-- 1. Product Image Card (Sky Blue Gradient + Wishlist + Image + Carousel Dots) -->
+        <div class="relative w-full rounded-3xl bg-gradient-to-b from-[#eaf4fe] via-[#e5f1fc] to-[#daf0fd] p-4 flex flex-col items-center justify-center min-h-[220px] shadow-2xs overflow-hidden select-none">
+          <!-- Circular Wishlist Button at top-right -->
+          <button onclick="togglePdpWishlist(this)" class="absolute top-3.5 right-3.5 w-8.5 h-8.5 rounded-full bg-white/95 backdrop-blur-xs flex items-center justify-center text-slate-500 hover:text-red-500 shadow-2xs active:scale-90 transition-all z-10" aria-label="Add to Wishlist">
+            <svg width="18" height="18" style="width: 18px; height: 18px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+            </svg>
+          </button>
+
+          <!-- Center Product Image -->
+          <div class="w-full h-36 flex items-center justify-center py-2">
+            <img id="pdpImage" src="image/product/paracetamol.png" alt="Product" class="max-h-full max-w-full object-contain filter drop-shadow-md transition-transform duration-300">
+          </div>
+
+          <!-- Carousel Dots -->
+          <div class="flex items-center space-x-1.5 mt-2">
+            <span class="w-4 h-1.5 rounded-full bg-[#1d4ed8] transition-all"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-300 transition-all"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-300 transition-all"></span>
+          </div>
+        </div>
+
+        <!-- 2. Product Title & Subtitle Badge -->
+        <div>
+          <h1 id="pdpTitle" class="text-[19px] font-extrabold text-slate-900 tracking-tight leading-snug">Paracetamol Tablets IP 500 mg</h1>
+          <div class="flex items-center space-x-2.5 mt-1.5">
+            <span id="pdpSubtitle" class="text-xs font-medium text-slate-500">Strip of 10 Tablets</span>
+            <span class="inline-flex items-center gap-1 bg-[#f0fdf4] border border-green-200 text-[#15803d] text-[11px] font-bold px-2 py-0.5 rounded-full">
+              <svg width="12" height="12" style="width: 12px; height: 12px;" class="text-[#22c55e] fill-current shrink-0" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+              </svg>
+              Genuine Product
+            </span>
+          </div>
+        </div>
+
+        <!-- 3. Rating & Popularity Row -->
+        <div class="flex items-center space-x-3 text-xs text-slate-600 select-none">
+          <!-- Star Rating -->
+          <div class="flex items-center space-x-1 bg-amber-50 border border-amber-200/80 px-1.5 py-0.5 rounded-md">
+            <span class="text-amber-500 text-xs">★</span>
+            <span id="pdpRating" class="font-bold text-slate-900">4.8</span>
+          </div>
+          <span class="text-slate-300">|</span>
+          <span id="pdpReviews" class="text-slate-600 font-medium">2,450 Reviews</span>
+          <span class="text-slate-300">|</span>
+          <div class="flex items-center space-x-1 text-[#16a34a] font-semibold">
+            <svg width="13" height="13" style="width: 13px; height: 13px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218" />
+            </svg>
+            <span id="pdpBought">1,200+ bought this month</span>
+          </div>
+        </div>
+
+        <!-- 4. Price Row -->
+        <div class="flex items-baseline space-x-2.5 pt-2 border-t border-slate-100">
+          <span id="pdpPrice" class="text-[26px] font-extrabold text-[#1d4ed8] leading-none">₹40</span>
+          <span id="pdpMrp" class="text-sm font-semibold text-slate-400 line-through">₹50</span>
+          <span id="pdpDiscount" class="bg-[#2e7d32] text-white text-[11px] font-extrabold px-2 py-0.5 rounded uppercase tracking-wide">20% OFF</span>
+          <span class="text-slate-300">|</span>
+          <span class="text-[11px] font-medium text-slate-400">Inclusive of all taxes</span>
+        </div>
+
+        <!-- 5. Delivery Info Card -->
+        <div class="bg-[#f0f7ff]/75 border border-blue-100/80 rounded-2xl p-3 cursor-pointer group" onclick="toggleLocationModal()">
+          <div class="flex items-center justify-between pb-2 border-b border-blue-100/50">
+            <div class="flex items-center space-x-1.5 text-xs text-slate-800">
+              <svg width="15" height="15" style="width: 15px; height: 15px;" class="text-[#1d4ed8] fill-current shrink-0" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+              </svg>
+              <span class="text-slate-700">Deliver to</span>
+              <span id="pdpLocation" class="font-bold text-slate-900">Mumbai - 400051</span>
+              <svg width="12" height="12" style="width: 12px; height: 12px;" class="text-slate-600 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </div>
+            <svg width="14" height="14" style="width: 14px; height: 14px;" class="text-slate-400 stroke-[2.4] group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+          </div>
+          <div class="flex items-center space-x-2.5 pt-2">
+            <div class="w-6.5 h-6.5 rounded-full bg-green-100/90 flex items-center justify-center shrink-0">
+              <svg width="14" height="14" style="width: 14px; height: 14px;" class="text-green-700 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Zm11.25 0a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Zm-11.25-3.75h11.25M6 15l2-8h5l1.5 4h3.5" />
+              </svg>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-green-700 leading-tight">Delivery by Tomorrow</div>
+              <div class="text-[10.5px] text-slate-500 leading-tight">Free delivery on orders above ₹499</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Tabs (Overview, Uses, Safety, Details) -->
+        <div class="mt-3.5">
+          <!-- Tab Pills -->
+          <div class="flex items-center space-x-1 p-1 bg-slate-100/80 rounded-xl">
+            <button onclick="switchPdpTab('overview')" id="pdpTabBtn-overview" class="pdp-tab-btn flex-1 py-1.5 text-xs font-bold rounded-lg transition-all bg-[#1d4ed8] text-white shadow-2xs">Overview</button>
+            <button onclick="switchPdpTab('uses')" id="pdpTabBtn-uses" class="pdp-tab-btn flex-1 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 rounded-lg transition-all">Uses</button>
+            <button onclick="switchPdpTab('safety')" id="pdpTabBtn-safety" class="pdp-tab-btn flex-1 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 rounded-lg transition-all">Safety</button>
+            <button onclick="switchPdpTab('details')" id="pdpTabBtn-details" class="pdp-tab-btn flex-1 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 rounded-lg transition-all">Details</button>
+          </div>
+          
+          <!-- Tab Content Text -->
+          <div class="mt-2.5 px-0.5 min-h-[48px]">
+            <p id="pdpTabContent" class="text-xs text-slate-600 leading-relaxed">
+              Paracetamol is commonly used for temporary relief of pain and fever. Follow the product label and advice of a healthcare professional.
+            </p>
+          </div>
+        </div>
+
+        <!-- 7. Product details Grid Card -->
+        <div class="bg-[#f8faff] border border-blue-100/70 rounded-2xl p-3.5 mt-3">
+          <h3 class="text-xs font-extrabold text-slate-900 mb-2.5">Product details</h3>
+          <div class="grid grid-cols-3 divide-x divide-slate-200 text-center">
+            <!-- 1. Manufacturer -->
+            <div class="flex flex-col items-center px-1">
+              <svg width="18" height="18" style="width: 18px; height: 18px;" class="text-slate-600 stroke-[1.8] mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m0 4.5h6" />
+              </svg>
+              <span class="text-[9.5px] text-slate-400">Manufacturer</span>
+              <span id="pdpManufacturer" class="text-[11px] font-bold text-slate-900 mt-0.5 truncate max-w-full">Mednutra</span>
+            </div>
+            <!-- 2. Pack size -->
+            <div class="flex flex-col items-center px-1">
+              <svg width="18" height="18" style="width: 18px; height: 18px;" class="text-slate-600 stroke-[1.8] mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+              </svg>
+              <span class="text-[9.5px] text-slate-400">Pack size</span>
+              <span id="pdpPackSize" class="text-[11px] font-bold text-slate-900 mt-0.5 truncate max-w-full">10 tablets</span>
+            </div>
+            <!-- 3. Type -->
+            <div class="flex flex-col items-center px-1">
+              <svg width="18" height="18" style="width: 18px; height: 18px;" class="text-slate-600 stroke-[1.8] mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m10.5 19.5 7.5-7.5a4.5 4.5 0 0 0-6.364-6.364l-7.5 7.5a4.5 4.5 0 0 0 6.364 6.364Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 11.25 4.5 4.5" />
+              </svg>
+              <span class="text-[9.5px] text-slate-400">Type</span>
+              <span id="pdpType" class="text-[11px] font-bold text-slate-900 mt-0.5 truncate max-w-full">Tablet</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PDP Sticky Bottom Action Bar (Stepper + Add to Cart + Buy Now) -->
+      <div class="sticky bottom-[56px] left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-slate-100 px-3.5 py-2.5 flex items-center space-x-2 shadow-[0_-4px_12px_rgba(0,0,0,0.04)]">
+        <!-- Quantity Stepper -->
+        <div class="flex items-center justify-between border border-slate-200 rounded-xl px-2 h-11 w-24 bg-white shrink-0 shadow-2xs">
+          <button onclick="decrementPdpQty()" class="w-6 h-6 flex items-center justify-center font-bold text-slate-600 hover:text-slate-900 active:scale-90 text-sm focus:outline-none">-</button>
+          <span id="pdpQtyNumber" class="text-xs font-extrabold text-slate-900 px-1">1</span>
+          <button onclick="incrementPdpQty()" class="w-6 h-6 flex items-center justify-center font-bold text-slate-600 hover:text-slate-900 active:scale-90 text-sm focus:outline-none">+</button>
+        </div>
+
+        <!-- Add to Cart (Solid green button) -->
+        <button onclick="addPdpToCart()" class="flex-1 bg-[#2e7d32] hover:bg-[#256829] active:scale-[0.98] text-white font-bold text-xs h-11 rounded-xl shadow-xs flex items-center justify-center gap-1.5 transition-all">
+          <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+          </svg>
+          <span>Add to Cart</span>
+        </button>
+
+        <!-- Buy Now (White button with blue border) -->
+        <button onclick="buyNowPdp()" class="flex-1 bg-white hover:bg-blue-50/50 active:scale-[0.98] border-2 border-[#1d4ed8] text-[#1d4ed8] font-bold text-xs h-11 rounded-xl shadow-xs flex items-center justify-center gap-1.5 transition-all">
+          <svg width="14" height="14" style="width: 14px; height: 14px;" class="fill-[#1d4ed8]" viewBox="0 0 24 24">
+            <path d="M13 2L3 14h7v8l10-12h-7l3-8z"/>
+          </svg>
+          <span>Buy Now</span>
+        </button>
+      </div>
 
     </div>
 
@@ -757,11 +1016,11 @@
     function renderAddButton(id, title, price) {
       const container = document.getElementById(`btn-container-${id}`);
       container.innerHTML = `
-        <button onclick="addToCart(${id}, '${title}', ${price})" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10.5px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all">
-          <svg width="13" height="13" style="width: 13px; height: 13px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button onclick="addToCart(${id}, '${title}', ${price})" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all whitespace-nowrap">
+          <svg width="12" height="12" style="width: 12px; height: 12px; min-width: 12px; min-height: 12px;" class="stroke-[2.2] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
           </svg>
-          Add to Cart
+          <span>Add to Cart</span>
         </button>
       `;
     }
@@ -844,6 +1103,83 @@
         selectLocation(val);
       }
     }
+
+    // Hero Banner Carousel Controller (3 Banners: banner.png, banner2.png, banner3.png)
+    let currentBannerIdx = 0;
+    const totalBanners = 3;
+    let bannerTimer = null;
+
+    function updateBannerUI() {
+      const track = document.getElementById('bannerTrack');
+      if (track) {
+        track.style.transform = `translateX(-${currentBannerIdx * 100}%)`;
+      }
+      const dots = document.querySelectorAll('.banner-dot');
+      dots.forEach((dot, idx) => {
+        if (idx === currentBannerIdx) {
+          dot.className = 'banner-dot w-4 h-1.5 rounded-full bg-white transition-all duration-300';
+        } else {
+          dot.className = 'banner-dot w-1.5 h-1.5 rounded-full bg-white/60 hover:bg-white transition-all duration-300';
+        }
+      });
+    }
+
+    function nextBanner(e) {
+      if (e) e.stopPropagation();
+      currentBannerIdx = (currentBannerIdx + 1) % totalBanners;
+      updateBannerUI();
+      resetBannerTimer();
+    }
+
+    function prevBanner(e) {
+      if (e) e.stopPropagation();
+      currentBannerIdx = (currentBannerIdx - 1 + totalBanners) % totalBanners;
+      updateBannerUI();
+      resetBannerTimer();
+    }
+
+    function goToBanner(idx) {
+      currentBannerIdx = idx;
+      updateBannerUI();
+      resetBannerTimer();
+    }
+
+    function resetBannerTimer() {
+      if (bannerTimer) clearInterval(bannerTimer);
+      bannerTimer = setInterval(() => {
+        currentBannerIdx = (currentBannerIdx + 1) % totalBanners;
+        updateBannerUI();
+      }, 4000);
+    }
+
+    // Initialize Banner Carousel & Touch Swipe Handling
+    (function initBannerCarousel() {
+      resetBannerTimer();
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      function attachSwipe() {
+        const track = document.getElementById('bannerTrack');
+        if (!track) return;
+        track.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        track.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          const diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > 40) {
+            if (diff > 0) nextBanner();
+            else prevBanner();
+          }
+        }, { passive: true });
+      }
+
+      if (document.readyState === 'loading') {
+        window.addEventListener('DOMContentLoaded', attachSwipe);
+      } else {
+        attachSwipe();
+      }
+    })();
   </script>
 </body>
 </html>
