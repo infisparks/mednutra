@@ -168,7 +168,7 @@
         </div>
 
         <!-- Search Bar with Scanner Icon (With Explicit Sizes to Prevent Icon Expansion) -->
-        <div class="pt-1 pb-2.5">
+        <div class="pt-0.5 pb-1">
           <div class="relative flex items-center w-full bg-[#f8fafc] border border-slate-200 rounded-xl px-3 py-2 shadow-2xs focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100 transition-all">
             <!-- Magnifying Glass Icon (Fixed explicit width/height) -->
             <svg width="18" height="18" style="width: 18px; height: 18px; min-width: 18px; max-width: 18px;" class="text-slate-400 stroke-[2.2] mr-2.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -189,10 +189,10 @@
       </header>
 
       <!-- Main Body Content -->
-      <main class="px-4 space-y-3.5 pt-2 pb-6">
+      <main class="px-4 space-y-3.5 pt-0 pb-6">
         
         <!-- 1. Hero Banner Carousel: 3 Banners (Auto-sliding + Touch Swipe + Dot Indicators) -->
-        <section class="w-full relative select-none">
+        <section class="w-full relative select-none -mt-1.5">
           <div class="relative w-full aspect-[2/1] overflow-hidden group">
             
             <!-- Slides Track -->
@@ -666,7 +666,7 @@
           </button>
 
           <!-- Center Product Image -->
-          <div class="w-full h-36 flex items-center justify-center py-2">
+          <div class="w-full h-44 flex items-center justify-center py-1">
             <img id="pdpImage" src="image/product/paracetamol.png" alt="Product" class="max-h-full max-w-full object-contain filter drop-shadow-md transition-transform duration-300">
           </div>
 
@@ -997,13 +997,22 @@
 
     function updateCartBadge() {
       const badge = document.getElementById('cartCount');
-      badge.innerText = cartTotalItems;
-      badge.classList.add('scale-125');
-      setTimeout(() => badge.classList.remove('scale-125'), 200);
+      if (badge) {
+        badge.innerText = cartTotalItems;
+        badge.classList.add('scale-125');
+        setTimeout(() => badge.classList.remove('scale-125'), 200);
+      }
+      const pdpBadge = document.getElementById('pdpCartCount');
+      if (pdpBadge) {
+        pdpBadge.innerText = cartTotalItems;
+        pdpBadge.classList.add('scale-125');
+        setTimeout(() => pdpBadge.classList.remove('scale-125'), 200);
+      }
     }
 
     function renderQuantityControl(id, title, price) {
       const container = document.getElementById(`btn-container-${id}`);
+      if (!container) return;
       container.innerHTML = `
         <div class="flex items-center bg-[#2e7d32] text-white rounded-lg px-1.5 py-1 shadow-xs gap-1.5">
           <button onclick="changeQty(${id}, -1, '${title}', ${price})" class="w-4 h-4 flex items-center justify-center font-bold text-white hover:bg-black/20 rounded active:scale-90">-</button>
@@ -1015,6 +1024,7 @@
 
     function renderAddButton(id, title, price) {
       const container = document.getElementById(`btn-container-${id}`);
+      if (!container) return;
       container.innerHTML = `
         <button onclick="addToCart(${id}, '${title}', ${price})" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all whitespace-nowrap">
           <svg width="12" height="12" style="width: 12px; height: 12px; min-width: 12px; min-height: 12px;" class="stroke-[2.2] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1054,6 +1064,10 @@
       activeLabel.classList.add('font-bold', 'text-[#1d4ed8]');
       activeLabel.classList.remove('font-medium', 'text-slate-600');
 
+      if (tabName === 'Home') {
+        closeProductDetail();
+      }
+
       showToast(`Switched to ${tabName}`);
     }
 
@@ -1092,7 +1106,10 @@
     }
 
     function selectLocation(loc) {
-      document.getElementById('currentLocation').innerText = loc;
+      const curLoc = document.getElementById('currentLocation');
+      if (curLoc) curLoc.innerText = loc;
+      const pdpLoc = document.getElementById('pdpLocation');
+      if (pdpLoc) pdpLoc.innerText = loc;
       toggleLocationModal();
       showToast(`Delivery location updated to ${loc}`);
     }
@@ -1101,6 +1118,258 @@
       const val = document.getElementById('pincodeInput').value.trim();
       if (val) {
         selectLocation(val);
+      }
+    }
+
+    // Product Detail Page (PDP) Data & Controller
+    const productsData = {
+      1: {
+        id: 1,
+        title: "Paracetamol Tablets IP 500 mg",
+        subtitle: "Strip of 10 Tablets",
+        category: "Pain Relief",
+        price: "₹40",
+        rawPrice: 40,
+        mrp: "₹50",
+        discount: "20% OFF",
+        rating: "4.8",
+        reviews: "2,450 Reviews",
+        bought: "1,200+ bought this month",
+        image: "image/product/paracetamol.png",
+        manufacturer: "Mednutra",
+        packSize: "10 tablets",
+        type: "Tablet",
+        tabs: {
+          overview: "Paracetamol is commonly used for temporary relief of pain and fever. Follow the product label and advice of a healthcare professional.",
+          uses: "Relieves mild to moderate pain including headache, toothache, muscle aches, backache, and reduces fever caused by cold or flu infections.",
+          safety: "Do not exceed the recommended dose. Avoid taking other paracetamol-containing products concurrently. Consult a physician if fever lasts over 3 days.",
+          details: "Composition: Paracetamol IP 500mg. Storage: Store below 30°C in a dry place protected from direct sunlight and moisture."
+        }
+      },
+      2: {
+        id: 2,
+        title: "Vitamin C 1000mg + Zinc",
+        subtitle: "Bottle of 60 Chewable Tablets",
+        category: "Vitamins & Supplements",
+        price: "₹299",
+        rawPrice: 299,
+        mrp: "₹399",
+        discount: "25% OFF",
+        rating: "4.9",
+        reviews: "1,820 Reviews",
+        bought: "850+ bought this month",
+        image: "image/product/vitaminc.png",
+        manufacturer: "Mednutra",
+        packSize: "60 tablets",
+        type: "Chewable",
+        tabs: {
+          overview: "Boost immunity and daily wellness with natural Vitamin C and Zinc. Supports skin health and antioxidant defenses with tangy citrus flavor.",
+          uses: "Daily immune booster, enhances collagen synthesis, promotes cellular rejuvenation, and supports vitality.",
+          safety: "Health supplement, not for medicinal use. Do not exceed the stated recommended daily dosage.",
+          details: "Composition: Vitamin C (Ascorbic Acid) 1000mg, Zinc 10mg. 100% vegetarian, sugar-free chewables."
+        }
+      },
+      3: {
+        id: 3,
+        title: "Daily Multivitamin Complex",
+        subtitle: "Bottle of 60 Tablets",
+        category: "Vitamins & Supplements",
+        price: "₹349",
+        rawPrice: 349,
+        mrp: "₹499",
+        discount: "30% OFF",
+        rating: "4.7",
+        reviews: "980 Reviews",
+        bought: "600+ bought this month",
+        image: "image/product/multivitamin.png",
+        manufacturer: "Mednutra",
+        packSize: "60 tablets",
+        type: "Tablet",
+        tabs: {
+          overview: "Comprehensive daily nutritional support packed with 24 essential vitamins and minerals for sustained energy and active lifestyle.",
+          uses: "Promotes cardiovascular health, metabolic energy, joint and bone strength, and cognitive vitality.",
+          safety: "Consult healthcare professional before use if you are pregnant, nursing, or undergoing treatment for an existing condition.",
+          details: "Vitamins A, B-Complex, C, D3, E, Biotin, Calcium, Iron, Magnesium, Zinc, and botanical extracts."
+        }
+      },
+      4: {
+        id: 4,
+        title: "Vitamin D3 60K IU",
+        subtitle: "Pack of 4 Capsules",
+        category: "Vitamins & Supplements",
+        price: "₹120",
+        rawPrice: 120,
+        mrp: "₹150",
+        discount: "20% OFF",
+        rating: "4.9",
+        reviews: "3,100 Reviews",
+        bought: "2,000+ bought this month",
+        image: "image/product/vitamind.png",
+        manufacturer: "Mednutra",
+        packSize: "4 capsules",
+        type: "Softgel",
+        tabs: {
+          overview: "High-potency Cholecalciferol (Vitamin D3) for maximum bone density, rapid calcium absorption, and muscle support.",
+          uses: "Effective treatment and prevention of Vitamin D deficiency, strengthens bones and teeth, and supports immune regulation.",
+          safety: "Strictly follow prescription guidelines (commonly taken once weekly). Keep out of reach of children.",
+          details: "Composition: Cholecalciferol IP 60,000 IU soft gelatin capsules. Store in a cool, dark place."
+        }
+      }
+    };
+
+    let currentPdpId = 1;
+    let currentPdpQty = 1;
+    let currentPdpTab = 'overview';
+
+    function openProductDetail(id) {
+      const prod = productsData[id] || productsData[1];
+      currentPdpId = id;
+      currentPdpQty = 1;
+
+      // Update text fields
+      const breadcrumbEl = document.getElementById('pdpBreadcrumbCategory');
+      if (breadcrumbEl) breadcrumbEl.innerText = prod.category;
+      
+      const imgEl = document.getElementById('pdpImage');
+      if (imgEl) {
+        imgEl.src = prod.image;
+        imgEl.alt = prod.title;
+      }
+      
+      const titleEl = document.getElementById('pdpTitle');
+      if (titleEl) titleEl.innerText = prod.title;
+      
+      const subEl = document.getElementById('pdpSubtitle');
+      if (subEl) subEl.innerText = prod.subtitle;
+      
+      const ratingEl = document.getElementById('pdpRating');
+      if (ratingEl) ratingEl.innerText = prod.rating;
+      
+      const revEl = document.getElementById('pdpReviews');
+      if (revEl) revEl.innerText = prod.reviews;
+      
+      const boughtEl = document.getElementById('pdpBought');
+      if (boughtEl) boughtEl.innerText = prod.bought;
+      
+      const priceEl = document.getElementById('pdpPrice');
+      if (priceEl) priceEl.innerText = prod.price;
+      
+      const mrpEl = document.getElementById('pdpMrp');
+      if (mrpEl) mrpEl.innerText = prod.mrp;
+      
+      const discEl = document.getElementById('pdpDiscount');
+      if (discEl) discEl.innerText = prod.discount;
+      
+      const mfgEl = document.getElementById('pdpManufacturer');
+      if (mfgEl) mfgEl.innerText = prod.manufacturer;
+      
+      const packEl = document.getElementById('pdpPackSize');
+      if (packEl) packEl.innerText = prod.packSize;
+      
+      const typeEl = document.getElementById('pdpType');
+      if (typeEl) typeEl.innerText = prod.type;
+
+      const curLoc = document.getElementById('currentLocation');
+      const pdpLoc = document.getElementById('pdpLocation');
+      if (curLoc && pdpLoc) {
+        pdpLoc.innerText = curLoc.innerText;
+      }
+
+      const qtyEl = document.getElementById('pdpQtyNumber');
+      if (qtyEl) qtyEl.innerText = currentPdpQty;
+      
+      switchPdpTab('overview');
+      updateCartBadge();
+
+      // Show PDP, hide Home
+      const homeView = document.getElementById('homeView');
+      const pdpView = document.getElementById('productDetailView');
+      if (homeView && pdpView) {
+        homeView.classList.add('hidden');
+        pdpView.classList.remove('hidden');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function closeProductDetail() {
+      const homeView = document.getElementById('homeView');
+      const pdpView = document.getElementById('productDetailView');
+      if (homeView && pdpView) {
+        pdpView.classList.add('hidden');
+        homeView.classList.remove('hidden');
+      }
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    function switchPdpTab(tabName) {
+      currentPdpTab = tabName;
+      const tabKeys = ['overview', 'uses', 'safety', 'details'];
+      tabKeys.forEach(t => {
+        const btn = document.getElementById('pdpTabBtn-' + t);
+        if (btn) {
+          if (t === tabName) {
+            btn.className = 'pdp-tab-btn flex-1 py-1.5 text-xs font-bold rounded-lg transition-all bg-[#1d4ed8] text-white shadow-2xs';
+          } else {
+            btn.className = 'pdp-tab-btn flex-1 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 rounded-lg transition-all';
+          }
+        }
+      });
+
+      const prod = productsData[currentPdpId] || productsData[1];
+      const contentEl = document.getElementById('pdpTabContent');
+      if (contentEl && prod.tabs && prod.tabs[tabName]) {
+        contentEl.innerText = prod.tabs[tabName];
+      }
+    }
+
+    function incrementPdpQty() {
+      currentPdpQty++;
+      const qtyEl = document.getElementById('pdpQtyNumber');
+      if (qtyEl) qtyEl.innerText = currentPdpQty;
+    }
+
+    function decrementPdpQty() {
+      if (currentPdpQty > 1) {
+        currentPdpQty--;
+        const qtyEl = document.getElementById('pdpQtyNumber');
+        if (qtyEl) qtyEl.innerText = currentPdpQty;
+      }
+    }
+
+    function addPdpToCart() {
+      const prod = productsData[currentPdpId];
+      if (!prod) return;
+      
+      cartQuantities[currentPdpId] = (cartQuantities[currentPdpId] || 0) + currentPdpQty;
+      cartTotalItems += currentPdpQty;
+      updateCartBadge();
+      renderQuantityControl(currentPdpId, prod.title, prod.rawPrice);
+      showToast(`${currentPdpQty} x ${prod.title} added to Cart! 🛒`);
+    }
+
+    function buyNowPdp() {
+      const prod = productsData[currentPdpId];
+      if (!prod) return;
+      
+      cartQuantities[currentPdpId] = (cartQuantities[currentPdpId] || 0) + currentPdpQty;
+      cartTotalItems += currentPdpQty;
+      updateCartBadge();
+      renderQuantityControl(currentPdpId, prod.title, prod.rawPrice);
+      showToast(`Redirecting to Checkout: ${prod.title} ⚡`);
+    }
+
+    function togglePdpWishlist(btn) {
+      const svg = btn.querySelector('svg');
+      if (btn.classList.contains('text-red-500')) {
+        btn.classList.remove('text-red-500');
+        btn.classList.add('text-slate-500');
+        if (svg) svg.setAttribute('fill', 'none');
+        showToast('Removed from Wishlist');
+      } else {
+        btn.classList.remove('text-slate-500');
+        btn.classList.add('text-red-500');
+        if (svg) svg.setAttribute('fill', '#ef4444');
+        showToast('Added to Wishlist ❤️');
       }
     }
 
