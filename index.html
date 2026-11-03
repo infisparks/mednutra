@@ -193,8 +193,8 @@
         
         <!-- 1. Hero Banner: Your Health, Our Priority -->
         <section class="w-full relative cursor-pointer" onclick="showToast('Browsing Health Deals up to 30% OFF!')">
-          <div class="relative w-full rounded-2xl overflow-hidden shadow-xs border border-blue-50/80 active:scale-[0.99] transition-transform">
-            <img src="image/banner.png" alt="Your Health, Our Priority - Order genuine medicines online. Shop Now. Up to 30% OFF" class="w-full h-auto object-cover select-none">
+          <div class="relative w-full aspect-[1719/758] rounded-2xl overflow-hidden shadow-xs border border-blue-50/80 active:scale-[0.99] transition-transform">
+            <img src="image/banner.png" alt="Your Health, Our Priority - Order genuine medicines online. Shop Now. Up to 30% OFF" class="w-full h-full object-cover select-none">
           </div>
         </section>
 
@@ -324,36 +324,36 @@
         </section>
 
         <!-- 4. Flat 20% OFF Offer Card -->
-        <section class="relative w-full rounded-2xl bg-gradient-to-r from-[#eefbf3] via-[#f2fdf6] to-[#e4f7eb] border border-green-200/50 px-3.5 py-2.5 shadow-2xs overflow-hidden flex items-center justify-between select-none">
+        <section class="relative w-full h-[68px] min-h-[68px] max-h-[68px] rounded-2xl bg-gradient-to-r from-[#eefbf3] via-[#f2fdf6] to-[#e4f7eb] border border-green-200/50 px-3.5 shadow-2xs overflow-hidden flex items-center justify-between select-none">
           
           <!-- Left Info: Percentage icon + Texts -->
-          <div class="flex items-center space-x-2.5 z-10">
-            <!-- Percentage badge icon -->
-            <div class="w-8.5 h-8.5 shrink-0 flex items-center justify-center">
-              <img src="image/offer/percentage.png" alt="Discount" class="w-full h-full object-contain">
+          <div class="flex items-center space-x-2.5 z-10 min-w-0">
+            <!-- Percentage badge icon (Explicit fixed width & height) -->
+            <div class="w-9 h-9 min-w-[36px] max-w-[36px] h-[36px] shrink-0 flex items-center justify-center">
+              <img src="image/offer/percentage.png" alt="Discount" style="width: 36px; height: 36px; max-width: 36px; max-height: 36px;" class="w-9 h-9 object-contain shrink-0">
             </div>
-            <div>
-              <h3 class="text-[15px] font-extrabold text-slate-900 tracking-tight leading-tight">Flat 20% OFF</h3>
-              <p class="text-[11px] font-medium text-slate-600 mt-0.5 leading-none">on First Medicine Order</p>
+            <div class="min-w-0">
+              <h3 class="text-[14.5px] font-extrabold text-slate-900 tracking-tight leading-tight truncate">Flat 20% OFF</h3>
+              <p class="text-[11px] font-medium text-slate-600 mt-0.5 leading-none truncate">on First Medicine Order</p>
             </div>
           </div>
 
           <!-- Right: Coupon Code box -->
-          <div class="flex items-center space-x-2 z-10">
-            <div onclick="copyCoupon('MED20')" class="cursor-pointer bg-white/95 border border-dashed border-[#22c55e] rounded-lg px-2.5 py-1 flex items-center space-x-1.5 shadow-2xs hover:bg-white active:scale-95 transition-all" title="Click to copy coupon code">
+          <div class="flex items-center space-x-2 z-10 shrink-0">
+            <div onclick="copyCoupon('MED20')" class="cursor-pointer bg-white/95 border border-dashed border-[#22c55e] rounded-lg px-2.5 py-1.5 flex items-center space-x-1.5 shadow-2xs hover:bg-white active:scale-95 transition-all" title="Click to copy coupon code">
               <div class="flex flex-col text-left">
                 <span class="text-[9px] font-bold text-[#16a34a] leading-none uppercase tracking-wider">Use Code</span>
                 <span class="text-[13px] font-extrabold text-[#15803d] tracking-wide mt-0.5 leading-tight">MED20</span>
               </div>
               <!-- Copy Icon -->
-              <svg width="14" height="14" style="width: 14px; height: 14px;" class="text-[#16a34a] stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg width="14" height="14" style="width: 14px; height: 14px; min-width: 14px; min-height: 14px;" class="text-[#16a34a] stroke-[2.2] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75" />
               </svg>
             </div>
           </div>
 
-          <!-- Decorative Leaves peaking from right edge -->
-          <img src="image/offer/leave.png" alt="" class="absolute right-0 top-0 bottom-0 h-full w-auto object-contain pointer-events-none opacity-90 select-none z-0">
+          <!-- Decorative Leaves peaking from right edge (Strictly bounded so it cannot expand or shift layout) -->
+          <img src="image/offer/leave.png" alt="" class="absolute right-0 top-0 bottom-0 h-full w-28 max-w-[120px] object-cover object-right pointer-events-none opacity-85 select-none z-0">
         </section>
 
         <!-- 5. Shop Medicines Section -->
