@@ -137,7 +137,7 @@
             </button>
 
             <!-- Shopping Cart with Green Badge '3' -->
-            <button class="relative p-1 text-slate-800 hover:text-slate-600 focus:outline-none transition-colors" aria-label="Shopping Cart" id="cartBtn" onclick="showToast('Opening Cart (3 items)')">
+            <button class="relative p-1 text-slate-800 hover:text-slate-600 focus:outline-none transition-colors" aria-label="Shopping Cart" id="cartBtn" onclick="openCartView('homeView')">
               <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
               </svg>
@@ -632,7 +632,7 @@
           </button>
 
           <!-- Shopping Cart with Live Badge -->
-          <button onclick="showToast(`Cart has ${cartTotalItems} items`)" class="relative p-1 text-slate-800 hover:text-slate-600 focus:outline-none transition-colors" aria-label="Shopping Cart">
+          <button onclick="openCartView('productDetailView')" class="relative p-1 text-slate-800 hover:text-slate-600 focus:outline-none transition-colors" aria-label="Shopping Cart">
             <svg width="21" height="21" style="width: 21px; height: 21px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
             </svg>
@@ -829,8 +829,468 @@
 
     </div>
 
+    <!-- 2. Your Cart View (Matches exact UX/UI from design reference) -->
+    <div id="cartView" class="w-full hidden bg-[#f8fafc] min-h-screen flex flex-col justify-between">
+      
+      <!-- Top Scrollable Content -->
+      <div class="w-full">
+        <!-- Cart Page Sticky Header -->
+        <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-slate-100 shadow-[0_1px_4px_rgba(0,0,0,0.02)]">
+          <!-- Back Arrow Button -->
+          <button onclick="closeCartView()" class="p-1 -ml-1 text-slate-800 hover:text-slate-600 active:scale-95 focus:outline-none transition-all" aria-label="Go Back">
+            <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[2.4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+          </button>
+
+          <!-- Mednutra Logo -->
+          <div class="flex items-center justify-center cursor-pointer select-none -ml-4" onclick="closeCartView()">
+            <img src="image/logo.png" alt="Mednutra" class="h-7 w-auto max-w-[140px] object-contain drop-shadow-xs">
+          </div>
+
+          <!-- Customer Support Headset Icon -->
+          <button onclick="showToast('Customer Support: +91 1800-MEDNUTRA (24/7)')" class="p-1 text-slate-800 hover:text-slate-600 focus:outline-none transition-colors" aria-label="Customer Support">
+            <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 18v-6a9 9 0 0 1 18 0v6" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+            </svg>
+          </button>
+        </header>
+
+        <!-- Stepper / Checkout Progress Bar (Step 1: Cart Active) -->
+        <div class="bg-white px-5 pt-3 pb-3 border-b border-slate-100 select-none">
+          <div class="flex items-center justify-between relative max-w-[380px] mx-auto">
+            
+            <!-- Step 1: Cart (Active) -->
+            <div class="flex flex-col items-center relative z-10">
+              <div class="w-8 h-8 rounded-full bg-[#1d4ed8] text-white flex items-center justify-center shadow-xs">
+                <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                </svg>
+              </div>
+              <span class="text-[11px] font-bold text-[#1d4ed8] mt-1">Cart</span>
+            </div>
+
+            <!-- Connector 1 (Gray) -->
+            <div class="flex-1 h-0.5 bg-slate-200 -mt-4 mx-1"></div>
+
+            <!-- Step 2: Address -->
+            <div class="flex flex-col items-center relative z-10">
+              <div class="w-8 h-8 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center text-slate-700">
+                <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                </svg>
+              </div>
+              <span class="text-[11px] font-medium text-slate-500 mt-1">Address</span>
+            </div>
+
+            <!-- Connector 2 (Gray) -->
+            <div class="flex-1 h-0.5 bg-slate-200 -mt-4 mx-1"></div>
+
+            <!-- Step 3: Payment -->
+            <div class="flex flex-col items-center relative z-10">
+              <div class="w-8 h-8 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center text-slate-700">
+                <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="2" y="5" width="20" height="14" rx="2" stroke-width="2"/>
+                  <line x1="2" y1="10" x2="22" y2="10" stroke-width="2"/>
+                </svg>
+              </div>
+              <span class="text-[11px] font-medium text-slate-500 mt-1">Payment</span>
+            </div>
+
+            <!-- Connector 3 (Gray) -->
+            <div class="flex-1 h-0.5 bg-slate-200 -mt-4 mx-1"></div>
+
+            <!-- Step 4: Order -->
+            <div class="flex flex-col items-center relative z-10">
+              <div class="w-8 h-8 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center text-slate-700">
+                <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2.4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+              </div>
+              <span class="text-[11px] font-medium text-slate-500 mt-1">Order</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Scrollable Cart Content Area -->
+        <div class="px-4 py-3.5 space-y-3.5">
+          
+          <!-- Cart Title & Clear Cart Button -->
+          <div class="flex items-center justify-between">
+            <h1 class="text-[19px] font-extrabold text-slate-900 tracking-tight leading-snug">
+              Your Cart <span id="cartHeaderCount" class="font-bold text-slate-500 text-sm">(3 Items)</span>
+            </h1>
+            <button onclick="clearFullCart()" class="flex items-center space-x-1 border border-slate-200/90 rounded-lg px-2.5 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-red-600 transition-colors cursor-pointer active:scale-95">
+              <svg width="14" height="14" style="width: 14px; height: 14px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+              </svg>
+              <span>Clear Cart</span>
+            </button>
+          </div>
+
+          <!-- Cart Items Dynamic List -->
+          <div id="cartItemsList" class="space-y-2.5">
+            <!-- Dynamic items rendered via renderCartItems() -->
+          </div>
+
+          <!-- Apply Coupon Card -->
+          <div onclick="toggleCheckoutCoupon()" class="rounded-2xl p-3 border border-slate-200/90 bg-white hover:border-green-300 hover:bg-green-50/20 shadow-2xs transition-all cursor-pointer flex items-center justify-between group">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-green-50 border border-green-200/60 text-[#16a34a] flex items-center justify-center shrink-0">
+                <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 14.25l6-6m4.5 3a2.25 2.25 0 000-4.5V4.5A2.25 2.25 0 0017.25 2.25H6.75A2.25 2.25 0 004.5 4.5v2.25a2.25 2.25 0 000 4.5V19.5A2.25 2.25 0 006.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-2.25a2.25 2.25 0 000-4.5z" />
+                  <circle cx="8.5" cy="8.5" r="1.25" fill="currentColor" />
+                  <circle cx="15.5" cy="15.5" r="1.25" fill="currentColor" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-[13.5px] font-bold text-slate-900 leading-snug">Apply Coupon</div>
+                <div class="text-[11px] text-slate-500 font-medium">Save more on your order</div>
+              </div>
+            </div>
+            <!-- Right Arrow -->
+            <svg width="16" height="16" style="width: 16px; height: 16px;" class="text-slate-400 stroke-[2.2] group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+          </div>
+
+          <!-- Free Delivery Banner -->
+          <div class="bg-[#f0fdf4] border border-green-200/80 rounded-2xl p-3 flex items-center space-x-3 select-none">
+            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center shrink-0 text-[#15803d]">
+              <svg width="18" height="18" style="width: 18px; height: 18px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Zm11.25 0a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Zm-11.25-3.75h11.25M6 15l2-8h5l1.5 4h3.5" />
+              </svg>
+            </div>
+            <div>
+              <div class="text-xs font-extrabold text-[#15803d] leading-tight">FREE Delivery</div>
+              <div class="text-[11px] text-slate-600 leading-tight mt-0.5">on orders above ₹499</div>
+            </div>
+          </div>
+
+          <!-- Order Summary Card -->
+          <div class="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-2xs space-y-2.5">
+            <h3 class="text-[15px] font-extrabold text-slate-900">Order Summary</h3>
+            
+            <div class="space-y-1.5 text-xs">
+              <!-- Item Total -->
+              <div class="flex items-center justify-between text-slate-600">
+                <span id="cartSummaryItemLabel">Item Total (3 Items)</span>
+                <span id="cartSummaryItemTotal" class="font-bold text-slate-900">₹399</span>
+              </div>
+              
+              <!-- Discount -->
+              <div class="flex items-center justify-between text-[#16a34a] font-medium">
+                <span>Discount</span>
+                <span id="cartSummaryDiscount" class="font-bold text-[#16a34a]">- ₹105</span>
+              </div>
+
+              <!-- Delivery Charges -->
+              <div class="flex items-center justify-between text-slate-600">
+                <div class="flex items-center space-x-1">
+                  <span>Delivery Charges</span>
+                  <button onclick="showToast('Free delivery above ₹499. Standard charge is ₹40.')" class="text-slate-400 hover:text-slate-600 focus:outline-none">
+                    <svg width="13" height="13" style="width: 13px; height: 13px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="9"/>
+                      <line x1="12" y1="8" x2="12" y2="12"/>
+                      <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                  </button>
+                </div>
+                <span id="cartSummaryDelivery" class="font-bold text-slate-900">₹40</span>
+              </div>
+            </div>
+
+            <div class="border-t border-slate-100 pt-2.5">
+              <div class="flex items-baseline justify-between">
+                <span class="text-sm font-extrabold text-slate-900">Total Payable</span>
+                <span id="cartSummaryTotalPayable" class="text-[22px] font-extrabold text-[#1d4ed8]">₹334</span>
+              </div>
+              <!-- Green Savings Text -->
+              <div id="cartSavingsBanner" class="text-xs font-semibold text-[#15803d] mt-1 flex items-center space-x-1">
+                <span>You saved <span id="cartSavingsAmount">₹105</span> on this order</span>
+                <span>🎉</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Sticky Bottom Action Bar (Proceed to Checkout) -->
+      <div class="sticky bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-slate-100 px-4 py-3 shadow-[0_-4px_16px_rgba(0,0,0,0.05)]">
+        <button onclick="openPaymentView('cartView')" class="w-full bg-[#1d4ed8] hover:bg-[#1e40af] active:scale-[0.98] text-white font-bold text-sm h-12 rounded-xl shadow-md flex items-center justify-center space-x-2 transition-all cursor-pointer">
+          <span>Proceed to Checkout</span>
+          <span class="text-base font-bold">→</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- 3. Checkout / Payment Method View (Matches exact UX/UI from design reference) -->
+    <div id="checkoutPaymentView" class="w-full hidden bg-[#f8fafc] min-h-screen flex flex-col justify-between">
+      
+      <!-- Top Scrollable Section -->
+      <div class="w-full">
+        <!-- Payment Page Sticky Header -->
+        <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-slate-100 shadow-[0_1px_4px_rgba(0,0,0,0.02)]">
+          <!-- Back Arrow Button -->
+          <button onclick="closePaymentView()" class="p-1 -ml-1 text-slate-800 hover:text-slate-600 active:scale-95 focus:outline-none transition-all" aria-label="Go Back">
+            <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[2.4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+          </button>
+
+          <!-- Mednutra Logo -->
+          <div class="flex items-center justify-center cursor-pointer select-none -ml-4" onclick="closePaymentView()">
+            <img src="image/logo.png" alt="Mednutra" class="h-7 w-auto max-w-[140px] object-contain drop-shadow-xs">
+          </div>
+
+          <!-- Customer Support Headset Icon -->
+          <button onclick="showToast('Customer Support: +91 1800-MEDNUTRA (24/7)')" class="p-1 text-slate-800 hover:text-slate-600 focus:outline-none transition-colors" aria-label="Customer Support">
+            <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 18v-6a9 9 0 0 1 18 0v6" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+            </svg>
+          </button>
+        </header>
+
+        <!-- Stepper / Checkout Progress Bar -->
+        <div class="bg-white px-5 pt-3 pb-3 border-b border-slate-100 select-none">
+          <div class="flex items-center justify-between relative max-w-[380px] mx-auto">
+            
+            <!-- Step 1: Cart -->
+            <div class="flex flex-col items-center relative z-10">
+              <div class="w-8 h-8 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center text-slate-700">
+                <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                </svg>
+              </div>
+              <span class="text-[11px] font-medium text-slate-500 mt-1">Cart</span>
+            </div>
+
+            <!-- Connector 1 (Solid Blue) -->
+            <div class="flex-1 h-0.5 bg-[#1d4ed8] -mt-4 mx-1"></div>
+
+            <!-- Step 2: Address -->
+            <div class="flex flex-col items-center relative z-10">
+              <div class="w-8 h-8 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center text-slate-700">
+                <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                </svg>
+              </div>
+              <span class="text-[11px] font-medium text-slate-500 mt-1">Address</span>
+            </div>
+
+            <!-- Connector 2 (Solid Blue) -->
+            <div class="flex-1 h-0.5 bg-[#1d4ed8] -mt-4 mx-1"></div>
+
+            <!-- Step 3: Payment (Active) -->
+            <div class="flex flex-col items-center relative z-10">
+              <div class="w-8 h-8 rounded-full bg-[#1d4ed8] text-white flex items-center justify-center shadow-xs">
+                <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="2" y="5" width="20" height="14" rx="2" stroke-width="2"/>
+                  <line x1="2" y1="10" x2="22" y2="10" stroke-width="2"/>
+                </svg>
+              </div>
+              <span class="text-[11px] font-bold text-[#1d4ed8] mt-1">Payment</span>
+            </div>
+
+            <!-- Connector 3 (Gray) -->
+            <div class="flex-1 h-0.5 bg-slate-200 -mt-4 mx-1"></div>
+
+            <!-- Step 4: Order -->
+            <div class="flex flex-col items-center relative z-10">
+              <div class="w-8 h-8 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center text-slate-700">
+                <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2.4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+              </div>
+              <span class="text-[11px] font-medium text-slate-500 mt-1">Order</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Scrollable Checkout Body Content -->
+        <div class="px-4 py-3.5 space-y-3.5">
+          
+          <!-- Heading Section -->
+          <div>
+            <h1 class="text-[19px] font-extrabold text-slate-900 tracking-tight leading-snug">Choose Payment Method</h1>
+            <p class="text-xs text-slate-500 mt-0.5 font-medium">Select a preferred payment option to complete your order</p>
+          </div>
+
+          <!-- Payment Options Container (Razorpay & COD) -->
+          <div class="space-y-2.5">
+            
+            <!-- Option 1: Online Payment via Razorpay (Selected) -->
+            <div id="payment-card-razorpay" onclick="selectPaymentMethod('razorpay')" class="payment-card rounded-2xl p-3.5 border-2 border-[#1d4ed8] bg-[#f8faff] shadow-2xs transition-all cursor-pointer">
+              <!-- Top Row: Icon + Title/Badge/Sub + Radio -->
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                  <!-- Razorpay Icon Squircle -->
+                  <div class="w-11 h-11 bg-white border border-slate-100 rounded-xl flex items-center justify-center p-1.5 shrink-0 shadow-2xs">
+                    <img src="image/icons/razorpay-icon.png" alt="Razorpay" class="w-full h-full object-contain">
+                  </div>
+                  <div>
+                    <div class="flex items-center space-x-2">
+                      <span class="text-[13.5px] font-extrabold text-slate-900 leading-snug">Online Payment via Razorpay</span>
+                      <span class="inline-flex items-center gap-0.5 bg-[#ecfdf5] border border-green-200 text-[#15803d] text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none">
+                        Recommended
+                        <svg width="10" height="10" style="width: 10px; height: 10px;" class="fill-current text-[#16a34a]" viewBox="0 0 24 24"><path d="M13 2L3 14h7v8l10-12h-7l3-8z"/></svg>
+                      </span>
+                    </div>
+                    <div class="text-[11px] text-slate-500 font-medium mt-0.5">Pay securely using UPI, Cards, Net Banking & more</div>
+                  </div>
+                </div>
+
+                <!-- Radio Button (Selected) -->
+                <div id="radio-razorpay" class="w-5 h-5 rounded-full border-2 border-[#1d4ed8] flex items-center justify-center shrink-0">
+                  <div class="w-2.5 h-2.5 rounded-full bg-[#1d4ed8]"></div>
+                </div>
+              </div>
+
+              <!-- Bottom Row: Payment Logos (UPI, VISA, Mastercard, RuPay, Net Banking) -->
+              <div class="mt-3.5 pt-3 border-t border-blue-100/60 flex items-center justify-between select-none gap-1.5">
+                <!-- UPI -->
+                <div class="flex-1 bg-white border border-slate-200/90 rounded-lg px-2 py-1 h-7.5 flex items-center justify-center shadow-2xs">
+                  <img src="image/icons/upi-logo.png" alt="UPI" class="h-3.5 w-auto object-contain">
+                </div>
+                <!-- VISA -->
+                <div class="flex-1 bg-white border border-slate-200/90 rounded-lg px-2 py-1 h-7.5 flex items-center justify-center shadow-2xs">
+                  <img src="image/icons/visa-logo.png" alt="VISA" class="h-3.5 w-auto object-contain">
+                </div>
+                <!-- Mastercard -->
+                <div class="flex-1 bg-white border border-slate-200/90 rounded-lg px-2 py-1 h-7.5 flex items-center justify-center shadow-2xs">
+                  <img src="image/icons/mastercard-logo.png" alt="Mastercard" class="h-4.5 w-auto object-contain">
+                </div>
+                <!-- RuPay -->
+                <div class="flex-1 bg-white border border-slate-200/90 rounded-lg px-2 py-1 h-7.5 flex items-center justify-center shadow-2xs">
+                  <img src="image/icons/rupay-logo.png" alt="RuPay" class="h-3.5 w-auto object-contain">
+                </div>
+                <!-- Net Banking -->
+                <div class="flex-1 bg-white border border-slate-200/90 rounded-lg px-2 py-1 h-7.5 flex items-center justify-center shadow-2xs">
+                  <img src="image/icons/netbanking-logo.png" alt="Net Banking" class="h-4 w-auto object-contain">
+                </div>
+              </div>
+            </div>
+
+            <!-- Option 2: Cash on Delivery (COD) -->
+            <div id="payment-card-cod" onclick="selectPaymentMethod('cod')" class="payment-card rounded-2xl p-3.5 border border-slate-200/90 bg-white hover:border-blue-200 shadow-2xs transition-all cursor-pointer flex items-center justify-between">
+              <div class="flex items-center space-x-3">
+                <div class="w-11 h-11 bg-blue-50 text-[#1d4ed8] rounded-xl flex items-center justify-center shrink-0">
+                  <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 16l3 3 7-7" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-[13.5px] font-bold text-slate-900 leading-snug">Cash on Delivery (COD)</div>
+                  <div class="text-[11px] text-slate-500 font-medium mt-0.5">Pay in cash when you receive your order</div>
+                </div>
+              </div>
+              <!-- Radio Button -->
+              <div id="radio-cod" class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center shrink-0">
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Safe & Reliable Delivery Banner (Matches reference design) -->
+          <div class="rounded-2xl p-3.5 border border-green-200/80 bg-[#f0fdf4] shadow-2xs flex items-center justify-between select-none">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-green-100 text-[#15803d] flex items-center justify-center shrink-0">
+                <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[1.9] text-[#15803d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5m16.5 0-16.5 0m16.5 0-3.75-4.5M3.75 7.5l3.75-4.5m0 0h9" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-xs font-extrabold text-[#15803d] leading-snug">Safe & Reliable Delivery</div>
+                <div class="text-[11px] text-slate-600 font-medium mt-0.5">Pay online or choose COD at your convenience</div>
+              </div>
+            </div>
+            <!-- Green Shield Checkmark -->
+            <div class="text-[#15803d] shrink-0 ml-2">
+              <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[2.2] text-[#15803d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Order Summary Card -->
+          <div class="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-2xs space-y-2.5">
+            <h3 class="text-[15px] font-extrabold text-slate-900">Order Summary</h3>
+            
+            <div class="space-y-1.5 text-xs">
+              <!-- Item Total -->
+              <div class="flex items-center justify-between text-slate-600">
+                <span>Item Total (3 Items)</span>
+                <span id="summaryItemTotal" class="font-bold text-slate-900">₹399</span>
+              </div>
+              
+              <!-- Discount -->
+              <div class="flex items-center justify-between text-[#16a34a] font-medium">
+                <span>Discount</span>
+                <span id="summaryDiscount" class="font-bold text-[#16a34a]">- ₹105</span>
+              </div>
+
+              <!-- Delivery Charges -->
+              <div class="flex items-center justify-between text-slate-600">
+                <div class="flex items-center space-x-1">
+                  <span>Delivery Charges</span>
+                  <button onclick="showToast('Free delivery above ₹499. Standard charge is ₹40.')" class="text-slate-400 hover:text-slate-600 focus:outline-none">
+                    <svg width="13" height="13" style="width: 13px; height: 13px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="9"/>
+                      <line x1="12" y1="8" x2="12" y2="12"/>
+                      <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                  </button>
+                </div>
+                <span id="summaryDelivery" class="font-bold text-slate-900">₹40</span>
+              </div>
+            </div>
+
+            <div class="border-t border-slate-100 pt-2.5 flex items-baseline justify-between">
+              <span class="text-sm font-extrabold text-slate-900">Total Payable</span>
+              <span id="summaryTotalPayable" class="text-[22px] font-extrabold text-[#1d4ed8]">₹334</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Sticky Bottom Payment Bar (Shield + Continue to Place Order + Powered by Razorpay) -->
+      <div class="sticky bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-slate-100 px-4 pt-3 pb-3 space-y-2 shadow-[0_-4px_16px_rgba(0,0,0,0.05)]">
+        <!-- Pay Button -->
+        <button id="paySecurelyBtn" onclick="processPayment()" class="w-full bg-[#1d4ed8] hover:bg-[#1e40af] active:scale-[0.98] text-white font-bold text-sm h-12 rounded-xl shadow-md flex items-center justify-center space-x-2 transition-all cursor-pointer">
+          <svg width="18" height="18" style="width: 18px; height: 18px;" class="fill-none stroke-white stroke-[2.2]" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+          </svg>
+          <span id="payBtnLabel">Continue to Place Order</span>
+          <span class="text-base font-bold">→</span>
+        </button>
+
+        <!-- Trust / Encryption & Powered by Razorpay Badge -->
+        <div class="flex items-center justify-center space-x-1.5 text-[11px] text-slate-500 font-medium select-none">
+          <svg width="13" height="13" style="width: 13px; height: 13px;" class="stroke-[2] text-slate-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+          </svg>
+          <span>100% Secure Payment</span>
+          <span class="text-slate-300">|</span>
+          <span>Powered by</span>
+          <img src="image/icons/razorpay-logo.png" alt="Razorpay" class="h-3 w-auto object-contain inline-block ml-0.5">
+        </div>
+      </div>
+
+    </div>
+
     <!-- Sticky Bottom Navigation Bar (No phone frame, clean native web navbar) -->
-    <div class="sticky bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-100 shadow-[0_-3px_12px_rgba(0,0,0,0.03)]">
+    <div id="bottomNavBar" class="sticky bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-100 shadow-[0_-3px_12px_rgba(0,0,0,0.03)]">
       
       <!-- 5 Navigation Tabs (Home, Categories, Health Tips, Orders, Account) -->
       <nav class="flex items-center justify-around px-2 py-2 select-none">
@@ -929,6 +1389,49 @@
           <div class="text-xs font-medium text-slate-700">Office • Bengaluru - 560001</div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Order Confirmation Success Modal (Interactive) -->
+  <div id="orderSuccessModal" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 text-center shadow-2xl space-y-4">
+      <div class="w-16 h-16 bg-green-100 text-[#16a34a] rounded-full flex items-center justify-center mx-auto shadow-xs">
+        <svg width="32" height="32" style="width: 32px; height: 32px;" class="stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+        </svg>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-extrabold text-slate-900">Payment Successful! 🎉</h3>
+        <p class="text-xs text-slate-500 mt-1">Thank you for your order! Your medicines and health essentials are being packed for fast delivery.</p>
+      </div>
+
+      <div class="bg-slate-50 rounded-2xl p-3.5 text-left space-y-2 border border-slate-100 text-xs">
+        <div class="flex justify-between items-center">
+          <span class="text-slate-500">Order ID:</span>
+          <span class="font-bold text-slate-900">#MN-78923</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-slate-500">Amount Paid:</span>
+          <span id="modalPaidAmount" class="font-extrabold text-[#1d4ed8]">₹334</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-slate-500">Payment Mode:</span>
+          <span id="modalPaymentMode" class="font-bold text-slate-800">Pay via UPI</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-slate-500">Estimated Delivery:</span>
+          <span class="font-bold text-green-700">Tomorrow by 2:00 PM</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-slate-500">Delivery Address:</span>
+          <span class="font-medium text-slate-800 truncate max-w-[160px]" id="modalDeliveryAddress">Mumbai - 400051</span>
+        </div>
+      </div>
+
+      <button onclick="closeOrderSuccessModal()" class="w-full bg-[#1d4ed8] hover:bg-[#1e40af] active:scale-[0.98] text-white font-bold text-xs h-11 rounded-xl shadow-xs transition-all cursor-pointer">
+        Continue Shopping
+      </button>
     </div>
   </div>
 
@@ -1066,6 +1569,10 @@
 
       if (tabName === 'Home') {
         closeProductDetail();
+        closeCartView();
+        closePaymentView();
+      } else if (tabName === 'Orders') {
+        openCartView('homeView');
       }
 
       showToast(`Switched to ${tabName}`);
@@ -1281,13 +1788,17 @@
       switchPdpTab('overview');
       updateCartBadge();
 
-      // Show PDP, hide Home
+      // Show PDP, hide Home & others
       const homeView = document.getElementById('homeView');
       const pdpView = document.getElementById('productDetailView');
-      if (homeView && pdpView) {
-        homeView.classList.add('hidden');
-        pdpView.classList.remove('hidden');
-      }
+      const cartView = document.getElementById('cartView');
+      const checkoutView = document.getElementById('checkoutPaymentView');
+      const bottomNav = document.getElementById('bottomNavBar');
+      if (homeView) homeView.classList.add('hidden');
+      if (cartView) cartView.classList.add('hidden');
+      if (checkoutView) checkoutView.classList.add('hidden');
+      if (bottomNav) bottomNav.classList.remove('hidden');
+      if (pdpView) pdpView.classList.remove('hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -1355,7 +1866,7 @@
       cartTotalItems += currentPdpQty;
       updateCartBadge();
       renderQuantityControl(currentPdpId, prod.title, prod.rawPrice);
-      showToast(`Redirecting to Checkout: ${prod.title} ⚡`);
+      openCartView('productDetailView');
     }
 
     function togglePdpWishlist(btn) {
@@ -1371,6 +1882,349 @@
         if (svg) svg.setAttribute('fill', '#ef4444');
         showToast('Added to Wishlist ❤️');
       }
+    }
+
+    // Cart View Controller & State
+    let previousViewBeforeCart = 'homeView';
+    
+    // Cart items matching the exact reference design (3 items totaling ₹399 MRP, -₹105 discount = ₹294 + ₹40 delivery = ₹334)
+    const cartItems = [
+      { id: 1, name: "Paracetamol Tablets IP 500 mg", subtitle: "Strip of 10 Tablets", price: 40, mrp: 50, discount: "20% OFF", qty: 1, checked: true, image: "image/product/paracetamol.png" },
+      { id: 2, name: "Multivitamin Capsules", subtitle: "10 Capsules", price: 104, mrp: 149, discount: "30% OFF", qty: 1, checked: true, image: "image/product/multivitamin.png" },
+      { id: 3, name: "Vitamin D3 Supplements", subtitle: "60,000 IU | Strip of 4 Capsules", price: 150, mrp: 200, discount: "25% OFF", qty: 1, checked: true, image: "image/product/vitamind.png" }
+    ];
+
+    function openCartView(fromView) {
+      previousViewBeforeCart = fromView || 'homeView';
+
+      const homeView = document.getElementById('homeView');
+      const pdpView = document.getElementById('productDetailView');
+      const cartView = document.getElementById('cartView');
+      const checkoutView = document.getElementById('checkoutPaymentView');
+      const bottomNav = document.getElementById('bottomNavBar');
+
+      if (homeView) homeView.classList.add('hidden');
+      if (pdpView) pdpView.classList.add('hidden');
+      if (checkoutView) checkoutView.classList.add('hidden');
+      if (bottomNav) bottomNav.classList.add('hidden');
+      if (cartView) cartView.classList.remove('hidden');
+
+      renderCartItems();
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      showToast('Step 1: Your Cart');
+    }
+
+    function closeCartView() {
+      const cartView = document.getElementById('cartView');
+      const homeView = document.getElementById('homeView');
+      const pdpView = document.getElementById('productDetailView');
+      const bottomNav = document.getElementById('bottomNavBar');
+
+      if (cartView) cartView.classList.add('hidden');
+
+      if (previousViewBeforeCart === 'productDetailView' && pdpView) {
+        pdpView.classList.remove('hidden');
+        if (bottomNav) bottomNav.classList.remove('hidden');
+      } else {
+        if (homeView) homeView.classList.remove('hidden');
+        if (bottomNav) bottomNav.classList.remove('hidden');
+      }
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    function renderCartItems() {
+      const container = document.getElementById('cartItemsList');
+      if (!container) return;
+
+      const activeItems = cartItems.filter(item => item.qty > 0);
+      const totalCount = activeItems.reduce((sum, item) => sum + item.qty, 0);
+
+      const countEl = document.getElementById('cartHeaderCount');
+      if (countEl) countEl.innerText = `(${totalCount} Items)`;
+
+      if (activeItems.length === 0) {
+        container.innerHTML = `
+          <div class="py-12 px-4 text-center space-y-3 bg-white rounded-2xl border border-slate-200 shadow-2xs">
+            <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto text-slate-400">
+              <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+            <h3 class="text-sm font-bold text-slate-800">Your Cart is Empty</h3>
+            <p class="text-xs text-slate-400">Add medicines and wellness essentials to start saving!</p>
+            <button onclick="closeCartView()" class="mt-2 bg-[#1d4ed8] hover:bg-[#1e40af] text-white text-xs font-bold px-4 py-2 rounded-xl cursor-pointer">Browse Medicines</button>
+          </div>
+        `;
+        recalculateCartTotals();
+        return;
+      }
+
+      container.innerHTML = activeItems.map(item => `
+        <div class="cart-item-card bg-white rounded-2xl border border-slate-200/90 p-3 flex items-center justify-between gap-2.5 shadow-2xs">
+          <!-- Left: Green Checkbox -->
+          <div onclick="toggleCartItemCheck(${item.id})" class="w-5 h-5 rounded-md ${item.checked ? 'bg-[#16a34a] text-white' : 'border-2 border-slate-300'} flex items-center justify-center shrink-0 cursor-pointer shadow-2xs transition-all">
+            ${item.checked ? '<svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>' : ''}
+          </div>
+
+          <!-- Product Image Thumbnail -->
+          <div class="w-16 h-16 bg-[#f8fafc] rounded-xl p-1 flex items-center justify-center shrink-0 border border-slate-100 overflow-hidden">
+            <img src="${item.image}" alt="${item.name}" class="max-h-full max-w-full object-contain filter drop-shadow-2xs">
+          </div>
+
+          <!-- Product Details -->
+          <div class="flex-1 min-w-0 pr-1">
+            <h4 class="text-[13px] font-bold text-slate-900 leading-snug truncate">${item.name}</h4>
+            <p class="text-[10.5px] font-medium text-slate-400 mt-0.5 truncate">${item.subtitle}</p>
+            
+            <div class="flex items-center space-x-1.5 mt-1.5">
+              <span class="text-sm font-extrabold text-[#1d4ed8]">₹${item.price}</span>
+              <span class="text-xs text-slate-400 line-through">₹${item.mrp}</span>
+              <span class="bg-[#2e7d32] text-white text-[9.5px] font-extrabold px-1.5 py-0.5 rounded leading-none">${item.discount}</span>
+            </div>
+          </div>
+
+          <!-- Right: Wishlist & Quantity Stepper -->
+          <div class="flex flex-col items-end justify-between self-stretch shrink-0 py-0.5">
+            <!-- Wishlist Heart -->
+            <button onclick="toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 transition-colors focus:outline-none cursor-pointer" aria-label="Add to Wishlist">
+              <svg width="16" height="16" style="width: 16px; height: 16px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+              </svg>
+            </button>
+
+            <!-- Quantity Stepper -->
+            <div class="flex items-center border border-slate-200 rounded-lg px-2 h-7 bg-white shadow-2xs space-x-2">
+              <button onclick="changeCartItemQty(${item.id}, -1)" class="text-xs font-bold text-slate-500 hover:text-slate-900 active:scale-90 px-0.5 focus:outline-none cursor-pointer">-</button>
+              <span class="text-xs font-extrabold text-slate-900 min-w-[12px] text-center">${item.qty}</span>
+              <button onclick="changeCartItemQty(${item.id}, 1)" class="text-xs font-bold text-slate-500 hover:text-slate-900 active:scale-90 px-0.5 focus:outline-none cursor-pointer">+</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      recalculateCartTotals();
+    }
+
+    function toggleCartItemCheck(id) {
+      const item = cartItems.find(i => i.id === id);
+      if (item) {
+        item.checked = !item.checked;
+        renderCartItems();
+      }
+    }
+
+    function changeCartItemQty(id, delta) {
+      const item = cartItems.find(i => i.id === id);
+      if (item) {
+        item.qty += delta;
+        if (item.qty <= 0) {
+          item.qty = 0;
+          showToast(`${item.name} removed from cart`);
+        }
+        renderCartItems();
+        // Update global cart badge
+        const total = cartItems.reduce((sum, i) => sum + i.qty, 0);
+        cartTotalItems = total;
+        updateCartBadge();
+      }
+    }
+
+    function clearFullCart() {
+      cartItems.forEach(i => i.qty = 0);
+      cartTotalItems = 0;
+      updateCartBadge();
+      renderCartItems();
+      showToast('Cart has been cleared');
+    }
+
+    function recalculateCartTotals() {
+      const checkedItems = cartItems.filter(i => i.checked && i.qty > 0);
+      const totalCount = checkedItems.reduce((sum, i) => sum + i.qty, 0);
+      const mrpTotal = checkedItems.reduce((sum, i) => sum + (i.mrp * i.qty), 0);
+      const sellTotal = checkedItems.reduce((sum, i) => sum + (i.price * i.qty), 0);
+      const discount = mrpTotal - sellTotal;
+      const delivery = (sellTotal >= 499 || sellTotal === 0) ? 0 : 40;
+      const totalPayable = sellTotal + delivery;
+
+      // Update Cart View Labels
+      const itemLabelEl = document.getElementById('cartSummaryItemLabel');
+      if (itemLabelEl) itemLabelEl.innerText = `Item Total (${totalCount} Items)`;
+
+      const itemTotalEl = document.getElementById('cartSummaryItemTotal');
+      if (itemTotalEl) itemTotalEl.innerText = `₹${mrpTotal}`;
+
+      const discountEl = document.getElementById('cartSummaryDiscount');
+      if (discountEl) discountEl.innerText = `- ₹${discount}`;
+
+      const deliveryEl = document.getElementById('cartSummaryDelivery');
+      if (deliveryEl) deliveryEl.innerText = delivery === 0 ? 'FREE' : `₹${delivery}`;
+
+      const totalEl = document.getElementById('cartSummaryTotalPayable');
+      if (totalEl) totalEl.innerText = `₹${totalPayable}`;
+
+      const savingsEl = document.getElementById('cartSavingsAmount');
+      if (savingsEl) savingsEl.innerText = `₹${discount}`;
+
+      // Keep Payment view Order Summary in sync!
+      const pItem = document.getElementById('summaryItemTotal');
+      if (pItem) pItem.innerText = `₹${mrpTotal}`;
+
+      const pDisc = document.getElementById('summaryDiscount');
+      if (pDisc) pDisc.innerText = `- ₹${discount}`;
+
+      const pDel = document.getElementById('summaryDelivery');
+      if (pDel) pDel.innerText = delivery === 0 ? 'FREE' : `₹${delivery}`;
+
+      const pTot = document.getElementById('summaryTotalPayable');
+      if (pTot) pTot.innerText = `₹${totalPayable}`;
+
+      const payBtnLabel = document.getElementById('payBtnLabel');
+      if (payBtnLabel) {
+        payBtnLabel.innerText = 'Continue to Place Order';
+      }
+
+      const modalPaidAmount = document.getElementById('modalPaidAmount');
+      if (modalPaidAmount) modalPaidAmount.innerText = `₹${totalPayable}`;
+    }
+
+    // Checkout & Payment View Controller
+    let previousViewBeforeCheckout = 'cartView';
+    let currentSelectedPaymentMethod = 'razorpay';
+    let isCouponApplied = false;
+
+    function openPaymentView(fromView) {
+      previousViewBeforeCheckout = fromView || 'cartView';
+      
+      const homeView = document.getElementById('homeView');
+      const pdpView = document.getElementById('productDetailView');
+      const cartView = document.getElementById('cartView');
+      const checkoutView = document.getElementById('checkoutPaymentView');
+      const bottomNav = document.getElementById('bottomNavBar');
+
+      if (homeView) homeView.classList.add('hidden');
+      if (pdpView) pdpView.classList.add('hidden');
+      if (cartView) cartView.classList.add('hidden');
+      if (bottomNav) bottomNav.classList.add('hidden');
+      if (checkoutView) checkoutView.classList.remove('hidden');
+
+      // Sync delivery address
+      const curLoc = document.getElementById('currentLocation');
+      const modalAddr = document.getElementById('modalDeliveryAddress');
+      if (curLoc && modalAddr) {
+        modalAddr.innerText = curLoc.innerText;
+      }
+
+      selectPaymentMethod('razorpay');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      showToast('Step 3: Choose Payment Method');
+    }
+
+    function closePaymentView() {
+      const checkoutView = document.getElementById('checkoutPaymentView');
+      const homeView = document.getElementById('homeView');
+      const pdpView = document.getElementById('productDetailView');
+      const cartView = document.getElementById('cartView');
+      const bottomNav = document.getElementById('bottomNavBar');
+
+      if (checkoutView) checkoutView.classList.add('hidden');
+
+      if (previousViewBeforeCheckout === 'cartView' && cartView) {
+        cartView.classList.remove('hidden');
+      } else if (previousViewBeforeCheckout === 'productDetailView' && pdpView) {
+        pdpView.classList.remove('hidden');
+        if (bottomNav) bottomNav.classList.remove('hidden');
+      } else {
+        if (homeView) homeView.classList.remove('hidden');
+        if (bottomNav) bottomNav.classList.remove('hidden');
+      }
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    function selectPaymentMethod(method) {
+      currentSelectedPaymentMethod = method;
+      const cardRzp = document.getElementById('payment-card-razorpay');
+      const radioRzp = document.getElementById('radio-razorpay');
+      const cardCod = document.getElementById('payment-card-cod');
+      const radioCod = document.getElementById('radio-cod');
+      const payBtnLabel = document.getElementById('payBtnLabel');
+      const modalMode = document.getElementById('modalPaymentMode');
+
+      if (method === 'razorpay') {
+        if (cardRzp) cardRzp.className = 'payment-card rounded-2xl p-3.5 border-2 border-[#1d4ed8] bg-[#f8faff] shadow-2xs transition-all cursor-pointer';
+        if (radioRzp) {
+          radioRzp.className = 'w-5 h-5 rounded-full border-2 border-[#1d4ed8] flex items-center justify-center shrink-0';
+          radioRzp.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-[#1d4ed8]"></div>';
+        }
+        if (cardCod) cardCod.className = 'payment-card rounded-2xl p-3.5 border border-slate-200/90 bg-white hover:border-blue-200 shadow-2xs transition-all cursor-pointer flex items-center justify-between';
+        if (radioCod) {
+          radioCod.className = 'w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center shrink-0';
+          radioCod.innerHTML = '';
+        }
+        if (payBtnLabel) payBtnLabel.innerText = 'Continue to Place Order';
+        if (modalMode) modalMode.innerText = 'Online Payment (Razorpay)';
+        showToast('Selected: Online Payment via Razorpay');
+      } else {
+        if (cardCod) cardCod.className = 'payment-card rounded-2xl p-3.5 border-2 border-[#1d4ed8] bg-[#f8faff] shadow-2xs transition-all cursor-pointer flex items-center justify-between';
+        if (radioCod) {
+          radioCod.className = 'w-5 h-5 rounded-full border-2 border-[#1d4ed8] flex items-center justify-center shrink-0';
+          radioCod.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-[#1d4ed8]"></div>';
+        }
+        if (cardRzp) cardRzp.className = 'payment-card rounded-2xl p-3.5 border border-slate-200/90 bg-white hover:border-blue-200 shadow-2xs transition-all cursor-pointer';
+        if (radioRzp) {
+          radioRzp.className = 'w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center shrink-0';
+          radioRzp.innerHTML = '';
+        }
+        if (payBtnLabel) payBtnLabel.innerText = 'Continue to Place Order';
+        if (modalMode) modalMode.innerText = 'Cash on Delivery (COD)';
+        showToast('Selected: Cash on Delivery (COD)');
+      }
+    }
+
+    function selectUpiApp(appName) {
+      showToast(`Selected ${appName} for UPI Payment`);
+    }
+
+    function toggleCheckoutCoupon() {
+      isCouponApplied = !isCouponApplied;
+      const statusText = document.getElementById('couponStatusText');
+      const discountEl = document.getElementById('summaryDiscount');
+      const totalEl = document.getElementById('summaryTotalPayable');
+      const btnLabel = document.getElementById('payBtnLabel');
+
+      if (isCouponApplied) {
+        if (statusText) statusText.innerText = 'MED20 Applied: Extra ₹20 OFF! 🎉';
+        if (discountEl) discountEl.innerText = '- ₹125';
+        if (totalEl) totalEl.innerText = '₹314';
+        if (btnLabel) {
+          btnLabel.innerText = currentSelectedPaymentMethod === 'cod' ? 'Confirm COD Order (₹314)' : 'Pay ₹314 Securely';
+        }
+        showToast('Coupon MED20 Applied! Extra ₹20 saved');
+      } else {
+        if (statusText) statusText.innerText = 'Save more on this order';
+        if (discountEl) discountEl.innerText = '- ₹105';
+        if (totalEl) totalEl.innerText = '₹334';
+        if (btnLabel) {
+          btnLabel.innerText = currentSelectedPaymentMethod === 'cod' ? 'Confirm COD Order (₹334)' : 'Pay ₹334 Securely';
+        }
+        showToast('Coupon removed');
+      }
+    }
+
+    function processPayment() {
+      const modal = document.getElementById('orderSuccessModal');
+      const modalAmount = document.getElementById('modalPaidAmount');
+      if (modalAmount) {
+        modalAmount.innerText = isCouponApplied ? '₹314' : '₹334';
+      }
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeOrderSuccessModal() {
+      const modal = document.getElementById('orderSuccessModal');
+      if (modal) modal.classList.add('hidden');
+      closePaymentView();
+      closeCartView();
+      // Reset view to Home
+      switchTab(document.querySelector('.nav-item'), 'Home');
+      showToast('Order MN-78923 Confirmed! 🎉');
     }
 
     // Hero Banner Carousel Controller (3 Banners: banner.png, banner2.png, banner3.png)
