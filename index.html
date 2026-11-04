@@ -304,55 +304,55 @@
             </a>
           </div>
 
-          <!-- 6 Category Cards Grid -->
-          <div class="grid grid-cols-6 gap-1.5 select-none">
+          <!-- 6 Category Cards (Horizontal Scroll for Spacious Mobile Layout) -->
+          <div class="flex items-start space-x-3.5 overflow-x-auto no-scrollbar -mx-4 px-4 py-1 select-none scroll-smooth">
             
             <!-- 1. Medicines -->
-            <div onclick="filterCategory('medicines')" class="flex flex-col items-center cursor-pointer group">
-              <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
+            <div onclick="filterCategory('medicines')" class="flex flex-col items-center cursor-pointer group shrink-0 w-[68px]">
+              <div class="w-[68px] h-[68px] rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-3 active:scale-95">
                 <img src="image/category/medicines.png" alt="Medicines" class="w-full h-full object-contain group-hover:scale-105 transition-transform" decoding="async">
               </div>
-              <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">Medicines</span>
+              <span class="text-[11px] font-medium text-slate-700 text-center mt-1.5 leading-tight">Medicines</span>
             </div>
 
             <!-- 2. Vitamins & Supplements -->
-            <div onclick="filterCategory('vitamins')" class="flex flex-col items-center cursor-pointer group">
-              <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
+            <div onclick="filterCategory('supplements')" class="flex flex-col items-center cursor-pointer group shrink-0 w-[68px]">
+              <div class="w-[68px] h-[68px] rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-3 active:scale-95">
                 <img src="image/category/vitamin.png" alt="Vitamins & Supplements" class="w-full h-full object-contain group-hover:scale-105 transition-transform" decoding="async">
               </div>
-              <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">Vitamins &<br>Supplements</span>
+              <span class="text-[11px] font-medium text-slate-700 text-center mt-1.5 leading-tight">Vitamins &<br>Supplements</span>
             </div>
 
             <!-- 3. Healthcare Devices -->
-            <div onclick="filterCategory('devices')" class="flex flex-col items-center cursor-pointer group">
-              <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
+            <div onclick="filterCategory('devices')" class="flex flex-col items-center cursor-pointer group shrink-0 w-[68px]">
+              <div class="w-[68px] h-[68px] rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-3 active:scale-95">
                 <img src="image/category/healthcare.png" alt="Healthcare Devices" class="w-full h-full object-contain group-hover:scale-105 transition-transform" decoding="async">
               </div>
-              <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">Healthcare<br>Devices</span>
+              <span class="text-[11px] font-medium text-slate-700 text-center mt-1.5 leading-tight">Healthcare<br>Devices</span>
             </div>
 
             <!-- 4. Personal Care -->
-            <div onclick="filterCategory('personal')" class="flex flex-col items-center cursor-pointer group">
-              <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
+            <div onclick="filterCategory('personal')" class="flex flex-col items-center cursor-pointer group shrink-0 w-[68px]">
+              <div class="w-[68px] h-[68px] rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-3 active:scale-95">
                 <img src="image/category/personal_care.png" alt="Personal Care" class="w-full h-full object-contain group-hover:scale-105 transition-transform" decoding="async">
               </div>
-              <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">Personal<br>Care</span>
+              <span class="text-[11px] font-medium text-slate-700 text-center mt-1.5 leading-tight">Personal<br>Care</span>
             </div>
 
             <!-- 5. Mother & Baby -->
-            <div onclick="filterCategory('baby')" class="flex flex-col items-center cursor-pointer group">
-              <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
+            <div onclick="filterCategory('baby')" class="flex flex-col items-center cursor-pointer group shrink-0 w-[68px]">
+              <div class="w-[68px] h-[68px] rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-3 active:scale-95">
                 <img src="image/category/mom_baby.png" alt="Mother & Baby" class="w-full h-full object-contain group-hover:scale-105 transition-transform" decoding="async">
               </div>
-              <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">Mother &<br>Baby</span>
+              <span class="text-[11px] font-medium text-slate-700 text-center mt-1.5 leading-tight">Mother &<br>Baby</span>
             </div>
 
             <!-- 6. More -->
-            <div onclick="filterCategory('all')" class="flex flex-col items-center cursor-pointer group">
-              <div class="w-full aspect-square rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-2 active:scale-95">
+            <div onclick="filterCategory('all')" class="flex flex-col items-center cursor-pointer group shrink-0 w-[68px]">
+              <div class="w-[68px] h-[68px] rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] group-hover:border-blue-200 group-hover:shadow-md transition-all flex items-center justify-center p-3 active:scale-95">
                 <img src="image/category/more.png" alt="More Categories" class="w-full h-full object-contain group-hover:scale-105 transition-transform" decoding="async">
               </div>
-              <span class="text-[10px] font-medium text-slate-700 text-center mt-1.5 leading-[1.2]">More</span>
+              <span class="text-[11px] font-medium text-slate-700 text-center mt-1.5 leading-tight">More</span>
             </div>
 
           </div>
@@ -414,8 +414,146 @@
           <!-- 2x2 Product Grid -->
           <div class="grid grid-cols-2 gap-2.5" id="productsGrid">
             
-            <!-- Card 1: Paracetamol Tablets -->
-            <div onclick="openProductDetail(1)" class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group cursor-pointer" data-category="medicines" data-name="Paracetamol Tablets">
+            <!-- Card 1: REPL Anemia Drops No. 3 -->
+            <div onclick="openProductDetail(1)" class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group cursor-pointer" data-category="medicines" data-name="REPL Anemia Drops No. 3">
+              <div>
+                <!-- Top: Badge + Wishlist Heart -->
+                <div class="flex items-center justify-between mb-1">
+                  <span class="bg-[#569e20] text-white text-[9.5px] font-extrabold px-1.5 py-0.5 rounded uppercase tracking-tight leading-none">
+                    14% OFF
+                  </span>
+                  <button onclick="event.stopPropagation(); toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
+                    <svg width="16" height="16" style="width: 16px; height: 16px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Product Image -->
+                <div class="w-full h-20 flex items-center justify-center my-1 overflow-hidden">
+                  <img src="image/product/repl-anemia-drops.png" alt="REPL Anemia Drops No. 3" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
+                </div>
+
+                <!-- Title & Pack Details -->
+                <div class="mt-1">
+                  <h3 class="text-[12.5px] font-bold text-slate-900 leading-snug line-clamp-1">REPL Dr. Advice No. 3 Anemia</h3>
+                  <p class="text-[10px] font-medium text-slate-400 mt-0.5 line-clamp-1">30 ml | Homeopathic Medicine</p>
+                </div>
+              </div>
+
+              <!-- Price & Add Button -->
+              <div class="flex items-center justify-between mt-2.5 pt-1.5 border-t border-slate-50 gap-1.5">
+                <div class="flex flex-col shrink-0 leading-tight">
+                  <span class="text-[9.5px] text-slate-400 line-through leading-none">₹349</span>
+                  <span class="text-[14px] font-extrabold text-[#1d4ed8] leading-tight">₹299</span>
+                </div>
+
+                <!-- Add to Cart Button -->
+                <div id="btn-container-1" class="shrink-0">
+                  <button onclick="event.stopPropagation(); addToCart(1, 'REPL Dr. Advice No. 3 Anemia', 299)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all whitespace-nowrap">
+                    <svg width="12" height="12" style="width: 12px; height: 12px; min-width: 12px; min-height: 12px;" class="stroke-[2.2] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                    </svg>
+                    <span>Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Centrum Omega-3 Fish Oil -->
+            <div onclick="openProductDetail(2)" class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group cursor-pointer" data-category="supplements" data-name="Centrum Omega-3 Fish Oil">
+              <div>
+                <!-- Top: Badge + Wishlist Heart -->
+                <div class="flex items-center justify-between mb-1">
+                  <span class="bg-[#569e20] text-white text-[9.5px] font-extrabold px-1.5 py-0.5 rounded uppercase tracking-tight leading-none">
+                    25% OFF
+                  </span>
+                  <button onclick="event.stopPropagation(); toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
+                    <svg width="16" height="16" style="width: 16px; height: 16px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Product Image -->
+                <div class="w-full h-20 flex items-center justify-center my-1 overflow-hidden">
+                  <img src="image/product/centrum-fish-oil.png" alt="Centrum Omega-3 Fish Oil" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
+                </div>
+
+                <!-- Title & Pack Details -->
+                <div class="mt-1">
+                  <h3 class="text-[12.5px] font-bold text-slate-900 leading-snug line-clamp-1">Centrum Omega-3 Fish Oil</h3>
+                  <p class="text-[10px] font-medium text-slate-400 mt-0.5 line-clamp-1">60 Capsules | Heart & Joint Health</p>
+                </div>
+              </div>
+
+              <!-- Price & Add Button -->
+              <div class="flex items-center justify-between mt-2.5 pt-1.5 border-t border-slate-50 gap-1.5">
+                <div class="flex flex-col shrink-0 leading-tight">
+                  <span class="text-[9.5px] text-slate-400 line-through leading-none">₹1,199</span>
+                  <span class="text-[14px] font-extrabold text-[#1d4ed8] leading-tight">₹899</span>
+                </div>
+
+                <!-- Add to Cart Button -->
+                <div id="btn-container-2" class="shrink-0">
+                  <button onclick="event.stopPropagation(); addToCart(2, 'Centrum Omega-3 Fish Oil', 899)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all whitespace-nowrap">
+                    <svg width="12" height="12" style="width: 12px; height: 12px; min-width: 12px; min-height: 12px;" class="stroke-[2.2] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                    </svg>
+                    <span>Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Carbamide Forte Antarctic Krill Oil 1000mg -->
+            <div onclick="openProductDetail(3)" class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group cursor-pointer" data-category="supplements" data-name="Carbamide Forte Krill Oil 1000mg">
+              <div>
+                <!-- Top: Badge + Wishlist Heart -->
+                <div class="flex items-center justify-between mb-1">
+                  <span class="bg-[#569e20] text-white text-[9.5px] font-extrabold px-1.5 py-0.5 rounded uppercase tracking-tight leading-none">
+                    24% OFF
+                  </span>
+                  <button onclick="event.stopPropagation(); toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
+                    <svg width="16" height="16" style="width: 16px; height: 16px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Product Image -->
+                <div class="w-full h-20 flex items-center justify-center my-1 overflow-hidden">
+                  <img src="image/product/carbamide-krill-oil.png" alt="Carbamide Forte Krill Oil 1000mg" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
+                </div>
+
+                <!-- Title & Pack Details -->
+                <div class="mt-1">
+                  <h3 class="text-[12.5px] font-bold text-slate-900 leading-snug line-clamp-1">Carbamide Forte Krill Oil</h3>
+                  <p class="text-[10px] font-medium text-slate-400 mt-0.5 line-clamp-1">1000 mg | 30 Softgels (Lemon)</p>
+                </div>
+              </div>
+
+              <!-- Price & Add Button -->
+              <div class="flex items-center justify-between mt-2.5 pt-1.5 border-t border-slate-50 gap-1.5">
+                <div class="flex flex-col shrink-0 leading-tight">
+                  <span class="text-[9.5px] text-slate-400 line-through leading-none">₹1,699</span>
+                  <span class="text-[14px] font-extrabold text-[#1d4ed8] leading-tight">₹1,299</span>
+                </div>
+
+                <!-- Add to Cart Button -->
+                <div id="btn-container-3" class="shrink-0">
+                  <button onclick="event.stopPropagation(); addToCart(3, 'Carbamide Forte Krill Oil 1000mg', 1299)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all whitespace-nowrap">
+                    <svg width="12" height="12" style="width: 12px; height: 12px; min-width: 12px; min-height: 12px;" class="stroke-[2.2] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                    </svg>
+                    <span>Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: Camber Omega-3 Ethyl Esters USP -->
+            <div onclick="openProductDetail(4)" class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group cursor-pointer" data-category="medicines" data-name="Camber Omega-3 Ethyl Esters USP">
               <div>
                 <!-- Top: Badge + Wishlist Heart -->
                 <div class="flex items-center justify-between mb-1">
@@ -431,164 +569,26 @@
 
                 <!-- Product Image -->
                 <div class="w-full h-20 flex items-center justify-center my-1 overflow-hidden">
-                  <img src="image/product/paracetamol.png" alt="Paracetamol Tablets" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
+                  <img src="image/product/camber-omega3.png" alt="Camber Omega-3 Ethyl Esters USP" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
                 </div>
 
                 <!-- Title & Pack Details -->
                 <div class="mt-1">
-                  <h3 class="text-[12.5px] font-bold text-slate-900 leading-snug line-clamp-1">Paracetamol Tablets</h3>
-                  <p class="text-[10px] font-medium text-slate-400 mt-0.5 line-clamp-1">500 mg | Strip of 10 Tablets</p>
+                  <h3 class="text-[12.5px] font-bold text-slate-900 leading-snug line-clamp-1">Camber Omega-3 USP</h3>
+                  <p class="text-[10px] font-medium text-slate-400 mt-0.5 line-clamp-1">1000 mg | 120 Capsules (Rx Only)</p>
                 </div>
               </div>
 
               <!-- Price & Add Button -->
               <div class="flex items-center justify-between mt-2.5 pt-1.5 border-t border-slate-50 gap-1.5">
                 <div class="flex flex-col shrink-0 leading-tight">
-                  <span class="text-[9.5px] text-slate-400 line-through leading-none">₹50</span>
-                  <span class="text-[14px] font-extrabold text-[#1d4ed8] leading-tight">₹40</span>
+                  <span class="text-[9.5px] text-slate-400 line-through leading-none">₹1,050</span>
+                  <span class="text-[14px] font-extrabold text-[#1d4ed8] leading-tight">₹840</span>
                 </div>
 
-                <!-- Add to Cart Button (Fixed nowrap & compact padding for mobile width) -->
-                <div id="btn-container-1" class="shrink-0">
-                  <button onclick="event.stopPropagation(); addToCart(1, 'Paracetamol Tablets', 40)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all whitespace-nowrap">
-                    <svg width="12" height="12" style="width: 12px; height: 12px; min-width: 12px; min-height: 12px;" class="stroke-[2.2] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                    </svg>
-                    <span>Add to Cart</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 2: Vitamin C Tablets -->
-            <div onclick="openProductDetail(2)" class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group cursor-pointer" data-category="vitamins" data-name="Vitamin C Tablets">
-              <div>
-                <!-- Top: Badge + Wishlist Heart -->
-                <div class="flex items-center justify-between mb-1">
-                  <span class="bg-[#569e20] text-white text-[9.5px] font-extrabold px-1.5 py-0.5 rounded uppercase tracking-tight leading-none">
-                    25% OFF
-                  </span>
-                  <button onclick="event.stopPropagation(); toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
-                    <svg width="16" height="16" style="width: 16px; height: 16px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                    </svg>
-                  </button>
-                </div>
-
-                <!-- Product Image -->
-                <div class="w-full h-20 flex items-center justify-center my-1 overflow-hidden">
-                  <img src="image/product/vitaminc.png" alt="Vitamin C Tablets" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
-                </div>
-
-                <!-- Title & Pack Details -->
-                <div class="mt-1">
-                  <h3 class="text-[12.5px] font-bold text-slate-900 leading-snug line-clamp-1">Vitamin C Tablets</h3>
-                  <p class="text-[10px] font-medium text-slate-400 mt-0.5 line-clamp-1">500 mg | Strip of 10 Tablets</p>
-                </div>
-              </div>
-
-              <!-- Price & Add Button -->
-              <div class="flex items-center justify-between mt-2.5 pt-1.5 border-t border-slate-50 gap-1.5">
-                <div class="flex flex-col shrink-0 leading-tight">
-                  <span class="text-[9.5px] text-slate-400 line-through leading-none">₹120</span>
-                  <span class="text-[14px] font-extrabold text-[#1d4ed8] leading-tight">₹90</span>
-                </div>
-
-                <!-- Add to Cart Button (Fixed nowrap & compact padding for mobile width) -->
-                <div id="btn-container-2" class="shrink-0">
-                  <button onclick="event.stopPropagation(); addToCart(2, 'Vitamin C Tablets', 90)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all whitespace-nowrap">
-                    <svg width="12" height="12" style="width: 12px; height: 12px; min-width: 12px; min-height: 12px;" class="stroke-[2.2] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                    </svg>
-                    <span>Add to Cart</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 3: Multivitamin Capsules -->
-            <div onclick="openProductDetail(3)" class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group cursor-pointer" data-category="vitamins" data-name="Multivitamin Capsules">
-              <div>
-                <!-- Top: Badge + Wishlist Heart -->
-                <div class="flex items-center justify-between mb-1">
-                  <span class="bg-[#569e20] text-white text-[9.5px] font-extrabold px-1.5 py-0.5 rounded uppercase tracking-tight leading-none">
-                    30% OFF
-                  </span>
-                  <button onclick="event.stopPropagation(); toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
-                    <svg width="16" height="16" style="width: 16px; height: 16px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                    </svg>
-                  </button>
-                </div>
-
-                <!-- Product Image -->
-                <div class="w-full h-20 flex items-center justify-center my-1 overflow-hidden">
-                  <img src="image/product/multivitamin.png" alt="Multivitamin Capsules" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
-                </div>
-
-                <!-- Title & Pack Details -->
-                <div class="mt-1">
-                  <h3 class="text-[12.5px] font-bold text-slate-900 leading-snug line-clamp-1">Multivitamin Capsules</h3>
-                  <p class="text-[10px] font-medium text-slate-400 mt-0.5 line-clamp-1">Complete Daily Nutrition | 10 Caps</p>
-                </div>
-              </div>
-
-              <!-- Price & Add Button -->
-              <div class="flex items-center justify-between mt-2.5 pt-1.5 border-t border-slate-50 gap-1.5">
-                <div class="flex flex-col shrink-0 leading-tight">
-                  <span class="text-[9.5px] text-slate-400 line-through leading-none">₹149</span>
-                  <span class="text-[14px] font-extrabold text-[#1d4ed8] leading-tight">₹104</span>
-                </div>
-
-                <!-- Add to Cart Button (Fixed nowrap & compact padding for mobile width) -->
-                <div id="btn-container-3" class="shrink-0">
-                  <button onclick="event.stopPropagation(); addToCart(3, 'Multivitamin Capsules', 104)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all whitespace-nowrap">
-                    <svg width="12" height="12" style="width: 12px; height: 12px; min-width: 12px; min-height: 12px;" class="stroke-[2.2] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                    </svg>
-                    <span>Add to Cart</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 4: Vitamin D3 Supplements -->
-            <div onclick="openProductDetail(4)" class="product-card bg-white rounded-2xl border border-slate-100 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-2.5 flex flex-col justify-between hover:shadow-md hover:border-blue-100 transition-all relative group cursor-pointer" data-category="vitamins" data-name="Vitamin D3 Supplements">
-              <div>
-                <!-- Top: Badge + Wishlist Heart -->
-                <div class="flex items-center justify-between mb-1">
-                  <span class="bg-[#569e20] text-white text-[9.5px] font-extrabold px-1.5 py-0.5 rounded uppercase tracking-tight leading-none">
-                    25% OFF
-                  </span>
-                  <button onclick="event.stopPropagation(); toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 focus:outline-none transition-colors" aria-label="Add to wishlist">
-                    <svg width="16" height="16" style="width: 16px; height: 16px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                    </svg>
-                  </button>
-                </div>
-
-                <!-- Product Image -->
-                <div class="w-full h-20 flex items-center justify-center my-1 overflow-hidden">
-                  <img src="image/product/vitamind.png" alt="Vitamin D3 Supplements" class="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
-                </div>
-
-                <!-- Title & Pack Details -->
-                <div class="mt-1">
-                  <h3 class="text-[12.5px] font-bold text-slate-900 leading-snug line-clamp-1">Vitamin D3 Supplements</h3>
-                  <p class="text-[10px] font-medium text-slate-400 mt-0.5 line-clamp-1">60,000 IU | Strip of 4 Capsules</p>
-                </div>
-              </div>
-
-              <!-- Price & Add Button -->
-              <div class="flex items-center justify-between mt-2.5 pt-1.5 border-t border-slate-50 gap-1.5">
-                <div class="flex flex-col shrink-0 leading-tight">
-                  <span class="text-[9.5px] text-slate-400 line-through leading-none">₹200</span>
-                  <span class="text-[14px] font-extrabold text-[#1d4ed8] leading-tight">₹150</span>
-                </div>
-
-                <!-- Add to Cart Button (Fixed nowrap & compact padding for mobile width) -->
+                <!-- Add to Cart Button -->
                 <div id="btn-container-4" class="shrink-0">
-                  <button onclick="event.stopPropagation(); addToCart(4, 'Vitamin D3 Supplements', 150)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all whitespace-nowrap">
+                  <button onclick="event.stopPropagation(); addToCart(4, 'Camber Omega-3 Ethyl Esters USP', 840)" class="bg-[#2e7d32] hover:bg-[#256829] active:scale-95 text-white text-[10px] font-bold px-2 py-1.5 rounded-lg flex items-center gap-1 shadow-xs transition-all whitespace-nowrap">
                     <svg width="12" height="12" style="width: 12px; height: 12px; min-width: 12px; min-height: 12px;" class="stroke-[2.2] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                     </svg>
@@ -667,7 +667,7 @@
 
           <!-- Center Product Image -->
           <div class="w-full h-44 flex items-center justify-center py-1">
-            <img id="pdpImage" src="image/product/paracetamol.png" alt="Product" class="max-h-full max-w-full object-contain filter drop-shadow-md transition-transform duration-300">
+            <img id="pdpImage" src="image/product/repl-anemia-drops.png" alt="REPL Anemia Drops No. 3" class="max-h-full max-w-full object-contain filter drop-shadow-md transition-transform duration-300">
           </div>
 
           <!-- Carousel Dots -->
@@ -680,9 +680,9 @@
 
         <!-- 2. Product Title & Subtitle Badge -->
         <div>
-          <h1 id="pdpTitle" class="text-[19px] font-extrabold text-slate-900 tracking-tight leading-snug">Paracetamol Tablets IP 500 mg</h1>
+          <h1 id="pdpTitle" class="text-[19px] font-extrabold text-slate-900 tracking-tight leading-snug">REPL Anemia Drops No. 3</h1>
           <div class="flex items-center space-x-2.5 mt-1.5">
-            <span id="pdpSubtitle" class="text-xs font-medium text-slate-500">Strip of 10 Tablets</span>
+            <span id="pdpSubtitle" class="text-xs font-medium text-slate-500">30 ml | Homeopathic Medicine</span>
             <span class="inline-flex items-center gap-1 bg-[#f0fdf4] border border-green-200 text-[#15803d] text-[11px] font-bold px-2 py-0.5 rounded-full">
               <svg width="12" height="12" style="width: 12px; height: 12px;" class="text-[#22c55e] fill-current shrink-0" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
@@ -857,39 +857,167 @@
           </button>
         </header>
 
-        <!-- Stepper / Checkout Progress Bar (Step 1: Cart Active) -->
+        <!-- Cart Title & Subtitle Section (No Stepper, matches reference) -->
+        <div class="px-4 pt-3.5 pb-2">
+          <h1 class="text-[20px] font-extrabold text-slate-900 tracking-tight leading-snug">
+            Your Cart <span id="cartHeaderCount" class="font-extrabold text-slate-900 text-[20px]">(3)</span>
+          </h1>
+          <p class="text-xs text-slate-500 font-medium mt-0.5">Review your items and proceed to checkout</p>
+        </div>
+
+        <!-- Select All & Remove Selected Action Row -->
+        <div class="px-4 py-2.5 flex items-center justify-between border-b border-slate-100 select-none">
+          <!-- Select All Checkbox -->
+          <div class="flex items-center space-x-2 cursor-pointer" onclick="toggleSelectAllCart()">
+            <div id="selectAllCheckbox" class="w-5 h-5 rounded-md bg-[#1d4ed8] text-white flex items-center justify-center shrink-0 shadow-2xs transition-all">
+              <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            </div>
+            <span class="text-xs font-bold text-slate-900">Select All</span>
+          </div>
+
+          <!-- Remove Selected Button -->
+          <button onclick="removeSelectedCartItems()" class="flex items-center space-x-1 text-xs font-semibold text-[#dc2626] hover:text-red-700 transition-colors focus:outline-none cursor-pointer">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/></svg>
+            <span>Remove Selected</span>
+          </button>
+        </div>
+
+        <!-- Scrollable Cart Content Area -->
+        <div class="px-4 py-3.5 space-y-3.5">
+          
+          <!-- Cart Items Dynamic List -->
+          <div id="cartItemsList" class="space-y-3">
+            <!-- Dynamic items rendered via renderCartItems() -->
+          </div>
+
+          <!-- Have a coupon code? Card -->
+          <div class="rounded-2xl p-3.5 border border-blue-100 bg-[#f8faff] shadow-2xs flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <div class="w-9 h-9 rounded-xl bg-blue-100/70 text-[#1d4ed8] flex items-center justify-center shrink-0">
+                <svg width="18" height="18" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" /></svg>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-slate-900 leading-snug">Have a coupon code?</div>
+                <div id="cartCouponSubtitle" class="text-[11px] text-slate-500 font-medium mt-0.5">Get additional discount on your order</div>
+              </div>
+            </div>
+            <button onclick="toggleCartCoupon()" id="cartCouponBtn" class="border border-blue-200 bg-white hover:bg-blue-50 text-[#1d4ed8] text-xs font-bold px-4 py-1.5 rounded-xl shadow-2xs transition-all active:scale-95 cursor-pointer">Apply</button>
+          </div>
+
+          <!-- Order Summary Card -->
+          <div class="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-2xs space-y-2.5">
+            <h3 class="text-[15px] font-extrabold text-slate-900">Order Summary</h3>
+            
+            <div class="space-y-1.5 text-xs font-medium">
+              <!-- Item Total -->
+              <div class="flex items-center justify-between text-slate-600">
+                <span id="cartSummaryItemLabel">Item Total (3 items)</span>
+                <span id="cartSummaryItemTotal" class="font-bold text-slate-900">₹2,497</span>
+              </div>
+              
+              <!-- Discount -->
+              <div class="flex items-center justify-between text-[#16a34a]">
+                <span>Discount</span>
+                <span id="cartSummaryDiscount" class="font-bold text-[#16a34a]">- ₹501</span>
+              </div>
+
+              <!-- Delivery Charges -->
+              <div class="flex items-center justify-between text-slate-600">
+                <div class="flex items-center space-x-1">
+                  <span>Delivery Charges</span>
+                  <button onclick="showToast('Free delivery on orders above ₹499')" class="text-slate-400 hover:text-slate-600 focus:outline-none">
+                    <svg width="13" height="13" style="width: 13px; height: 13px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="9"/>
+                      <line x1="12" y1="8" x2="12" y2="12"/>
+                      <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                  </button>
+                </div>
+                <span id="cartSummaryDelivery" class="font-bold text-[#16a34a]">₹0</span>
+              </div>
+            </div>
+
+            <div class="border-t border-slate-100 pt-2.5 flex items-baseline justify-between">
+              <span class="text-sm font-extrabold text-slate-900">Total Payable</span>
+              <span id="cartSummaryTotalPayable" class="text-[22px] font-extrabold text-slate-900">₹1,996</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Sticky Bottom Action Bar (Proceed to Checkout with Shopping Bag) -->
+      <div class="sticky bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-slate-100 px-4 py-3 shadow-[0_-4px_16px_rgba(0,0,0,0.05)]">
+        <button onclick="proceedToCheckoutFromCart()" class="w-full bg-[#1d4ed8] hover:bg-[#1e40af] active:scale-[0.98] text-white font-bold text-sm h-12 rounded-xl shadow-md flex items-center justify-center space-x-2 transition-all cursor-pointer">
+          <svg width="18" height="18" style="width: 18px; height: 18px;" class="stroke-white stroke-[2.2] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119.993Z" /></svg>
+          <span>Proceed to Checkout</span>
+          <span class="text-base font-bold">→</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- 2. Delivery Address View (Step 2 in Checkout Flow - Matches exact UX/UI from design reference) -->
+    <div id="deliveryAddressView" class="w-full hidden bg-[#f8fafc] min-h-screen flex flex-col justify-between">
+      
+      <!-- Top Scrollable Content -->
+      <div class="w-full">
+        <!-- Address Page Sticky Header -->
+        <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-slate-100 shadow-[0_1px_4px_rgba(0,0,0,0.02)]">
+          <!-- Back Arrow Button -->
+          <button onclick="closeAddressView()" class="p-1 -ml-1 text-slate-800 hover:text-slate-600 active:scale-95 focus:outline-none transition-all" aria-label="Go Back">
+            <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[2.4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+          </button>
+
+          <!-- Mednutra Logo -->
+          <div class="flex items-center justify-center cursor-pointer select-none -ml-4" onclick="closeAddressView()">
+            <img src="image/logo.png" alt="Mednutra" class="h-7 w-auto max-w-[140px] object-contain drop-shadow-xs">
+          </div>
+
+          <!-- Customer Support Headset Icon -->
+          <button onclick="showToast('Customer Support: +91 1800-MEDNUTRA (24/7)')" class="p-1 text-slate-800 hover:text-slate-600 focus:outline-none transition-colors" aria-label="Customer Support">
+            <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 18v-6a9 9 0 0 1 18 0v6" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+            </svg>
+          </button>
+        </header>
+
+        <!-- Stepper / Checkout Progress Bar (Step 2: Address Active) -->
         <div class="bg-white px-5 pt-3 pb-3 border-b border-slate-100 select-none">
           <div class="flex items-center justify-between relative max-w-[380px] mx-auto">
             
-            <!-- Step 1: Cart (Active) -->
-            <div class="flex flex-col items-center relative z-10">
-              <div class="w-8 h-8 rounded-full bg-[#1d4ed8] text-white flex items-center justify-center shadow-xs">
+            <!-- Step 1: Cart (Completed) -->
+            <div class="flex flex-col items-center relative z-10 cursor-pointer" onclick="closeAddressView()">
+              <div class="w-8 h-8 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center text-slate-700">
                 <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                 </svg>
               </div>
-              <span class="text-[11px] font-bold text-[#1d4ed8] mt-1">Cart</span>
+              <span id="addressStep1Label" class="text-[11px] font-medium text-slate-500 mt-1">Cart</span>
             </div>
 
-            <!-- Connector 1 (Gray) -->
-            <div class="flex-1 h-0.5 bg-slate-200 -mt-4 mx-1"></div>
+            <!-- Connector 1 (Solid Blue) -->
+            <div class="flex-1 h-0.5 bg-[#1d4ed8] -mt-4 mx-1"></div>
 
-            <!-- Step 2: Address -->
+            <!-- Step 2: Address (Active) -->
             <div class="flex flex-col items-center relative z-10">
-              <div class="w-8 h-8 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center text-slate-700">
+              <div class="w-8 h-8 rounded-full bg-[#1d4ed8] text-white flex items-center justify-center shadow-xs">
                 <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                 </svg>
               </div>
-              <span class="text-[11px] font-medium text-slate-500 mt-1">Address</span>
+              <span class="text-[11px] font-bold text-[#1d4ed8] mt-1">Address</span>
             </div>
 
             <!-- Connector 2 (Gray) -->
             <div class="flex-1 h-0.5 bg-slate-200 -mt-4 mx-1"></div>
 
-            <!-- Step 3: Payment -->
-            <div class="flex flex-col items-center relative z-10">
+            <!-- Step 3: Payment (Upcoming) -->
+            <div class="flex flex-col items-center relative z-10 cursor-pointer" onclick="openPaymentView('addressView')">
               <div class="w-8 h-8 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center text-slate-700">
                 <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <rect x="2" y="5" width="20" height="14" rx="2" stroke-width="2"/>
@@ -902,7 +1030,7 @@
             <!-- Connector 3 (Gray) -->
             <div class="flex-1 h-0.5 bg-slate-200 -mt-4 mx-1"></div>
 
-            <!-- Step 4: Order -->
+            <!-- Step 4: Order (Upcoming) -->
             <div class="flex flex-col items-center relative z-10">
               <div class="w-8 h-8 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center text-slate-700">
                 <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2.4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -915,114 +1043,184 @@
           </div>
         </div>
 
-        <!-- Scrollable Cart Content Area -->
+        <!-- Scrollable Address Body Content -->
         <div class="px-4 py-3.5 space-y-3.5">
           
-          <!-- Cart Title & Clear Cart Button -->
-          <div class="flex items-center justify-between">
-            <h1 class="text-[19px] font-extrabold text-slate-900 tracking-tight leading-snug">
-              Your Cart <span id="cartHeaderCount" class="font-bold text-slate-500 text-sm">(3 Items)</span>
-            </h1>
-            <button onclick="clearFullCart()" class="flex items-center space-x-1 border border-slate-200/90 rounded-lg px-2.5 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-red-600 transition-colors cursor-pointer active:scale-95">
-              <svg width="14" height="14" style="width: 14px; height: 14px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-              </svg>
-              <span>Clear Cart</span>
-            </button>
+          <!-- Selected Order Section (User Request: "show my select order and show select adress") -->
+          <div id="addressSelectedOrderCard" class="bg-white rounded-2xl border border-slate-200/90 p-3.5 shadow-2xs space-y-2.5">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+              <div class="flex items-center space-x-2">
+                <div class="w-7 h-7 rounded-lg bg-blue-50 text-[#1d4ed8] flex items-center justify-center shrink-0">
+                  <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5m16.5 0-16.5 0m16.5 0-3.75-4.5M3.75 7.5l3.75-4.5m0 0h9" />
+                  </svg>
+                </div>
+                <h2 class="text-xs font-extrabold text-slate-900 tracking-tight">Selected Order</h2>
+              </div>
+              <span id="addressSelectedOrderBadge" class="bg-blue-50 text-[#1d4ed8] text-[10.5px] font-bold px-2 py-0.5 rounded-full border border-blue-100">1 Item</span>
+            </div>
+
+            <!-- Dynamic Selected Order Items List -->
+            <div id="addressSelectedOrderItemsList" class="space-y-2 divide-y divide-slate-100">
+              <!-- Rendered via renderAddressSelectedOrder() -->
+            </div>
+
+            <!-- Total Bar inside Selected Order Card -->
+            <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500 font-medium">Order Subtotal</span>
+              <div class="flex items-baseline space-x-1.5">
+                <span id="addressSelectedOrderOldPrice" class="text-[11px] text-slate-400 line-through">₹1,199</span>
+                <span id="addressSelectedOrderTotal" class="text-sm font-extrabold text-[#1d4ed8]">₹899</span>
+              </div>
+            </div>
           </div>
 
-          <!-- Cart Items Dynamic List -->
-          <div id="cartItemsList" class="space-y-2.5">
-            <!-- Dynamic items rendered via renderCartItems() -->
+          <!-- Heading Section -->
+          <div class="pt-0.5">
+            <h1 class="text-[18px] font-extrabold text-slate-900 tracking-tight leading-snug">Select Delivery Address</h1>
+            <p class="text-xs text-slate-500 mt-0.5 font-medium">Choose a delivery address for your order</p>
           </div>
 
-          <!-- Apply Coupon Card -->
-          <div onclick="toggleCheckoutCoupon()" class="rounded-2xl p-3 border border-slate-200/90 bg-white hover:border-green-300 hover:bg-green-50/20 shadow-2xs transition-all cursor-pointer flex items-center justify-between group">
+          <!-- Saved Addresses List Container -->
+          <div class="space-y-2.5" id="savedAddressesContainer">
+            
+            <!-- Address 1: Home (Default, Selected) -->
+            <div id="addr-card-1" onclick="selectAddress(1)" class="addr-card rounded-2xl p-3.5 border-2 border-[#1d4ed8] bg-[#f8faff] shadow-2xs transition-all cursor-pointer">
+              <div class="flex items-center justify-between">
+                <div class="flex items-start space-x-3">
+                  <!-- Home Icon Squircle -->
+                  <div class="w-11 h-11 bg-blue-100/70 text-[#1d4ed8] rounded-xl flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
+                    <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="flex items-center space-x-2">
+                      <span class="text-[14px] font-extrabold text-slate-900 leading-snug">Home</span>
+                      <span class="bg-[#ecfdf5] border border-green-200 text-[#15803d] text-[10px] font-bold px-2 py-0.5 rounded-full leading-none">Default</span>
+                    </div>
+                    <p class="text-[11.5px] text-slate-600 font-medium leading-relaxed mt-1">A-204, Noor Tower, Kausa, Mumbra,<br>Thane - 400612, Maharashtra</p>
+                  </div>
+                </div>
+
+                <!-- Radio Button (Selected) -->
+                <div id="radio-addr-1" class="w-5 h-5 rounded-full border-2 border-[#1d4ed8] flex items-center justify-center shrink-0 self-center">
+                  <div class="w-2.5 h-2.5 rounded-full bg-[#1d4ed8]"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Address 2: Office (Unselected) -->
+            <div id="addr-card-2" onclick="selectAddress(2)" class="addr-card rounded-2xl p-3.5 border border-slate-200/90 bg-white hover:border-blue-200 shadow-2xs transition-all cursor-pointer">
+              <div class="flex items-start justify-between">
+                <div class="flex items-start space-x-3">
+                  <!-- Office Briefcase Squircle -->
+                  <div class="w-11 h-11 bg-blue-50 text-[#1d4ed8] rounded-xl flex items-center justify-center shrink-0 mt-0.5">
+                    <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.25v4.5a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25v-4.5m16.5 0v-4.5a2.25 2.25 0 0 0-2.25-2.25H16.5m3.75 6.75h-16.5m16.5 0H3.75m0-6.75A2.25 2.25 0 0 1 6 7.5h12a2.25 2.25 0 0 1 2.25 2.25v4.5M9 7.5V6a2.25 2.25 0 0 1 2.25-2.25h3.5A2.25 2.25 0 0 1 17 6v1.5" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="flex items-center space-x-2">
+                      <span class="text-[14px] font-extrabold text-slate-900 leading-snug">Office</span>
+                    </div>
+                    <p class="text-[11.5px] text-slate-600 font-medium leading-relaxed mt-1">G-Block, BKC, Bandra Kurla Complex,<br>Mumbai - 400051, Maharashtra</p>
+                  </div>
+                </div>
+
+                <!-- Right: 3-dots Menu + Radio -->
+                <div class="flex flex-col items-end justify-between self-stretch shrink-0 py-0.5">
+                  <button onclick="event.stopPropagation(); openAddressMenu(2, event)" class="p-1 -mr-1 text-slate-400 hover:text-slate-700 transition-colors focus:outline-none" aria-label="Address options">
+                    <svg width="16" height="16" style="width: 16px; height: 16px;" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                  </button>
+                  <div id="radio-addr-2" class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center shrink-0"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Address 3: Other (Unselected) -->
+            <div id="addr-card-3" onclick="selectAddress(3)" class="addr-card rounded-2xl p-3.5 border border-slate-200/90 bg-white hover:border-blue-200 shadow-2xs transition-all cursor-pointer">
+              <div class="flex items-start justify-between">
+                <div class="flex items-start space-x-3">
+                  <!-- Other Map Pin Squircle -->
+                  <div class="w-11 h-11 bg-blue-50 text-[#1d4ed8] rounded-xl flex items-center justify-center shrink-0 mt-0.5">
+                    <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="flex items-center space-x-2">
+                      <span class="text-[14px] font-extrabold text-slate-900 leading-snug">Other</span>
+                    </div>
+                    <p class="text-[11.5px] text-slate-600 font-medium leading-relaxed mt-1">Shop No. 12, Station Road, Malegaon,<br>Nashik - 423203, Maharashtra</p>
+                  </div>
+                </div>
+
+                <!-- Right: 3-dots Menu + Radio -->
+                <div class="flex flex-col items-end justify-between self-stretch shrink-0 py-0.5">
+                  <button onclick="event.stopPropagation(); openAddressMenu(3, event)" class="p-1 -mr-1 text-slate-400 hover:text-slate-700 transition-colors focus:outline-none" aria-label="Address options">
+                    <svg width="16" height="16" style="width: 16px; height: 16px;" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                  </button>
+                  <div id="radio-addr-3" class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center shrink-0"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Add New Address Button (Dashed Blue Border) -->
+          <button onclick="openAddNewAddressModal()" class="w-full border-2 border-dashed border-[#1d4ed8]/60 hover:border-[#1d4ed8] bg-blue-50/20 hover:bg-blue-50/50 rounded-2xl py-3 px-4 flex items-center justify-center space-x-2 text-[#1d4ed8] font-bold text-sm transition-all cursor-pointer active:scale-[0.99] shadow-2xs">
+            <span class="text-xl font-bold leading-none">+</span>
+            <span>Add New Address</span>
+          </button>
+
+          <!-- Fast & Safe Delivery Banner -->
+          <div class="rounded-2xl p-3.5 border border-green-200/80 bg-[#f0fdf4] shadow-2xs flex items-center justify-between select-none">
             <div class="flex items-center space-x-3">
-              <div class="w-10 h-10 rounded-xl bg-green-50 border border-green-200/60 text-[#16a34a] flex items-center justify-center shrink-0">
-                <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 14.25l6-6m4.5 3a2.25 2.25 0 000-4.5V4.5A2.25 2.25 0 0017.25 2.25H6.75A2.25 2.25 0 004.5 4.5v2.25a2.25 2.25 0 000 4.5V19.5A2.25 2.25 0 006.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-2.25a2.25 2.25 0 000-4.5z" />
-                  <circle cx="8.5" cy="8.5" r="1.25" fill="currentColor" />
-                  <circle cx="15.5" cy="15.5" r="1.25" fill="currentColor" />
+              <!-- Fast Delivery Truck Icon with Motion Lines -->
+              <div class="w-10 h-10 rounded-xl bg-green-100 text-[#15803d] flex items-center justify-center shrink-0">
+                <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[1.9] text-[#15803d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.25V4.875A1.125 1.125 0 0 0 13.125 3.75H8.625M3.375 7.5h3.75m-3.75 3h6m-7.5-6h3.75" />
                 </svg>
               </div>
               <div>
-                <div class="text-[13.5px] font-bold text-slate-900 leading-snug">Apply Coupon</div>
-                <div class="text-[11px] text-slate-500 font-medium">Save more on your order</div>
+                <div class="text-xs font-extrabold text-[#15803d] leading-snug">Fast & Safe Delivery</div>
+                <div class="text-[11px] text-slate-600 font-medium mt-0.5">To your doorstep across India</div>
               </div>
             </div>
-            <!-- Right Arrow -->
-            <svg width="16" height="16" style="width: 16px; height: 16px;" class="text-slate-400 stroke-[2.2] group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-            </svg>
-          </div>
-
-          <!-- Free Delivery Banner -->
-          <div class="bg-[#f0fdf4] border border-green-200/80 rounded-2xl p-3 flex items-center space-x-3 select-none">
-            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center shrink-0 text-[#15803d]">
-              <svg width="18" height="18" style="width: 18px; height: 18px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Zm11.25 0a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Zm-11.25-3.75h11.25M6 15l2-8h5l1.5 4h3.5" />
+            <!-- Green Shield Checkmark -->
+            <div class="text-[#15803d] shrink-0 ml-2">
+              <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[2.2] text-[#15803d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
               </svg>
             </div>
-            <div>
-              <div class="text-xs font-extrabold text-[#15803d] leading-tight">FREE Delivery</div>
-              <div class="text-[11px] text-slate-600 leading-tight mt-0.5">on orders above ₹499</div>
-            </div>
           </div>
 
-          <!-- Order Summary Card -->
-          <div class="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-2xs space-y-2.5">
-            <h3 class="text-[15px] font-extrabold text-slate-900">Order Summary</h3>
-            
-            <div class="space-y-1.5 text-xs">
-              <!-- Item Total -->
-              <div class="flex items-center justify-between text-slate-600">
-                <span id="cartSummaryItemLabel">Item Total (3 Items)</span>
-                <span id="cartSummaryItemTotal" class="font-bold text-slate-900">₹399</span>
-              </div>
-              
-              <!-- Discount -->
-              <div class="flex items-center justify-between text-[#16a34a] font-medium">
-                <span>Discount</span>
-                <span id="cartSummaryDiscount" class="font-bold text-[#16a34a]">- ₹105</span>
-              </div>
-
-              <!-- Delivery Charges -->
-              <div class="flex items-center justify-between text-slate-600">
-                <div class="flex items-center space-x-1">
-                  <span>Delivery Charges</span>
-                  <button onclick="showToast('Free delivery above ₹499. Standard charge is ₹40.')" class="text-slate-400 hover:text-slate-600 focus:outline-none">
-                    <svg width="13" height="13" style="width: 13px; height: 13px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <circle cx="12" cy="12" r="9"/>
-                      <line x1="12" y1="8" x2="12" y2="12"/>
-                      <line x1="12" y1="16" x2="12.01" y2="16"/>
-                    </svg>
-                  </button>
-                </div>
-                <span id="cartSummaryDelivery" class="font-bold text-slate-900">₹40</span>
-              </div>
+          <!-- Delivery Instructions (Optional) -->
+          <div class="bg-white rounded-2xl border border-slate-200/90 p-3.5 shadow-2xs space-y-2">
+            <div class="flex items-center space-x-1.5">
+              <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2] text-[#1d4ed8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+              </svg>
+              <span class="text-xs font-bold text-slate-900">Delivery Instructions</span>
+              <span class="text-[11px] text-slate-400 font-medium">(Optional)</span>
             </div>
-
-            <div class="border-t border-slate-100 pt-2.5">
-              <div class="flex items-baseline justify-between">
-                <span class="text-sm font-extrabold text-slate-900">Total Payable</span>
-                <span id="cartSummaryTotalPayable" class="text-[22px] font-extrabold text-[#1d4ed8]">₹334</span>
-              </div>
-              <!-- Green Savings Text -->
-              <div id="cartSavingsBanner" class="text-xs font-semibold text-[#15803d] mt-1 flex items-center space-x-1">
-                <span>You saved <span id="cartSavingsAmount">₹105</span> on this order</span>
-                <span>🎉</span>
-              </div>
-            </div>
+            <textarea id="deliveryInstructionsInput" rows="2" maxlength="200" oninput="updateDeliveryInstructions(this)" placeholder="e.g. Leave at the door, call before delivery, etc." class="w-full text-xs text-slate-700 bg-white border border-slate-200 rounded-xl p-2.5 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 resize-none placeholder:text-slate-400 font-normal leading-relaxed"></textarea>
+            <div class="text-right text-[10px] text-slate-400 font-medium" id="deliveryInstructionsCounter">0/200</div>
           </div>
 
         </div>
       </div>
 
-      <!-- Sticky Bottom Action Bar (Proceed to Checkout) -->
+      <!-- Sticky Bottom Action Bar (Continue to Payment) -->
       <div class="sticky bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-slate-100 px-4 py-3 shadow-[0_-4px_16px_rgba(0,0,0,0.05)]">
-        <button onclick="openPaymentView('cartView')" class="w-full bg-[#1d4ed8] hover:bg-[#1e40af] active:scale-[0.98] text-white font-bold text-sm h-12 rounded-xl shadow-md flex items-center justify-center space-x-2 transition-all cursor-pointer">
-          <span>Proceed to Checkout</span>
+        <button onclick="openPaymentView('addressView')" class="w-full bg-[#1d4ed8] hover:bg-[#1e40af] active:scale-[0.98] text-white font-bold text-sm h-12 rounded-xl shadow-md flex items-center justify-center space-x-2 transition-all cursor-pointer">
+          <span id="addressContinueBtnText">Continue to Payment</span>
           <span class="text-base font-bold">→</span>
         </button>
       </div>
@@ -1229,7 +1427,7 @@
             <div class="space-y-1.5 text-xs">
               <!-- Item Total -->
               <div class="flex items-center justify-between text-slate-600">
-                <span>Item Total (3 Items)</span>
+                <span id="paymentItemTotalLabel">Item Total (3 Items)</span>
                 <span id="summaryItemTotal" class="font-bold text-slate-900">₹399</span>
               </div>
               
@@ -1285,6 +1483,231 @@
           <span>Powered by</span>
           <img src="image/icons/razorpay-logo.png" alt="Razorpay" class="h-3 w-auto object-contain inline-block ml-0.5">
         </div>
+      </div>
+
+    </div>
+
+    <!-- 4. Order Confirmed / Success View (Step 4 in Checkout Flow - Matches exact UX/UI from design reference) -->
+    <div id="orderSuccessView" class="w-full hidden bg-[#f8fafc] min-h-screen flex flex-col justify-between">
+      
+      <!-- Top Scrollable Content -->
+      <div class="w-full">
+        <!-- Sticky Header -->
+        <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-slate-100 shadow-[0_1px_4px_rgba(0,0,0,0.02)]">
+          <!-- Back Arrow Button -->
+          <button onclick="closeOrderSuccessView()" class="p-1 -ml-1 text-slate-800 hover:text-slate-600 active:scale-95 focus:outline-none transition-all" aria-label="Go Back">
+            <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[2.4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+          </button>
+
+          <!-- Mednutra Logo -->
+          <div class="flex items-center justify-center cursor-pointer select-none -ml-4" onclick="closeOrderSuccessView()">
+            <img src="image/logo.png" alt="Mednutra" class="h-7 w-auto max-w-[140px] object-contain drop-shadow-xs">
+          </div>
+
+          <!-- Customer Support Headset Icon -->
+          <button onclick="showToast('Customer Support: +91 1800-MEDNUTRA (24/7)')" class="p-1 text-slate-800 hover:text-slate-600 focus:outline-none transition-colors" aria-label="Customer Support">
+            <svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 18v-6a9 9 0 0 1 18 0v6" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+            </svg>
+          </button>
+        </header>
+
+        <!-- Stepper / Checkout Progress Bar (Step 4: Order Active & Complete) -->
+        <div class="bg-white px-5 pt-3 pb-3 border-b border-slate-100 select-none">
+          <div class="flex items-center justify-between relative max-w-[380px] mx-auto">
+            
+            <!-- Step 1: Cart -->
+            <div class="flex flex-col items-center relative z-10 cursor-pointer" onclick="closeOrderSuccessView(); openCartView('homeView');">
+              <div class="w-8 h-8 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center text-slate-700">
+                <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                </svg>
+              </div>
+              <span class="text-[11px] font-medium text-slate-500 mt-1">Cart</span>
+            </div>
+
+            <!-- Connector 1 (Solid Blue) -->
+            <div class="flex-1 h-0.5 bg-[#1d4ed8] -mt-4 mx-1"></div>
+
+            <!-- Step 2: Address -->
+            <div class="flex flex-col items-center relative z-10">
+              <div class="w-8 h-8 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center text-slate-700">
+                <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                </svg>
+              </div>
+              <span class="text-[11px] font-medium text-slate-500 mt-1">Address</span>
+            </div>
+
+            <!-- Connector 2 (Solid Blue) -->
+            <div class="flex-1 h-0.5 bg-[#1d4ed8] -mt-4 mx-1"></div>
+
+            <!-- Step 3: Payment -->
+            <div class="flex flex-col items-center relative z-10">
+              <div class="w-8 h-8 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center text-slate-700">
+                <svg width="15" height="15" style="width: 15px; height: 15px;" class="stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-6 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Z" />
+                </svg>
+              </div>
+              <span class="text-[11px] font-medium text-slate-500 mt-1">Payment</span>
+            </div>
+
+            <!-- Connector 3 (Solid Blue) -->
+            <div class="flex-1 h-0.5 bg-[#1d4ed8] -mt-4 mx-1"></div>
+
+            <!-- Step 4: Order (Active with solid blue circle & white checkmark) -->
+            <div class="flex flex-col items-center relative z-10">
+              <div class="w-8 h-8 rounded-full bg-[#1d4ed8] text-white flex items-center justify-center shadow-xs">
+                <svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <span class="text-[11px] font-extrabold text-[#1d4ed8] mt-1">Order</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Order Confirmed Content Area with Subtle Top Green Ambient Curve -->
+        <div class="px-4 py-4 space-y-3.5 relative overflow-hidden">
+          
+          <!-- Soft Green Ambient Top Curve (matches design reference) -->
+          <div class="absolute -top-16 left-1/2 -translate-x-1/2 w-[140%] h-64 bg-gradient-to-b from-[#e8f7ee] via-[#f2faf5] to-transparent rounded-[50%] pointer-events-none -z-0"></div>
+
+          <!-- Hero Section: Green Badge with Confetti + Order Confirmed -->
+          <div class="pt-2 pb-2 text-center relative z-10">
+            <!-- Green Badge Icon (image/icons/sucess.png) -->
+            <div class="w-32 h-24 mx-auto flex items-center justify-center">
+              <img src="image/icons/sucess.png" alt="Order Confirmed" class="max-h-full max-w-full object-contain filter drop-shadow-xs">
+            </div>
+
+            <!-- Headings -->
+            <div class="mt-1 space-y-0.5">
+              <h1 class="text-[22px] font-black text-slate-900 tracking-tight leading-snug">Order Confirmed!</h1>
+              <p class="text-xs text-slate-500 font-medium">Thank you for shopping with Mednutra</p>
+            </div>
+
+            <!-- Order ID Pill with Copy button -->
+            <div class="mt-3 flex items-center justify-center">
+              <div class="bg-[#f0fdf4] border border-green-200/80 rounded-full px-4 py-1.5 flex items-center space-x-2 text-xs font-semibold shadow-2xs">
+                <span class="text-slate-600">Order ID:</span>
+                <span id="orderSuccessId" class="font-extrabold text-slate-900 tracking-wide">MN784320</span>
+                <button onclick="copyOrderId('MN784320')" class="text-slate-500 hover:text-slate-800 transition-colors focus:outline-none cursor-pointer" aria-label="Copy Order ID">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Expected Delivery Card -->
+          <div class="bg-white rounded-2xl border border-slate-100 p-3.5 shadow-2xs flex items-center justify-between">
+            <div class="flex items-center space-x-3 min-w-0">
+              <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#1d4ed8] flex items-center justify-center shrink-0">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.25V3.375c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75m2.25-13.5h-9.75m9.75 0v3.75m0 0h4.5" />
+                </svg>
+              </div>
+              <div class="min-w-0">
+                <span class="text-xs font-medium text-slate-500">Expected Delivery</span>
+                <h4 class="text-[13.5px] font-extrabold text-[#16a34a] leading-snug">Thu, 06 Nov – Sat, 08 Nov</h4>
+              </div>
+            </div>
+            <div class="bg-[#f0fdf4] text-[#16a34a] border border-green-200/60 rounded-xl px-2.5 py-1 text-xs font-bold flex items-center space-x-1.5 shrink-0">
+              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg>
+              <span>3–5 Days</span>
+            </div>
+          </div>
+
+          <!-- Order Summary Card -->
+          <div class="bg-white rounded-2xl border border-slate-100 p-4 shadow-2xs space-y-3">
+            <!-- Card Header -->
+            <div class="flex items-center space-x-2">
+              <svg width="18" height="18" class="text-[#1d4ed8]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+              </svg>
+              <h3 class="text-[15px] font-extrabold text-slate-900">Order Summary</h3>
+            </div>
+
+            <!-- Items List (Dynamic) -->
+            <div id="orderSuccessItemsList" class="space-y-2.5 pb-2 border-b border-slate-100">
+              <div class="flex items-center justify-between gap-3">
+                <div class="w-14 h-14 bg-[#f8fafc] rounded-xl p-1 flex items-center justify-center shrink-0 border border-slate-100 overflow-hidden">
+                  <img src="image/product/centrum-fish-oil.png" alt="Centrum Omega-3 Fish Oil" class="max-h-full max-w-full object-contain filter drop-shadow-2xs">
+                </div>
+                <div class="flex-1 min-w-0 pr-1">
+                  <h4 class="text-xs font-bold text-slate-900 leading-snug">Centrum Omega-3 Fish Oil (60 Capsules)</h4>
+                  <p class="text-xs text-slate-500 font-medium mt-1">Qty: 1</p>
+                </div>
+                <span class="text-sm font-extrabold text-slate-900 shrink-0">₹899</span>
+              </div>
+            </div>
+
+            <!-- Subtotal & Delivery Breakdown -->
+            <div class="space-y-1.5 text-xs font-medium">
+              <div class="flex items-center justify-between text-slate-600">
+                <span>Subtotal</span>
+                <span id="orderSuccessSubtotal" class="font-bold text-slate-900">₹899</span>
+              </div>
+              <div class="flex items-center justify-between text-slate-600">
+                <div class="flex items-center space-x-1">
+                  <span>Delivery Charges</span>
+                  <svg width="12" height="12" class="stroke-[2] text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <span class="font-bold text-[#16a34a]">₹0</span>
+              </div>
+            </div>
+
+            <!-- Total Paid Banner -->
+            <div class="rounded-xl bg-[#eff6ff] px-3.5 py-2.5 flex items-center justify-between mt-1">
+              <span class="text-sm font-extrabold text-slate-900">Total Paid</span>
+              <span id="orderSuccessTotalPaid" class="text-[17px] font-black text-slate-900">₹899</span>
+            </div>
+          </div>
+
+          <!-- Secure Payment Banner -->
+          <div class="bg-[#f4fbf7] border border-green-200/60 rounded-2xl p-3 flex items-center justify-between select-none shadow-2xs">
+            <div class="flex items-center space-x-2.5">
+              <div class="w-7 h-7 rounded-lg bg-green-100/70 text-[#16a34a] flex items-center justify-center shrink-0">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-slate-900 leading-tight">Secure Payment</h4>
+                <p class="text-[10.5px] font-medium text-slate-500 mt-0.5 leading-none">100% safe & encrypted transaction</p>
+              </div>
+            </div>
+            <svg width="16" height="16" class="text-slate-400 stroke-[1.8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+            </svg>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="space-y-2.5 pt-1 pb-4">
+            <!-- Track Your Order Button -->
+            <button onclick="trackOrder()" class="w-full bg-[#1d4ed8] hover:bg-[#1e40af] active:scale-[0.98] text-white font-bold text-sm h-12 rounded-xl shadow-md flex items-center justify-center space-x-2 transition-all cursor-pointer">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.25V3.375c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75m2.25-13.5h-9.75m9.75 0v3.75m0 0h4.5" />
+              </svg>
+              <span>Track Your Order</span>
+              <span class="text-base font-bold">→</span>
+            </button>
+
+            <!-- Continue Shopping Button -->
+            <button onclick="closeOrderSuccessView()" class="w-full bg-white hover:bg-slate-50 border border-slate-200 active:scale-[0.98] text-slate-800 font-bold text-sm h-12 rounded-xl shadow-2xs flex items-center justify-center space-x-2 transition-all cursor-pointer">
+              <svg width="18" height="18" class="stroke-[2.2] text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119.993Z" />
+              </svg>
+              <span>Continue Shopping</span>
+            </button>
+          </div>
+
+        </div>
+
       </div>
 
     </div>
@@ -1392,6 +1815,83 @@
     </div>
   </div>
 
+  <!-- Add New Address Modal (Interactive) -->
+  <div id="addNewAddressModal" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 flex items-end sm:items-center justify-center hidden" onclick="closeAddNewAddressModal()">
+    <div class="bg-white rounded-t-3xl sm:rounded-2xl w-full max-w-sm p-5 shadow-2xl space-y-3.5 max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <h3 class="text-base font-extrabold text-slate-900">Add New Delivery Address</h3>
+        <button onclick="closeAddNewAddressModal()" class="text-slate-400 hover:text-slate-700 font-bold p-1">✕</button>
+      </div>
+
+      <!-- Address Type Selector -->
+      <div>
+        <label class="text-xs font-semibold text-slate-700 block mb-1.5">Address Type</label>
+        <div class="flex gap-2">
+          <button type="button" onclick="selectNewAddressType('Home')" id="typeBtn-Home" class="flex-1 py-1.5 text-xs font-bold rounded-xl border-2 border-[#1d4ed8] bg-blue-50 text-[#1d4ed8] transition-all flex items-center justify-center gap-1 shadow-2xs">
+            <span>🏠</span> Home
+          </button>
+          <button type="button" onclick="selectNewAddressType('Office')" id="typeBtn-Office" class="flex-1 py-1.5 text-xs font-semibold rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 transition-all flex items-center justify-center gap-1">
+            <span>💼</span> Office
+          </button>
+          <button type="button" onclick="selectNewAddressType('Other')" id="typeBtn-Other" class="flex-1 py-1.5 text-xs font-semibold rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 transition-all flex items-center justify-center gap-1">
+            <span>📍</span> Other
+          </button>
+        </div>
+      </div>
+
+      <!-- Form Inputs -->
+      <div class="space-y-2.5">
+        <div>
+          <label class="text-[11px] font-semibold text-slate-600 block mb-1">House / Flat / Building Name *</label>
+          <input type="text" id="newAddrBuilding" placeholder="e.g. Flat 302, Green Heights" class="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 focus:outline-none focus:border-blue-500">
+        </div>
+
+        <div>
+          <label class="text-[11px] font-semibold text-slate-600 block mb-1">Street / Area / Locality *</label>
+          <input type="text" id="newAddrArea" placeholder="e.g. M.G. Road, Kausa" class="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 focus:outline-none focus:border-blue-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="text-[11px] font-semibold text-slate-600 block mb-1">Pincode *</label>
+            <input type="text" id="newAddrPincode" placeholder="e.g. 400612" class="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 focus:outline-none focus:border-blue-500">
+          </div>
+          <div>
+            <label class="text-[11px] font-semibold text-slate-600 block mb-1">City / State *</label>
+            <input type="text" id="newAddrCity" placeholder="e.g. Thane, Maharashtra" class="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 focus:outline-none focus:border-blue-500">
+          </div>
+        </div>
+
+        <!-- Default Checkbox -->
+        <label class="flex items-center space-x-2 cursor-pointer pt-0.5">
+          <input type="checkbox" id="newAddrIsDefault" class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300">
+          <span class="text-xs text-slate-700 font-medium select-none">Set as default delivery address</span>
+        </label>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex gap-2 pt-1">
+        <button type="button" onclick="closeAddNewAddressModal()" class="flex-1 py-2 rounded-xl border border-slate-200 text-slate-700 text-xs font-bold hover:bg-slate-50 transition-all">Cancel</button>
+        <button type="button" onclick="saveNewAddress()" class="flex-1 py-2 rounded-xl bg-[#1d4ed8] hover:bg-[#1e40af] text-white text-xs font-bold transition-all shadow-xs">Save Address</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Address 3-Dots Options Menu Modal (Interactive) -->
+  <div id="addressOptionsModal" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-50 flex items-end sm:items-center justify-center hidden" onclick="closeAddressMenu()">
+    <div class="bg-white rounded-t-3xl sm:rounded-2xl w-full max-w-xs p-4 shadow-2xl space-y-1.5" onclick="event.stopPropagation()">
+      <div class="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider pb-1.5 border-b border-slate-100">Address Options</div>
+      <button onclick="handleSetDefaultFromMenu()" class="w-full py-2 px-3 rounded-xl text-left text-xs font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-700 flex items-center space-x-2 transition-all">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+        <span>Set as Default</span>
+      </button>
+      <button onclick="handleDeleteFromMenu()" class="w-full py-2 px-3 rounded-xl text-left text-xs font-bold text-red-600 hover:bg-red-50 flex items-center space-x-2 transition-all">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/></svg>
+        <span>Delete Address</span>
+      </button>
+    </div>
+  </div>
+
   <!-- Order Confirmation Success Modal (Interactive) -->
   <div id="orderSuccessModal" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-white rounded-3xl max-w-sm w-full p-6 text-center shadow-2xl space-y-4">
@@ -1474,23 +1974,33 @@
     }
 
     // Add to Cart with quantity controller
-    const cartQuantities = { 1: 0, 2: 0, 3: 0, 4: 0 };
+    const cartQuantities = { 1: 1, 2: 1, 3: 1, 4: 0 };
 
     function addToCart(productId, title, price) {
-      cartQuantities[productId] = 1;
-      cartTotalItems++;
+      cartQuantities[productId] = (cartQuantities[productId] || 0) + 1;
+      const item = cartItems.find(i => i.id === productId);
+      if (item) {
+        item.qty = cartQuantities[productId];
+        item.checked = true;
+      }
+      cartTotalItems = cartItems.reduce((sum, i) => sum + i.qty, 0);
       updateCartBadge();
       renderQuantityControl(productId, title, price);
       showToast(`${title} added to Cart!`);
     }
 
     function changeQty(productId, delta, title, price) {
-      cartQuantities[productId] += delta;
-      cartTotalItems += delta;
+      cartQuantities[productId] = (cartQuantities[productId] || 0) + delta;
+      if (cartQuantities[productId] < 0) cartQuantities[productId] = 0;
+      
+      const item = cartItems.find(i => i.id === productId);
+      if (item) {
+        item.qty = cartQuantities[productId];
+      }
+      cartTotalItems = cartItems.reduce((sum, i) => sum + i.qty, 0);
       updateCartBadge();
 
       if (cartQuantities[productId] <= 0) {
-        cartQuantities[productId] = 0;
         renderAddButton(productId, title, price);
         showToast(`${title} removed from Cart`);
       } else {
@@ -1570,9 +2080,11 @@
       if (tabName === 'Home') {
         closeProductDetail();
         closeCartView();
+        closeAddressView();
         closePaymentView();
+        closeOrderSuccessView();
       } else if (tabName === 'Orders') {
-        openCartView('homeView');
+        openOrderSuccessView();
       }
 
       showToast(`Switched to ${tabName}`);
@@ -1632,94 +2144,94 @@
     const productsData = {
       1: {
         id: 1,
-        title: "Paracetamol Tablets IP 500 mg",
-        subtitle: "Strip of 10 Tablets",
-        category: "Pain Relief",
-        price: "₹40",
-        rawPrice: 40,
-        mrp: "₹50",
-        discount: "20% OFF",
+        title: "REPL Dr. Advice No. 3 Anemia (30 ml)",
+        subtitle: "30 ml | Homeopathic Medicine",
+        category: "Medicines",
+        price: "₹299",
+        rawPrice: 299,
+        mrp: "₹349",
+        discount: "14% OFF",
         rating: "4.8",
         reviews: "2,450 Reviews",
         bought: "1,200+ bought this month",
-        image: "image/product/paracetamol.png",
-        manufacturer: "Mednutra",
-        packSize: "10 tablets",
-        type: "Tablet",
+        image: "image/product/repl-anemia-drops.png",
+        manufacturer: "REPL Homeopathic Pvt. Ltd.",
+        packSize: "30 ml",
+        type: "Liquid Drops",
         tabs: {
-          overview: "Paracetamol is commonly used for temporary relief of pain and fever. Follow the product label and advice of a healthcare professional.",
-          uses: "Relieves mild to moderate pain including headache, toothache, muscle aches, backache, and reduces fever caused by cold or flu infections.",
-          safety: "Do not exceed the recommended dose. Avoid taking other paracetamol-containing products concurrently. Consult a physician if fever lasts over 3 days.",
-          details: "Composition: Paracetamol IP 500mg. Storage: Store below 30°C in a dry place protected from direct sunlight and moisture."
+          overview: "REPL Dr. Advice No. 3 is a trusted homeopathic medicine indicated for temporary relief of symptoms associated with anemia, exhaustion, fatigue, and low vitality.",
+          uses: "Helps promote natural red blood cell production, supports iron absorption, reduces weakness and debility, and relieves pale complexion due to hemoglobin deficiency.",
+          safety: "Consult a qualified homeopathic doctor or physician before use. Store in a cool, dark place away from strong scents. Keep out of reach of children.",
+          details: "Active Ingredients: Ferrum Metallicum 6C, Natrum Muriaticum 6C, China 6C. Alcohol Content 28% v/v. Prepared under strict H.P.I. and GMP standards."
         }
       },
       2: {
         id: 2,
-        title: "Vitamin C 1000mg + Zinc",
-        subtitle: "Bottle of 60 Chewable Tablets",
-        category: "Vitamins & Supplements",
-        price: "₹299",
-        rawPrice: 299,
-        mrp: "₹399",
+        title: "Centrum Omega-3 Fish Oil (60 Capsules)",
+        subtitle: "60 Capsules | Heart & Joint Health",
+        category: "Supplements",
+        price: "₹899",
+        rawPrice: 899,
+        mrp: "₹1,199",
         discount: "25% OFF",
         rating: "4.9",
         reviews: "1,820 Reviews",
-        bought: "850+ bought this month",
-        image: "image/product/vitaminc.png",
-        manufacturer: "Mednutra",
-        packSize: "60 tablets",
-        type: "Chewable",
+        bought: "950+ bought this month",
+        image: "image/product/centrum-fish-oil.png",
+        manufacturer: "GlaxoSmithKline (GSK)",
+        packSize: "60 capsules",
+        type: "Softgel",
         tabs: {
-          overview: "Boost immunity and daily wellness with natural Vitamin C and Zinc. Supports skin health and antioxidant defenses with tangy citrus flavor.",
-          uses: "Daily immune booster, enhances collagen synthesis, promotes cellular rejuvenation, and supports vitality.",
-          safety: "Health supplement, not for medicinal use. Do not exceed the stated recommended daily dosage.",
-          details: "Composition: Vitamin C (Ascorbic Acid) 1000mg, Zinc 10mg. 100% vegetarian, sugar-free chewables."
+          overview: "Centrum Omega-3 Fish Oil provides essential EPA & DHA fatty acids derived from natural wild anchovies and sardines caught in clean Icelandic waters.",
+          uses: "Clinically studied ingredients support healthy cardiovascular circulation, flexible joint mobility, sharp cognitive focus, and radiant hydrated skin.",
+          safety: "Nutraceutical supplement for ages 13+. Take 1 softgel daily after food. If pregnant, nursing, or on blood thinners, consult your doctor.",
+          details: "Purified molecular distillation removes all mercury, PCB, and heavy metals. Guaranteed burp-free without fishy aftertaste."
         }
       },
       3: {
         id: 3,
-        title: "Daily Multivitamin Complex",
-        subtitle: "Bottle of 60 Tablets",
-        category: "Vitamins & Supplements",
-        price: "₹349",
-        rawPrice: 349,
-        mrp: "₹499",
-        discount: "30% OFF",
+        title: "Carbamide Forte Antarctic Krill Oil (30 Softgels)",
+        subtitle: "1000 mg | 30 Softgels (Lemon)",
+        category: "Supplements",
+        price: "₹1,299",
+        rawPrice: 1299,
+        mrp: "₹1,699",
+        discount: "24% OFF",
         rating: "4.7",
-        reviews: "980 Reviews",
-        bought: "600+ bought this month",
-        image: "image/product/multivitamin.png",
-        manufacturer: "Mednutra",
-        packSize: "60 tablets",
-        type: "Tablet",
+        reviews: "1,340 Reviews",
+        bought: "800+ bought this month",
+        image: "image/product/carbamide-krill-oil.png",
+        manufacturer: "Novus Life Sciences (Carbamide Forte)",
+        packSize: "30 softgels",
+        type: "Softgel",
         tabs: {
-          overview: "Comprehensive daily nutritional support packed with 24 essential vitamins and minerals for sustained energy and active lifestyle.",
-          uses: "Promotes cardiovascular health, metabolic energy, joint and bone strength, and cognitive vitality.",
-          safety: "Consult healthcare professional before use if you are pregnant, nursing, or undergoing treatment for an existing condition.",
-          details: "Vitamins A, B-Complex, C, D3, E, Biotin, Calcium, Iron, Magnesium, Zinc, and botanical extracts."
+          overview: "Carbamide Forte Nova Krill Antarctic Krill Oil delivers 1000 mg per serving of pure phospholipid-bound Omega-3s with natural Astaxanthin antioxidant.",
+          uses: "Phospholipid structure offers 2.5x higher bioavailability than regular fish oil to power heart vitality, ease joint stiffness, and enhance cognitive memory.",
+          safety: "Nutraceutical supplement. Do not exceed the recommended daily serving. Store in a dry place protected from heat and moisture.",
+          details: "Composition: 100% pure Antarctic Krill (Euphausia superba), Phospholipids, Astaxanthin, natural lemon flavour. Gluten-free, non-GMO."
         }
       },
       4: {
         id: 4,
-        title: "Vitamin D3 60K IU",
-        subtitle: "Pack of 4 Capsules",
-        category: "Vitamins & Supplements",
-        price: "₹120",
-        rawPrice: 120,
-        mrp: "₹150",
+        title: "Camber Omega-3 Ethyl Esters USP",
+        subtitle: "1000 mg (1g) | 120 Capsules (Rx Only)",
+        category: "Medicines",
+        price: "₹840",
+        rawPrice: 840,
+        mrp: "₹1,050",
         discount: "20% OFF",
         rating: "4.9",
         reviews: "3,100 Reviews",
-        bought: "2,000+ bought this month",
-        image: "image/product/vitamind.png",
-        manufacturer: "Mednutra",
-        packSize: "4 capsules",
-        type: "Softgel",
+        bought: "1,500+ bought this month",
+        image: "image/product/camber-omega3.png",
+        manufacturer: "Camber Pharmaceuticals, Inc.",
+        packSize: "120 capsules",
+        type: "Capsule",
         tabs: {
-          overview: "High-potency Cholecalciferol (Vitamin D3) for maximum bone density, rapid calcium absorption, and muscle support.",
-          uses: "Effective treatment and prevention of Vitamin D deficiency, strengthens bones and teeth, and supports immune regulation.",
-          safety: "Strictly follow prescription guidelines (commonly taken once weekly). Keep out of reach of children.",
-          details: "Composition: Cholecalciferol IP 60,000 IU soft gelatin capsules. Store in a cool, dark place."
+          overview: "Camber Pharmaceuticals Omega-3-Acid Ethyl Esters USP provides pharmaceutical-grade 1 gram ethyl esters formulated to regulate blood lipid levels.",
+          uses: "Indicated as an adjunct to a healthy diet to reduce very high triglyceride levels in adult patients with hypertriglyceridemia.",
+          safety: "Prescription medication (Rx Only). Swallow capsules whole with water; do not crush, chew, or dissolve. Follow physician instructions.",
+          details: "NDC 31722-936-12. Each 1 gram capsule contains at least 900 mg of ethyl esters of omega-3 fatty acids (EPA & DHA). USP grade."
         }
       }
     };
@@ -1792,11 +2304,15 @@
       const homeView = document.getElementById('homeView');
       const pdpView = document.getElementById('productDetailView');
       const cartView = document.getElementById('cartView');
+      const addressView = document.getElementById('deliveryAddressView');
       const checkoutView = document.getElementById('checkoutPaymentView');
+      const orderView = document.getElementById('orderSuccessView');
       const bottomNav = document.getElementById('bottomNavBar');
       if (homeView) homeView.classList.add('hidden');
       if (cartView) cartView.classList.add('hidden');
+      if (addressView) addressView.classList.add('hidden');
       if (checkoutView) checkoutView.classList.add('hidden');
+      if (orderView) orderView.classList.add('hidden');
       if (bottomNav) bottomNav.classList.remove('hidden');
       if (pdpView) pdpView.classList.remove('hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1852,21 +2368,45 @@
       if (!prod) return;
       
       cartQuantities[currentPdpId] = (cartQuantities[currentPdpId] || 0) + currentPdpQty;
-      cartTotalItems += currentPdpQty;
+      const item = cartItems.find(i => i.id === currentPdpId);
+      if (item) {
+        item.qty = cartQuantities[currentPdpId];
+        item.checked = true;
+      }
+      cartTotalItems = cartItems.reduce((sum, i) => sum + i.qty, 0);
       updateCartBadge();
       renderQuantityControl(currentPdpId, prod.title, prod.rawPrice);
       showToast(`${currentPdpQty} x ${prod.title} added to Cart! 🛒`);
     }
 
+    let currentCheckoutItems = [];
+    let checkoutSource = 'buyNow';
+
     function buyNowPdp() {
       const prod = productsData[currentPdpId];
       if (!prod) return;
       
-      cartQuantities[currentPdpId] = (cartQuantities[currentPdpId] || 0) + currentPdpQty;
-      cartTotalItems += currentPdpQty;
-      updateCartBadge();
-      renderQuantityControl(currentPdpId, prod.title, prod.rawPrice);
-      openCartView('productDetailView');
+      checkoutSource = 'buyNow';
+      const rawMrp = prod.mrp ? (parseInt(prod.mrp.replace(/[^\d]/g, '')) || prod.rawPrice) : prod.rawPrice;
+      
+      currentCheckoutItems = [{
+        id: prod.id,
+        name: prod.title,
+        subtitle: prod.subtitle,
+        tags: [
+          { text: prod.category, bg: "bg-[#eff6ff] text-[#2563eb]" },
+          { text: prod.packSize, bg: "bg-[#f0fdf4] text-[#16a34a]" }
+        ],
+        price: prod.rawPrice,
+        mrp: rawMrp,
+        discount: prod.discount,
+        qty: currentPdpQty || 1,
+        checked: true,
+        image: prod.image
+      }];
+
+      // Directly open Delivery Address, skipping cart page!
+      openAddressView('productDetailView');
     }
 
     function togglePdpWishlist(btn) {
@@ -1886,12 +2426,53 @@
 
     // Cart View Controller & State
     let previousViewBeforeCart = 'homeView';
-    
-    // Cart items matching the exact reference design (3 items totaling ₹399 MRP, -₹105 discount = ₹294 + ₹40 delivery = ₹334)
+    let isCartCouponApplied = false;
+    let allCartSelected = true;
+
+    // Cart items matching the exact reference design (Centrum ₹899, Carbamide ₹1299, REPL ₹299 -> Total ₹2,497, Discount -₹501, Total Payable ₹1,996)
     const cartItems = [
-      { id: 1, name: "Paracetamol Tablets IP 500 mg", subtitle: "Strip of 10 Tablets", price: 40, mrp: 50, discount: "20% OFF", qty: 1, checked: true, image: "image/product/paracetamol.png" },
-      { id: 2, name: "Multivitamin Capsules", subtitle: "10 Capsules", price: 104, mrp: 149, discount: "30% OFF", qty: 1, checked: true, image: "image/product/multivitamin.png" },
-      { id: 3, name: "Vitamin D3 Supplements", subtitle: "60,000 IU | Strip of 4 Capsules", price: 150, mrp: 200, discount: "25% OFF", qty: 1, checked: true, image: "image/product/vitamind.png" }
+      {
+        id: 2,
+        name: "Centrum Omega-3 Fish Oil (60 Capsules)",
+        tags: [
+          { text: "Omega-3", bg: "bg-[#eff6ff] text-[#2563eb]" },
+          { text: "Heart Health", bg: "bg-[#f0fdf4] text-[#16a34a]" }
+        ],
+        price: 899,
+        mrp: 1199,
+        discount: "25% OFF",
+        qty: 1,
+        checked: true,
+        image: "image/product/centrum-fish-oil.png"
+      },
+      {
+        id: 3,
+        name: "Carbamide Forte Antarctic Krill Oil (30 Softgels)",
+        tags: [
+          { text: "Krill Oil", bg: "bg-[#eff6ff] text-[#2563eb]" },
+          { text: "Joint Support", bg: "bg-[#f0fdf4] text-[#16a34a]" }
+        ],
+        price: 1299,
+        mrp: 1699,
+        discount: "24% OFF",
+        qty: 1,
+        checked: true,
+        image: "image/product/carbamide-krill-oil.png"
+      },
+      {
+        id: 1,
+        name: "REPL Dr. Advice No. 3 Anemia (30 ml)",
+        tags: [
+          { text: "Homeopathy", bg: "bg-[#eff6ff] text-[#2563eb]" },
+          { text: "Blood Health", bg: "bg-[#f0fdf4] text-[#16a34a]" }
+        ],
+        price: 299,
+        mrp: 349,
+        discount: "14% OFF",
+        qty: 1,
+        checked: true,
+        image: "image/product/repl-anemia-drops.png"
+      }
     ];
 
     function openCartView(fromView) {
@@ -1900,18 +2481,33 @@
       const homeView = document.getElementById('homeView');
       const pdpView = document.getElementById('productDetailView');
       const cartView = document.getElementById('cartView');
+      const addressView = document.getElementById('deliveryAddressView');
       const checkoutView = document.getElementById('checkoutPaymentView');
+      const orderView = document.getElementById('orderSuccessView');
       const bottomNav = document.getElementById('bottomNavBar');
 
       if (homeView) homeView.classList.add('hidden');
       if (pdpView) pdpView.classList.add('hidden');
+      if (addressView) addressView.classList.add('hidden');
       if (checkoutView) checkoutView.classList.add('hidden');
+      if (orderView) orderView.classList.add('hidden');
       if (bottomNav) bottomNav.classList.add('hidden');
       if (cartView) cartView.classList.remove('hidden');
 
       renderCartItems();
       window.scrollTo({ top: 0, behavior: 'instant' });
       showToast('Step 1: Your Cart');
+    }
+
+    function proceedToCheckoutFromCart() {
+      const checked = cartItems.filter(i => i.checked && i.qty > 0);
+      if (checked.length === 0) {
+        showToast('Please select at least 1 item in your cart to proceed');
+        return;
+      }
+      checkoutSource = 'cart';
+      currentCheckoutItems = JSON.parse(JSON.stringify(checked));
+      openAddressView('cartView');
     }
 
     function closeCartView() {
@@ -1932,6 +2528,59 @@
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
+    function updateSelectAllCheckboxUI() {
+      const el = document.getElementById('selectAllCheckbox');
+      if (!el) return;
+      if (allCartSelected) {
+        el.className = 'w-5 h-5 rounded-md bg-[#1d4ed8] text-white flex items-center justify-center shrink-0 shadow-2xs transition-all';
+        el.innerHTML = '<svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>';
+      } else {
+        el.className = 'w-5 h-5 rounded-md border-2 border-slate-300 bg-white flex items-center justify-center shrink-0 shadow-2xs transition-all';
+        el.innerHTML = '';
+      }
+    }
+
+    function toggleSelectAllCart() {
+      allCartSelected = !allCartSelected;
+      cartItems.forEach(i => {
+        if (i.qty > 0) i.checked = allCartSelected;
+      });
+      updateSelectAllCheckboxUI();
+      renderCartItems();
+    }
+
+    function removeSelectedCartItems() {
+      const checkedActive = cartItems.filter(i => i.checked && i.qty > 0);
+      if (checkedActive.length === 0) {
+        showToast('No items selected to remove');
+        return;
+      }
+      checkedActive.forEach(item => {
+        item.qty = 0;
+        cartQuantities[item.id] = 0;
+        const prod = productsData[item.id];
+        if (prod) renderAddButton(item.id, prod.title, prod.rawPrice);
+      });
+      cartTotalItems = cartItems.reduce((sum, i) => sum + i.qty, 0);
+      updateCartBadge();
+      renderCartItems();
+      showToast('Removed selected items from cart');
+    }
+
+    function deleteCartItem(id) {
+      const item = cartItems.find(i => i.id === id);
+      if (item) {
+        item.qty = 0;
+        cartQuantities[id] = 0;
+        const prod = productsData[id];
+        if (prod) renderAddButton(id, prod.title, prod.rawPrice);
+        showToast(`${item.name} removed from cart`);
+      }
+      cartTotalItems = cartItems.reduce((sum, i) => sum + i.qty, 0);
+      updateCartBadge();
+      renderCartItems();
+    }
+
     function renderCartItems() {
       const container = document.getElementById('cartItemsList');
       if (!container) return;
@@ -1940,7 +2589,11 @@
       const totalCount = activeItems.reduce((sum, item) => sum + item.qty, 0);
 
       const countEl = document.getElementById('cartHeaderCount');
-      if (countEl) countEl.innerText = `(${totalCount} Items)`;
+      if (countEl) countEl.innerText = `(${totalCount})`;
+
+      // Keep Select All checkbox sync
+      allCartSelected = activeItems.length > 0 && activeItems.every(i => i.checked);
+      updateSelectAllCheckboxUI();
 
       if (activeItems.length === 0) {
         container.innerHTML = `
@@ -1958,44 +2611,49 @@
       }
 
       container.innerHTML = activeItems.map(item => `
-        <div class="cart-item-card bg-white rounded-2xl border border-slate-200/90 p-3 flex items-center justify-between gap-2.5 shadow-2xs">
-          <!-- Left: Green Checkbox -->
-          <div onclick="toggleCartItemCheck(${item.id})" class="w-5 h-5 rounded-md ${item.checked ? 'bg-[#16a34a] text-white' : 'border-2 border-slate-300'} flex items-center justify-center shrink-0 cursor-pointer shadow-2xs transition-all">
+        <div class="cart-item-card bg-white rounded-2xl border border-slate-100 p-3.5 flex items-center justify-between gap-3 shadow-2xs">
+          <!-- Left: Blue Checkbox -->
+          <div onclick="toggleCartItemCheck(${item.id})" class="w-5 h-5 rounded-md ${item.checked ? 'bg-[#1d4ed8] text-white' : 'border-2 border-slate-300 bg-white'} flex items-center justify-center shrink-0 cursor-pointer shadow-2xs transition-all">
             ${item.checked ? '<svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>' : ''}
           </div>
 
           <!-- Product Image Thumbnail -->
-          <div class="w-16 h-16 bg-[#f8fafc] rounded-xl p-1 flex items-center justify-center shrink-0 border border-slate-100 overflow-hidden">
+          <div class="w-16 h-16 bg-[#f8fafc] rounded-xl p-1 flex items-center justify-center shrink-0 border border-slate-100/90 overflow-hidden">
             <img src="${item.image}" alt="${item.name}" class="max-h-full max-w-full object-contain filter drop-shadow-2xs">
           </div>
 
-          <!-- Product Details -->
+          <!-- Product Details & Tags -->
           <div class="flex-1 min-w-0 pr-1">
-            <h4 class="text-[13px] font-bold text-slate-900 leading-snug truncate">${item.name}</h4>
-            <p class="text-[10.5px] font-medium text-slate-400 mt-0.5 truncate">${item.subtitle}</p>
+            <h4 class="text-[13px] font-extrabold text-slate-900 leading-snug line-clamp-2">${item.name}</h4>
             
-            <div class="flex items-center space-x-1.5 mt-1.5">
-              <span class="text-sm font-extrabold text-[#1d4ed8]">₹${item.price}</span>
-              <span class="text-xs text-slate-400 line-through">₹${item.mrp}</span>
-              <span class="bg-[#2e7d32] text-white text-[9.5px] font-extrabold px-1.5 py-0.5 rounded leading-none">${item.discount}</span>
+            <!-- Tags row -->
+            <div class="flex items-center space-x-1.5 mt-1">
+              ${item.tags ? item.tags.map(t => `<span class="text-[10px] font-semibold px-2 py-0.5 rounded-md ${t.bg}">${t.text}</span>`).join('') : ''}
+            </div>
+
+            <!-- Stepper Container -->
+            <div class="flex items-center bg-[#eff6ff] border border-blue-100/90 rounded-lg px-2.5 py-0.5 space-x-2.5 w-fit mt-2">
+              <button onclick="changeCartItemQty(${item.id}, -1)" class="text-xs font-black text-[#1d4ed8] hover:text-blue-900 active:scale-90 px-0.5 focus:outline-none cursor-pointer">-</button>
+              <span class="text-xs font-extrabold text-slate-900 min-w-[12px] text-center">${item.qty}</span>
+              <button onclick="changeCartItemQty(${item.id}, 1)" class="text-xs font-black text-[#1d4ed8] hover:text-blue-900 active:scale-90 px-0.5 focus:outline-none cursor-pointer">+</button>
             </div>
           </div>
 
-          <!-- Right: Wishlist & Quantity Stepper -->
+          <!-- Right: Price Column & Trash Icon -->
           <div class="flex flex-col items-end justify-between self-stretch shrink-0 py-0.5">
-            <!-- Wishlist Heart -->
-            <button onclick="toggleWishlist(this)" class="p-1 text-slate-400 hover:text-red-500 transition-colors focus:outline-none cursor-pointer" aria-label="Add to Wishlist">
-              <svg width="16" height="16" style="width: 16px; height: 16px;" class="stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+            <!-- Price, MRP, Discount -->
+            <div class="flex flex-col items-end leading-tight">
+              <span class="text-[14px] font-black text-slate-900 leading-tight">₹${(item.price * item.qty).toLocaleString('en-IN')}</span>
+              <span class="text-[11px] text-slate-400 line-through leading-tight mt-0.5">₹${(item.mrp * item.qty).toLocaleString('en-IN')}</span>
+              <span class="text-[10px] font-extrabold text-[#16a34a] bg-[#f0fdf4] px-1.5 py-0.5 rounded leading-none mt-1">${item.discount}</span>
+            </div>
+
+            <!-- Trash can button on bottom-right -->
+            <button onclick="deleteCartItem(${item.id})" class="p-1 text-slate-400 hover:text-red-500 active:scale-90 transition-colors focus:outline-none cursor-pointer" aria-label="Remove item">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
               </svg>
             </button>
-
-            <!-- Quantity Stepper -->
-            <div class="flex items-center border border-slate-200 rounded-lg px-2 h-7 bg-white shadow-2xs space-x-2">
-              <button onclick="changeCartItemQty(${item.id}, -1)" class="text-xs font-bold text-slate-500 hover:text-slate-900 active:scale-90 px-0.5 focus:outline-none cursor-pointer">-</button>
-              <span class="text-xs font-extrabold text-slate-900 min-w-[12px] text-center">${item.qty}</span>
-              <button onclick="changeCartItemQty(${item.id}, 1)" class="text-xs font-bold text-slate-500 hover:text-slate-900 active:scale-90 px-0.5 focus:outline-none cursor-pointer">+</button>
-            </div>
           </div>
         </div>
       `).join('');
@@ -2007,6 +2665,9 @@
       const item = cartItems.find(i => i.id === id);
       if (item) {
         item.checked = !item.checked;
+        const active = cartItems.filter(i => i.qty > 0);
+        allCartSelected = active.length > 0 && active.every(i => i.checked);
+        updateSelectAllCheckboxUI();
         renderCartItems();
       }
     }
@@ -2019,106 +2680,547 @@
           item.qty = 0;
           showToast(`${item.name} removed from cart`);
         }
+        cartQuantities[id] = item.qty;
         renderCartItems();
-        // Update global cart badge
-        const total = cartItems.reduce((sum, i) => sum + i.qty, 0);
-        cartTotalItems = total;
+        cartTotalItems = cartItems.reduce((sum, i) => sum + i.qty, 0);
         updateCartBadge();
+        const prod = productsData[id];
+        if (prod) {
+          if (item.qty <= 0) renderAddButton(id, prod.title, prod.rawPrice);
+          else renderQuantityControl(id, prod.title, prod.rawPrice);
+        }
       }
     }
 
     function clearFullCart() {
-      cartItems.forEach(i => i.qty = 0);
+      cartItems.forEach(i => {
+        i.qty = 0;
+        cartQuantities[i.id] = 0;
+        const prod = productsData[i.id];
+        if (prod) renderAddButton(i.id, prod.title, prod.rawPrice);
+      });
       cartTotalItems = 0;
       updateCartBadge();
       renderCartItems();
       showToast('Cart has been cleared');
     }
 
+    function toggleCartCoupon() {
+      isCartCouponApplied = !isCartCouponApplied;
+      const btn = document.getElementById('cartCouponBtn');
+      const sub = document.getElementById('cartCouponSubtitle');
+      if (isCartCouponApplied) {
+        if (btn) {
+          btn.innerText = 'Applied';
+          btn.className = 'border border-green-200 bg-green-50 text-green-700 text-xs font-bold px-3 py-1.5 rounded-xl shadow-2xs transition-all active:scale-95 cursor-pointer';
+        }
+        if (sub) sub.innerText = 'MED100 applied! Extra ₹100 discount added 🎉';
+        showToast('Coupon applied: Extra ₹100 OFF!');
+      } else {
+        if (btn) {
+          btn.innerText = 'Apply';
+          btn.className = 'border border-blue-200 bg-white hover:bg-blue-50 text-[#1d4ed8] text-xs font-bold px-4 py-1.5 rounded-xl shadow-2xs transition-all active:scale-95 cursor-pointer';
+        }
+        if (sub) sub.innerText = 'Get additional discount on your order';
+        showToast('Coupon removed');
+      }
+      recalculateCartTotals();
+    }
+
     function recalculateCartTotals() {
       const checkedItems = cartItems.filter(i => i.checked && i.qty > 0);
       const totalCount = checkedItems.reduce((sum, i) => sum + i.qty, 0);
-      const mrpTotal = checkedItems.reduce((sum, i) => sum + (i.mrp * i.qty), 0);
-      const sellTotal = checkedItems.reduce((sum, i) => sum + (i.price * i.qty), 0);
-      const discount = mrpTotal - sellTotal;
-      const delivery = (sellTotal >= 499 || sellTotal === 0) ? 0 : 40;
-      const totalPayable = sellTotal + delivery;
+      const itemTotal = checkedItems.reduce((sum, i) => sum + (i.price * i.qty), 0);
+      
+      // Base discount matches reference design: exactly ₹501 discount on default ₹2,497 cart
+      let discount = itemTotal > 0 ? Math.round(itemTotal * (501 / 2497)) : 0;
+      if (isCartCouponApplied && itemTotal > 0) {
+        discount += 100;
+      }
+      const delivery = 0; // Free delivery (₹0) as in design reference
+      const totalPayable = Math.max(0, itemTotal - discount + delivery);
 
       // Update Cart View Labels
       const itemLabelEl = document.getElementById('cartSummaryItemLabel');
-      if (itemLabelEl) itemLabelEl.innerText = `Item Total (${totalCount} Items)`;
+      if (itemLabelEl) itemLabelEl.innerText = `Item Total (${totalCount} ${totalCount === 1 ? 'item' : 'items'})`;
 
       const itemTotalEl = document.getElementById('cartSummaryItemTotal');
-      if (itemTotalEl) itemTotalEl.innerText = `₹${mrpTotal}`;
+      if (itemTotalEl) itemTotalEl.innerText = `₹${itemTotal.toLocaleString('en-IN')}`;
 
       const discountEl = document.getElementById('cartSummaryDiscount');
-      if (discountEl) discountEl.innerText = `- ₹${discount}`;
+      if (discountEl) discountEl.innerText = `- ₹${discount.toLocaleString('en-IN')}`;
 
       const deliveryEl = document.getElementById('cartSummaryDelivery');
-      if (deliveryEl) deliveryEl.innerText = delivery === 0 ? 'FREE' : `₹${delivery}`;
+      if (deliveryEl) deliveryEl.innerText = `₹0`;
 
       const totalEl = document.getElementById('cartSummaryTotalPayable');
-      if (totalEl) totalEl.innerText = `₹${totalPayable}`;
-
-      const savingsEl = document.getElementById('cartSavingsAmount');
-      if (savingsEl) savingsEl.innerText = `₹${discount}`;
+      if (totalEl) totalEl.innerText = `₹${totalPayable.toLocaleString('en-IN')}`;
 
       // Keep Payment view Order Summary in sync!
       const pItem = document.getElementById('summaryItemTotal');
-      if (pItem) pItem.innerText = `₹${mrpTotal}`;
+      if (pItem) pItem.innerText = `₹${itemTotal.toLocaleString('en-IN')}`;
 
       const pDisc = document.getElementById('summaryDiscount');
-      if (pDisc) pDisc.innerText = `- ₹${discount}`;
+      if (pDisc) pDisc.innerText = `- ₹${discount.toLocaleString('en-IN')}`;
 
       const pDel = document.getElementById('summaryDelivery');
-      if (pDel) pDel.innerText = delivery === 0 ? 'FREE' : `₹${delivery}`;
+      if (pDel) pDel.innerText = `₹0`;
 
       const pTot = document.getElementById('summaryTotalPayable');
-      if (pTot) pTot.innerText = `₹${totalPayable}`;
+      if (pTot) pTot.innerText = `₹${totalPayable.toLocaleString('en-IN')}`;
+
+      const modalPaidAmount = document.getElementById('modalPaidAmount');
+      if (modalPaidAmount) modalPaidAmount.innerText = `₹${totalPayable.toLocaleString('en-IN')}`;
 
       const payBtnLabel = document.getElementById('payBtnLabel');
       if (payBtnLabel) {
-        payBtnLabel.innerText = 'Continue to Place Order';
+        payBtnLabel.innerText = currentSelectedPaymentMethod === 'cod' ? `Confirm COD Order (₹${totalPayable.toLocaleString('en-IN')})` : `Pay ₹${totalPayable.toLocaleString('en-IN')} Securely`;
       }
-
-      const modalPaidAmount = document.getElementById('modalPaidAmount');
-      if (modalPaidAmount) modalPaidAmount.innerText = `₹${totalPayable}`;
     }
 
-    // Checkout & Payment View Controller
-    let previousViewBeforeCheckout = 'cartView';
-    let currentSelectedPaymentMethod = 'razorpay';
-    let isCouponApplied = false;
+    // Delivery Address Controller & State
+    let previousViewBeforeAddress = 'cartView';
+    let savedAddresses = [
+      {
+        id: 1,
+        type: 'Home',
+        tag: 'Default',
+        address: 'A-204, Noor Tower, Kausa, Mumbra,\nThane - 400612, Maharashtra',
+        shortAddress: 'Mumbra, Thane - 400612',
+        isDefault: true
+      },
+      {
+        id: 2,
+        type: 'Office',
+        tag: '',
+        address: 'G-Block, BKC, Bandra Kurla Complex,\nMumbai - 400051, Maharashtra',
+        shortAddress: 'BKC, Mumbai - 400051',
+        isDefault: false
+      },
+      {
+        id: 3,
+        type: 'Other',
+        tag: '',
+        address: 'Shop No. 12, Station Road, Malegaon,\nNashik - 423203, Maharashtra',
+        shortAddress: 'Malegaon, Nashik - 423203',
+        isDefault: false
+      }
+    ];
+    let currentSelectedAddressId = 1;
+    let selectedAddressMenuId = null;
+    let newAddressType = 'Home';
+    let deliveryInstructionsText = '';
 
-    function openPaymentView(fromView) {
-      previousViewBeforeCheckout = fromView || 'cartView';
-      
+    function openAddressView(fromView) {
+      previousViewBeforeAddress = fromView || 'cartView';
+
+      // Ensure currentCheckoutItems is initialized
+      if (!currentCheckoutItems || currentCheckoutItems.length === 0) {
+        const checked = cartItems.filter(i => i.checked && i.qty > 0);
+        if (checked.length > 0) {
+          checkoutSource = 'cart';
+          currentCheckoutItems = JSON.parse(JSON.stringify(checked));
+        } else {
+          checkoutSource = 'buyNow';
+          const p = productsData[currentPdpId || 2] || productsData[2];
+          const rawMrp = p.mrp ? (parseInt(p.mrp.replace(/[^\d]/g, '')) || p.rawPrice) : p.rawPrice;
+          currentCheckoutItems = [{
+            id: p.id,
+            name: p.title,
+            subtitle: p.subtitle,
+            tags: [
+              { text: p.category, bg: "bg-[#eff6ff] text-[#2563eb]" },
+              { text: p.packSize, bg: "bg-[#f0fdf4] text-[#16a34a]" }
+            ],
+            price: p.rawPrice,
+            mrp: rawMrp,
+            discount: p.discount,
+            qty: 1,
+            checked: true,
+            image: p.image
+          }];
+        }
+      }
+
+      // Update stepper Step 1 label based on navigation origin
+      const step1Label = document.getElementById('addressStep1Label');
+      if (step1Label) {
+        step1Label.innerText = previousViewBeforeAddress === 'productDetailView' ? 'Product' : 'Cart';
+      }
+
       const homeView = document.getElementById('homeView');
       const pdpView = document.getElementById('productDetailView');
       const cartView = document.getElementById('cartView');
+      const addressView = document.getElementById('deliveryAddressView');
       const checkoutView = document.getElementById('checkoutPaymentView');
+      const orderView = document.getElementById('orderSuccessView');
       const bottomNav = document.getElementById('bottomNavBar');
 
       if (homeView) homeView.classList.add('hidden');
       if (pdpView) pdpView.classList.add('hidden');
       if (cartView) cartView.classList.add('hidden');
+      if (checkoutView) checkoutView.classList.add('hidden');
+      if (orderView) orderView.classList.add('hidden');
+      if (bottomNav) bottomNav.classList.add('hidden');
+      if (addressView) addressView.classList.remove('hidden');
+
+      renderAddressSelectedOrder();
+      renderAddressCards();
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      showToast('Step 2: Choose Delivery Address');
+    }
+
+    function renderAddressSelectedOrder() {
+      const container = document.getElementById('addressSelectedOrderItemsList');
+      const badge = document.getElementById('addressSelectedOrderBadge');
+      const totalEl = document.getElementById('addressSelectedOrderTotal');
+      const oldPriceEl = document.getElementById('addressSelectedOrderOldPrice');
+      const continueBtn = document.getElementById('addressContinueBtnText');
+      if (!container) return;
+
+      const items = (currentCheckoutItems && currentCheckoutItems.length > 0)
+        ? currentCheckoutItems
+        : cartItems.filter(i => i.checked && i.qty > 0);
+
+      if (items.length === 0) {
+        container.innerHTML = `<p class="text-xs text-slate-500 py-2">No items selected for this order.</p>`;
+        return;
+      }
+
+      const totalQty = items.reduce((sum, i) => sum + i.qty, 0);
+      const subtotal = items.reduce((sum, i) => sum + (i.price * i.qty), 0);
+      const mrpTotal = items.reduce((sum, i) => sum + ((i.mrp || i.price) * i.qty), 0);
+
+      if (badge) {
+        badge.innerText = `${totalQty} Item${totalQty > 1 ? 's' : ''}`;
+      }
+
+      container.innerHTML = items.map(item => `
+        <div class="flex items-center gap-3 pt-2.5 first:pt-0">
+          <div class="w-13 h-13 min-w-[52px] bg-[#f8fafc] rounded-xl p-1 flex items-center justify-center border border-slate-100 overflow-hidden shrink-0">
+            <img src="${item.image}" alt="${item.name}" class="max-h-full max-w-full object-contain filter drop-shadow-2xs">
+          </div>
+          <div class="flex-1 min-w-0 pr-1">
+            <h4 class="text-xs font-bold text-slate-900 leading-snug line-clamp-2">${item.name}</h4>
+            <div class="flex items-center flex-wrap gap-1.5 mt-1">
+              <span class="text-[11px] text-slate-500 font-medium">Qty: <b class="text-slate-800">${item.qty}</b></span>
+              <span class="text-[10px] text-slate-300">•</span>
+              <span class="text-[11.5px] font-extrabold text-[#1d4ed8]">₹${(item.price * item.qty).toLocaleString('en-IN')}</span>
+              ${item.mrp && item.mrp > item.price ? `<span class="text-[10px] text-slate-400 line-through">₹${(item.mrp * item.qty).toLocaleString('en-IN')}</span>` : ''}
+              ${item.discount ? `<span class="text-[9.5px] font-bold text-[#16a34a] bg-green-50 px-1.5 py-0.2 rounded border border-green-100">${item.discount}</span>` : ''}
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      if (totalEl) totalEl.innerText = `₹${subtotal.toLocaleString('en-IN')}`;
+      if (oldPriceEl) {
+        if (mrpTotal > subtotal) {
+          oldPriceEl.innerText = `₹${mrpTotal.toLocaleString('en-IN')}`;
+          oldPriceEl.classList.remove('hidden');
+        } else {
+          oldPriceEl.classList.add('hidden');
+        }
+      }
+
+      if (continueBtn) {
+        continueBtn.innerText = `Continue to Payment (₹${subtotal.toLocaleString('en-IN')})`;
+      }
+    }
+
+    function closeAddressView() {
+      const addressView = document.getElementById('deliveryAddressView');
+      const cartView = document.getElementById('cartView');
+      const homeView = document.getElementById('homeView');
+      const pdpView = document.getElementById('productDetailView');
+      const bottomNav = document.getElementById('bottomNavBar');
+
+      if (addressView) addressView.classList.add('hidden');
+
+      if (previousViewBeforeAddress === 'cartView' && cartView) {
+        cartView.classList.remove('hidden');
+        if (bottomNav) bottomNav.classList.add('hidden');
+      } else if (previousViewBeforeAddress === 'productDetailView' && pdpView) {
+        pdpView.classList.remove('hidden');
+        if (bottomNav) bottomNav.classList.remove('hidden');
+      } else {
+        if (homeView) homeView.classList.remove('hidden');
+        if (bottomNav) bottomNav.classList.remove('hidden');
+      }
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    function selectAddress(id) {
+      currentSelectedAddressId = id;
+      renderAddressCards();
+      const addr = savedAddresses.find(a => a.id === id);
+      if (addr) {
+        showToast(`Selected Address: ${addr.type}`);
+        const curLoc = document.getElementById('currentLocation');
+        if (curLoc) curLoc.innerText = addr.shortAddress;
+        const modalAddr = document.getElementById('modalDeliveryAddress');
+        if (modalAddr) modalAddr.innerText = addr.shortAddress;
+      }
+    }
+
+    function renderAddressCards() {
+      const container = document.getElementById('savedAddressesContainer');
+      if (!container) return;
+
+      container.innerHTML = savedAddresses.map(addr => {
+        const isSelected = addr.id === currentSelectedAddressId;
+        const cardClass = isSelected
+          ? 'addr-card rounded-2xl p-3.5 border-2 border-[#1d4ed8] bg-[#f8faff] shadow-2xs transition-all cursor-pointer'
+          : 'addr-card rounded-2xl p-3.5 border border-slate-200/90 bg-white hover:border-blue-200 shadow-2xs transition-all cursor-pointer';
+
+        let iconSvg = '';
+        if (addr.type === 'Home') {
+          iconSvg = `<svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>`;
+        } else if (addr.type === 'Office') {
+          iconSvg = `<svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.25v4.5a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25v-4.5m16.5 0v-4.5a2.25 2.25 0 0 0-2.25-2.25H16.5m3.75 6.75h-16.5m16.5 0H3.75m0-6.75A2.25 2.25 0 0 1 6 7.5h12a2.25 2.25 0 0 1 2.25 2.25v4.5M9 7.5V6a2.25 2.25 0 0 1 2.25-2.25h3.5A2.25 2.25 0 0 1 17 6v1.5" /></svg>`;
+        } else {
+          iconSvg = `<svg width="22" height="22" style="width: 22px; height: 22px;" class="stroke-[1.9]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg>`;
+        }
+
+        const iconBg = isSelected ? 'bg-blue-100/70 text-[#1d4ed8]' : 'bg-blue-50 text-[#1d4ed8]';
+        const defaultBadge = addr.isDefault
+          ? `<span class="bg-[#ecfdf5] border border-green-200 text-[#15803d] text-[10px] font-bold px-2 py-0.5 rounded-full leading-none">Default</span>`
+          : '';
+
+        const radioHtml = isSelected
+          ? `<div class="w-5 h-5 rounded-full border-2 border-[#1d4ed8] flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-[#1d4ed8]"></div></div>`
+          : `<div class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center shrink-0"></div>`;
+
+        const formattedLines = addr.address.replace(/\n/g, '<br>');
+
+        return `
+          <div id="addr-card-${addr.id}" onclick="selectAddress(${addr.id})" class="${cardClass}">
+            <div class="flex items-start justify-between">
+              <div class="flex items-start space-x-3">
+                <div class="w-11 h-11 ${iconBg} rounded-xl flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                  ${iconSvg}
+                </div>
+                <div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-[14px] font-extrabold text-slate-900 leading-snug">${addr.type}</span>
+                    ${defaultBadge}
+                  </div>
+                  <p class="text-[11.5px] text-slate-600 font-medium leading-relaxed mt-1">${formattedLines}</p>
+                </div>
+              </div>
+
+              <div class="flex flex-col items-end justify-between self-stretch shrink-0 py-0.5">
+                ${!addr.isDefault ? `
+                  <button onclick="event.stopPropagation(); openAddressMenu(${addr.id}, event)" class="p-1 -mr-1 text-slate-400 hover:text-slate-700 transition-colors focus:outline-none" aria-label="Address options">
+                    <svg width="16" height="16" style="width: 16px; height: 16px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                  </button>
+                ` : `<div class="h-6"></div>`}
+                <div class="mt-auto">
+                  ${radioHtml}
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openAddNewAddressModal() {
+      const modal = document.getElementById('addNewAddressModal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeAddNewAddressModal() {
+      const modal = document.getElementById('addNewAddressModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function selectNewAddressType(type) {
+      newAddressType = type;
+      ['Home', 'Office', 'Other'].forEach(t => {
+        const btn = document.getElementById(`typeBtn-${t}`);
+        if (btn) {
+          if (t === type) {
+            btn.className = 'flex-1 py-1.5 text-xs font-bold rounded-xl border-2 border-[#1d4ed8] bg-blue-50 text-[#1d4ed8] transition-all flex items-center justify-center gap-1 shadow-2xs';
+          } else {
+            btn.className = 'flex-1 py-1.5 text-xs font-semibold rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 transition-all flex items-center justify-center gap-1';
+          }
+        }
+      });
+    }
+
+    function saveNewAddress() {
+      const bld = document.getElementById('newAddrBuilding').value.trim();
+      const area = document.getElementById('newAddrArea').value.trim();
+      const pincode = document.getElementById('newAddrPincode').value.trim();
+      const city = document.getElementById('newAddrCity').value.trim();
+      const isDef = document.getElementById('newAddrIsDefault').checked;
+
+      if (!bld || !area || !pincode || !city) {
+        showToast('Please fill all required address fields');
+        return;
+      }
+
+      const newId = Date.now();
+      if (isDef) {
+        savedAddresses.forEach(a => a.isDefault = false);
+      }
+
+      const fullAddr = `${bld}, ${area},\n${city} - ${pincode}`;
+      const shortAddr = `${area}, ${city} - ${pincode}`;
+
+      savedAddresses.push({
+        id: newId,
+        type: newAddressType,
+        tag: isDef ? 'Default' : '',
+        address: fullAddr,
+        shortAddress: shortAddr,
+        isDefault: isDef
+      });
+
+      currentSelectedAddressId = newId;
+      renderAddressCards();
+      closeAddNewAddressModal();
+
+      // Reset inputs
+      document.getElementById('newAddrBuilding').value = '';
+      document.getElementById('newAddrArea').value = '';
+      document.getElementById('newAddrPincode').value = '';
+      document.getElementById('newAddrCity').value = '';
+      document.getElementById('newAddrIsDefault').checked = false;
+
+      showToast(`Added new ${newAddressType} address! 🎉`);
+    }
+
+    function openAddressMenu(id, event) {
+      selectedAddressMenuId = id;
+      const modal = document.getElementById('addressOptionsModal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeAddressMenu() {
+      const modal = document.getElementById('addressOptionsModal');
+      if (modal) modal.classList.add('hidden');
+      selectedAddressMenuId = null;
+    }
+
+    function handleSetDefaultFromMenu() {
+      if (selectedAddressMenuId) {
+        savedAddresses.forEach(a => a.isDefault = (a.id === selectedAddressMenuId));
+        renderAddressCards();
+        showToast('Default address updated');
+      }
+      closeAddressMenu();
+    }
+
+    function handleDeleteFromMenu() {
+      if (selectedAddressMenuId) {
+        if (savedAddresses.length <= 1) {
+          showToast('You must have at least one delivery address');
+          closeAddressMenu();
+          return;
+        }
+        savedAddresses = savedAddresses.filter(a => a.id !== selectedAddressMenuId);
+        if (currentSelectedAddressId === selectedAddressMenuId) {
+          currentSelectedAddressId = savedAddresses[0].id;
+        }
+        renderAddressCards();
+        showToast('Address deleted');
+      }
+      closeAddressMenu();
+    }
+
+    function updateDeliveryInstructions(el) {
+      deliveryInstructionsText = el.value;
+      const counter = document.getElementById('deliveryInstructionsCounter');
+      if (counter) counter.innerText = `${el.value.length}/200`;
+    }
+
+    // Checkout & Payment View Controller
+    let previousViewBeforeCheckout = 'addressView';
+    let currentSelectedPaymentMethod = 'razorpay';
+    let isCouponApplied = false;
+
+    function syncCheckoutSummary() {
+      const items = (currentCheckoutItems && currentCheckoutItems.length > 0)
+        ? currentCheckoutItems
+        : cartItems.filter(i => i.checked && i.qty > 0);
+
+      const count = items.reduce((sum, i) => sum + i.qty, 0);
+      const itemTotal = items.reduce((sum, i) => sum + (i.price * i.qty), 0);
+      const mrpTotal = items.reduce((sum, i) => sum + ((i.mrp || i.price) * i.qty), 0);
+      
+      let discount = mrpTotal > itemTotal ? (mrpTotal - itemTotal) : 0;
+      if (isCouponApplied || isCartCouponApplied) {
+        discount += 20;
+      }
+      
+      const deliveryCharges = itemTotal >= 499 ? 0 : 40;
+      const totalPayable = Math.max(0, itemTotal - (isCouponApplied || isCartCouponApplied ? 20 : 0) + deliveryCharges);
+
+      // Update Payment View Order Summary
+      const itemTotalLabel = document.getElementById('paymentItemTotalLabel');
+      if (itemTotalLabel) itemTotalLabel.innerText = `Item Total (${count} Item${count > 1 ? 's' : ''})`;
+
+      const pItem = document.getElementById('summaryItemTotal');
+      if (pItem) pItem.innerText = `₹${itemTotal.toLocaleString('en-IN')}`;
+
+      const pDisc = document.getElementById('summaryDiscount');
+      if (pDisc) pDisc.innerText = `- ₹${discount.toLocaleString('en-IN')}`;
+
+      const pDel = document.getElementById('summaryDelivery');
+      if (pDel) pDel.innerText = deliveryCharges === 0 ? '₹0' : `₹${deliveryCharges}`;
+
+      const pTot = document.getElementById('summaryTotalPayable');
+      if (pTot) pTot.innerText = `₹${totalPayable.toLocaleString('en-IN')}`;
+
+      const payBtnLabel = document.getElementById('payBtnLabel');
+      if (payBtnLabel) {
+        payBtnLabel.innerText = currentSelectedPaymentMethod === 'cod'
+          ? `Confirm COD Order (₹${totalPayable.toLocaleString('en-IN')})`
+          : `Pay ₹${totalPayable.toLocaleString('en-IN')} Securely`;
+      }
+    }
+
+    function openPaymentView(fromView) {
+      previousViewBeforeCheckout = fromView || 'addressView';
+      
+      const homeView = document.getElementById('homeView');
+      const pdpView = document.getElementById('productDetailView');
+      const cartView = document.getElementById('cartView');
+      const addressView = document.getElementById('deliveryAddressView');
+      const checkoutView = document.getElementById('checkoutPaymentView');
+      const orderView = document.getElementById('orderSuccessView');
+      const bottomNav = document.getElementById('bottomNavBar');
+
+      if (homeView) homeView.classList.add('hidden');
+      if (pdpView) pdpView.classList.add('hidden');
+      if (cartView) cartView.classList.add('hidden');
+      if (addressView) addressView.classList.add('hidden');
+      if (orderView) orderView.classList.add('hidden');
       if (bottomNav) bottomNav.classList.add('hidden');
       if (checkoutView) checkoutView.classList.remove('hidden');
 
       // Sync delivery address
+      const selectedAddr = savedAddresses.find(a => a.id === currentSelectedAddressId) || savedAddresses[0];
       const curLoc = document.getElementById('currentLocation');
       const modalAddr = document.getElementById('modalDeliveryAddress');
-      if (curLoc && modalAddr) {
-        modalAddr.innerText = curLoc.innerText;
+      if (modalAddr && selectedAddr) {
+        modalAddr.innerText = selectedAddr.shortAddress;
+      }
+      if (curLoc && selectedAddr) {
+        curLoc.innerText = selectedAddr.shortAddress;
       }
 
       selectPaymentMethod('razorpay');
+      syncCheckoutSummary();
       window.scrollTo({ top: 0, behavior: 'instant' });
       showToast('Step 3: Choose Payment Method');
     }
 
     function closePaymentView() {
       const checkoutView = document.getElementById('checkoutPaymentView');
+      const addressView = document.getElementById('deliveryAddressView');
       const homeView = document.getElementById('homeView');
       const pdpView = document.getElementById('productDetailView');
       const cartView = document.getElementById('cartView');
@@ -2126,7 +3228,9 @@
 
       if (checkoutView) checkoutView.classList.add('hidden');
 
-      if (previousViewBeforeCheckout === 'cartView' && cartView) {
+      if (previousViewBeforeCheckout === 'addressView' && addressView) {
+        addressView.classList.remove('hidden');
+      } else if (previousViewBeforeCheckout === 'cartView' && cartView) {
         cartView.classList.remove('hidden');
       } else if (previousViewBeforeCheckout === 'productDetailView' && pdpView) {
         pdpView.classList.remove('hidden');
@@ -2144,7 +3248,6 @@
       const radioRzp = document.getElementById('radio-razorpay');
       const cardCod = document.getElementById('payment-card-cod');
       const radioCod = document.getElementById('radio-cod');
-      const payBtnLabel = document.getElementById('payBtnLabel');
       const modalMode = document.getElementById('modalPaymentMode');
 
       if (method === 'razorpay') {
@@ -2158,7 +3261,6 @@
           radioCod.className = 'w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center shrink-0';
           radioCod.innerHTML = '';
         }
-        if (payBtnLabel) payBtnLabel.innerText = 'Continue to Place Order';
         if (modalMode) modalMode.innerText = 'Online Payment (Razorpay)';
         showToast('Selected: Online Payment via Razorpay');
       } else {
@@ -2172,10 +3274,10 @@
           radioRzp.className = 'w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center shrink-0';
           radioRzp.innerHTML = '';
         }
-        if (payBtnLabel) payBtnLabel.innerText = 'Continue to Place Order';
         if (modalMode) modalMode.innerText = 'Cash on Delivery (COD)';
         showToast('Selected: Cash on Delivery (COD)');
       }
+      syncCheckoutSummary();
     }
 
     function selectUpiApp(appName) {
@@ -2185,46 +3287,150 @@
     function toggleCheckoutCoupon() {
       isCouponApplied = !isCouponApplied;
       const statusText = document.getElementById('couponStatusText');
-      const discountEl = document.getElementById('summaryDiscount');
-      const totalEl = document.getElementById('summaryTotalPayable');
-      const btnLabel = document.getElementById('payBtnLabel');
 
       if (isCouponApplied) {
         if (statusText) statusText.innerText = 'MED20 Applied: Extra ₹20 OFF! 🎉';
-        if (discountEl) discountEl.innerText = '- ₹125';
-        if (totalEl) totalEl.innerText = '₹314';
-        if (btnLabel) {
-          btnLabel.innerText = currentSelectedPaymentMethod === 'cod' ? 'Confirm COD Order (₹314)' : 'Pay ₹314 Securely';
-        }
         showToast('Coupon MED20 Applied! Extra ₹20 saved');
       } else {
         if (statusText) statusText.innerText = 'Save more on this order';
-        if (discountEl) discountEl.innerText = '- ₹105';
-        if (totalEl) totalEl.innerText = '₹334';
-        if (btnLabel) {
-          btnLabel.innerText = currentSelectedPaymentMethod === 'cod' ? 'Confirm COD Order (₹334)' : 'Pay ₹334 Securely';
-        }
         showToast('Coupon removed');
       }
+      syncCheckoutSummary();
+    }
+
+    function copyOrderId(id) {
+      navigator.clipboard.writeText(id).then(() => {
+        showToast(`Order ID "${id}" copied to clipboard! 📋`);
+      }).catch(() => {
+        showToast(`Order ID: ${id}`);
+      });
+    }
+
+    function trackOrder() {
+      showToast('Tracking Order MN784320: Out for delivery by Thu, 06 Nov 🚚');
+    }
+
+    function openOrderSuccessView() {
+      const homeView = document.getElementById('homeView');
+      const pdpView = document.getElementById('productDetailView');
+      const cartView = document.getElementById('cartView');
+      const addressView = document.getElementById('deliveryAddressView');
+      const checkoutView = document.getElementById('checkoutPaymentView');
+      const orderView = document.getElementById('orderSuccessView');
+      const bottomNav = document.getElementById('bottomNavBar');
+
+      if (homeView) homeView.classList.add('hidden');
+      if (pdpView) pdpView.classList.add('hidden');
+      if (cartView) cartView.classList.add('hidden');
+      if (addressView) addressView.classList.add('hidden');
+      if (checkoutView) checkoutView.classList.add('hidden');
+      if (bottomNav) bottomNav.classList.add('hidden');
+      if (orderView) orderView.classList.remove('hidden');
+
+      // Populate Items in Order Summary from current checkout
+      const itemsList = document.getElementById('orderSuccessItemsList');
+      const items = (currentCheckoutItems && currentCheckoutItems.length > 0)
+        ? currentCheckoutItems
+        : cartItems.filter(i => i.checked && i.qty > 0);
+
+      if (itemsList) {
+        if (items.length > 0) {
+          itemsList.innerHTML = items.map(item => `
+            <div class="flex items-center justify-between gap-3">
+              <div class="w-14 h-14 bg-[#f8fafc] rounded-xl p-1 flex items-center justify-center shrink-0 border border-slate-100 overflow-hidden">
+                <img src="${item.image}" alt="${item.name}" class="max-h-full max-w-full object-contain filter drop-shadow-2xs">
+              </div>
+              <div class="flex-1 min-w-0 pr-1">
+                <h4 class="text-xs font-bold text-slate-900 leading-snug">${item.name}</h4>
+                <p class="text-xs text-slate-500 font-medium mt-1">Qty: ${item.qty}</p>
+              </div>
+              <span class="text-sm font-extrabold text-slate-900 shrink-0">₹${(item.price * item.qty).toLocaleString('en-IN')}</span>
+            </div>
+          `).join('');
+        } else {
+          // Default matching reference design: Centrum Omega-3 Fish Oil (60 Capsules), Qty: 1, ₹899
+          itemsList.innerHTML = `
+            <div class="flex items-center justify-between gap-3">
+              <div class="w-14 h-14 bg-[#f8fafc] rounded-xl p-1 flex items-center justify-center shrink-0 border border-slate-100 overflow-hidden">
+                <img src="image/product/centrum-fish-oil.png" alt="Centrum Omega-3 Fish Oil" class="max-h-full max-w-full object-contain filter drop-shadow-2xs">
+              </div>
+              <div class="flex-1 min-w-0 pr-1">
+                <h4 class="text-xs font-bold text-slate-900 leading-snug">Centrum Omega-3 Fish Oil (60 Capsules)</h4>
+                <p class="text-xs text-slate-500 font-medium mt-1">Qty: 1</p>
+              </div>
+              <span class="text-sm font-extrabold text-slate-900 shrink-0">₹899</span>
+            </div>
+          `;
+        }
+      }
+
+      // Calculate Subtotal and Total Paid
+      const itemTotal = items.length > 0 
+        ? items.reduce((s, i) => s + (i.price * i.qty), 0)
+        : 899;
+      
+      const delivery = itemTotal >= 499 ? 0 : 40;
+      const totalPaid = Math.max(0, itemTotal - (isCouponApplied || isCartCouponApplied ? 20 : 0) + delivery);
+
+      const subtotalEl = document.getElementById('orderSuccessSubtotal');
+      if (subtotalEl) subtotalEl.innerText = `₹${itemTotal.toLocaleString('en-IN')}`;
+
+      const totalPaidEl = document.getElementById('orderSuccessTotalPaid');
+      if (totalPaidEl) totalPaidEl.innerText = `₹${totalPaid.toLocaleString('en-IN')}`;
+
+      // Reset cart items if purchased from cart
+      if (checkoutSource === 'cart') {
+        const checkedActive = cartItems.filter(i => i.checked && i.qty > 0);
+        if (checkedActive.length > 0) {
+          checkedActive.forEach(i => {
+            i.qty = 0;
+            cartQuantities[i.id] = 0;
+            const prod = productsData[i.id];
+            if (prod) renderAddButton(i.id, prod.title, prod.rawPrice);
+          });
+          cartTotalItems = cartItems.reduce((sum, i) => sum + i.qty, 0);
+          updateCartBadge();
+        }
+      }
+
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      showToast('🎉 Order Confirmed! ID: MN784320');
+    }
+
+    function closeOrderSuccessView() {
+      const orderView = document.getElementById('orderSuccessView');
+      const homeView = document.getElementById('homeView');
+      const bottomNav = document.getElementById('bottomNavBar');
+
+      if (orderView) orderView.classList.add('hidden');
+      if (homeView) homeView.classList.remove('hidden');
+      if (bottomNav) bottomNav.classList.remove('hidden');
+
+      // Reset active bottom nav to Home
+      document.querySelectorAll('.nav-item').forEach(el => {
+        el.classList.remove('text-[#1d4ed8]');
+        el.classList.add('text-slate-500');
+        const pill = el.querySelector('.nav-pill');
+        if (pill) pill.classList.remove('nav-pill-active');
+      });
+      const homeTab = document.querySelector('.nav-item');
+      if (homeTab) {
+        homeTab.classList.add('text-[#1d4ed8]');
+        homeTab.classList.remove('text-slate-500');
+        const pill = homeTab.querySelector('.nav-pill');
+        if (pill) pill.classList.add('nav-pill-active');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      showToast('Welcome back to Mednutra! Continue browsing.');
     }
 
     function processPayment() {
-      const modal = document.getElementById('orderSuccessModal');
-      const modalAmount = document.getElementById('modalPaidAmount');
-      if (modalAmount) {
-        modalAmount.innerText = isCouponApplied ? '₹314' : '₹334';
-      }
-      if (modal) modal.classList.remove('hidden');
+      openOrderSuccessView();
     }
 
     function closeOrderSuccessModal() {
-      const modal = document.getElementById('orderSuccessModal');
-      if (modal) modal.classList.add('hidden');
-      closePaymentView();
-      closeCartView();
-      // Reset view to Home
-      switchTab(document.querySelector('.nav-item'), 'Home');
-      showToast('Order MN-78923 Confirmed! 🎉');
+      closeOrderSuccessView();
     }
 
     // Hero Banner Carousel Controller (3 Banners: banner.png, banner2.png, banner3.png)
@@ -2297,10 +3503,39 @@
         }, { passive: true });
       }
 
-      if (document.readyState === 'loading') {
-        window.addEventListener('DOMContentLoaded', attachSwipe);
-      } else {
+      function handleHashRoute() {
+        const hash = (window.location.hash || '').toLowerCase();
+        const urlParams = new URLSearchParams(window.location.search);
+        const view = urlParams.get('view');
+
+        if (hash === '#order' || hash === '#success' || hash === '#confirmed' || hash === '#order-confirmed' || view === 'order' || view === 'success') {
+          openOrderSuccessView();
+        } else if (hash === '#cart' || view === 'cart') {
+          openCartView('homeView');
+        } else if (hash === '#address' || view === 'address') {
+          openAddressView('cartView');
+        } else if (hash === '#payment' || view === 'payment') {
+          openPaymentView('addressView');
+        } else if (hash.startsWith('#product') || hash.startsWith('#pdp') || view === 'product') {
+          openProductDetail(2);
+        }
+      }
+
+      function initApp() {
         attachSwipe();
+        renderQuantityControl(1, 'REPL Dr. Advice No. 3 Anemia', 299);
+        renderQuantityControl(2, 'Centrum Omega-3 Fish Oil', 899);
+        renderQuantityControl(3, 'Carbamide Forte Krill Oil 1000mg', 1299);
+        updateCartBadge();
+        handleHashRoute();
+      }
+
+      window.addEventListener('hashchange', handleHashRoute);
+
+      if (document.readyState === 'loading') {
+        window.addEventListener('DOMContentLoaded', initApp);
+      } else {
+        initApp();
       }
     })();
   </script>
